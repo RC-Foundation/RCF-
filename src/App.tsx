@@ -1,0 +1,49 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { LanguageProvider } from './contexts/LanguageContext';
+import { PhotoProvider } from './contexts/PhotoContext';
+import Navigation from './components/layout/Navigation';
+import Footer from './components/layout/Footer';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import ProgramsPage from './pages/ProgramsPage';
+import RhizomeSyriaPage from './pages/RhizomeSyriaPage';
+import CommunityWallPage from './pages/CommunityWallPage';
+import CalendarPage from './pages/CalendarPage';
+import AleppoRootsPage from './pages/AleppoRootsPage';
+import ContactPage from './pages/ContactPage';
+import AdminApprovalPage from './pages/AdminApprovalPage';
+import ParticleSystem from './components/common/ParticleSystem';
+import CustomCursor from './components/common/CustomCursor';
+
+function App() {
+  return (
+    <LanguageProvider>
+      <PhotoProvider>
+        <Router>
+          <div className="min-h-screen bg-gradient-to-br from-stone-50 to-emerald-50">
+            <CustomCursor />
+            <Navigation />
+            <main>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/programs" element={<ProgramsPage />} />
+                <Route path="/rhizome-syria" element={<RhizomeSyriaPage />} />
+                <Route path="/community-wall" element={<CommunityWallPage />} />
+                <Route path="/calendar" element={<CalendarPage />} />
+                <Route path="/aleppo-roots" element={<AleppoRootsPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/admin" element={<AdminApprovalPage />} />
+              </Routes>
+            </main>
+            <Footer />
+            <ParticleSystem />
+          </div>
+        </Router>
+      </PhotoProvider>
+    </LanguageProvider>
+  );
+}
+
+export default App;

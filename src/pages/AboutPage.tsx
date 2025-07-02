@@ -1,0 +1,497 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { MapPin, Users, Target, Award, Calendar, Globe, Handshake } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
+
+const AboutPage: React.FC = () => {
+  const { t, currentLanguage } = useLanguage();
+
+  const timeline = [
+    {
+      year: 'December 2024',
+      title: 'Rhizome Syria & Diaspora Work Group Formation',
+      titleAr: 'تشكيل مجموعة عمل ريزوم سوريا والشتات',
+      description: 'Rhizome Syria & Diaspora Work Group formed upon regime collapse, marking a new chapter in Syrian community organizing.',
+      descriptionAr: 'تشكلت مجموعة عمل ريزوم سوريا والشتات عند انهيار النظام، مما يمثل فصلاً جديداً في التنظيم المجتمعي السوري.'
+    },
+    {
+      year: 'February 2025',
+      title: 'Federal Registration in Canada',
+      titleAr: 'التسجيل الفيدرالي في كندا',
+      description: 'Rhizome Community Foundation achieves federal registration in Canada. Board members: Syrian, Indian, and Filipina originated Canadians.',
+      descriptionAr: 'حققت مؤسسة مجتمع الريزوم التسجيل الفيدرالي في كندا. أعضاء مجلس الإدارة: كنديون من أصول سورية وهندية وفلبينية.'
+    },
+    {
+      year: 'March 2025',
+      title: 'First Program - "Aleppo Roots" Cultural Event',
+      titleAr: 'البرنامج الأول - فعالية "جذور حلب" الثقافية',
+      description: 'Launch of our first major program featuring theatre and film production, celebrating Aleppo\'s rich cultural heritage.',
+      descriptionAr: 'إطلاق برنامجنا الرئيسي الأول الذي يضم المسرح وإنتاج الأفلام، احتفالاً بالتراث الثقافي الغني لحلب.'
+    },
+    {
+      year: 'April 2025',
+      title: 'Rhizome Network Syria Launch',
+      titleAr: 'إطلاق شبكة ريزوم سوريا',
+      description: 'Launch of Rhizome Network Syria. Community Garden in Edmonton established with bi-weekly collaborations.',
+      descriptionAr: 'إطلاق شبكة ريزوم سوريا. تأسيس حديقة مجتمعية في إدمونتون مع تعاونات كل أسبوعين.'
+    },
+    {
+      year: 'May 2025',
+      title: 'Aleppo Castle Eid Family Festivities',
+      titleAr: 'احتفالات عيد قلعة حلب العائلية',
+      description: 'Community celebration bringing families together to honor traditions and strengthen bonds during Eid festivities.',
+      descriptionAr: 'احتفال مجتمعي يجمع العائلات معاً لتكريم التقاليد وتقوية الروابط خلال احتفالات العيد.'
+    },
+    {
+      year: 'June 2025',
+      title: 'Digital Initiative & Coastline Project Launch',
+      titleAr: 'إطلاق المبادرة الرقمية ومشروع الساحل',
+      description: 'Launch of Digital Initiative and Coastline Project. Rhizome Syria forms its board and seeks legal registration.',
+      descriptionAr: 'إطلاق المبادرة الرقمية ومشروع الساحل. تشكل ريزوم سوريا مجلس إدارتها وتسعى للتسجيل القانوني.'
+    },
+    {
+      year: 'July 2025',
+      title: 'Community Wall Launch',
+      titleAr: 'إطلاق جدار المجتمع',
+      description: 'Launch of our digital storytelling platform to preserve and share community stories and experiences.',
+      descriptionAr: 'إطلاق منصة السرد الرقمي للحفاظ على قصص وتجارب المجتمع ومشاركتها.'
+    },
+    {
+      year: 'August - October 2025',
+      title: 'Regional Capacity-Building & Film Festival',
+      titleAr: 'بناء القدرات الإقليمية ومهرجان الأفلام',
+      description: 'Regional Team Capacity-Building Workshops (North, Coast, East). Rhizome International Film Festival in Edmonton.',
+      descriptionAr: 'ورش بناء قدرات الفرق الإقليمية (الشمال، الساحل، الشرق). مهرجان ريزوم الدولي للأفلام في إدمونتون.'
+    },
+    {
+      year: 'November 2025',
+      title: 'Interregional Feminist Summit',
+      titleAr: 'القمة النسوية بين المناطق',
+      description: 'Interregional Feminist Summit & Joint Action Planning, bringing together women leaders from across regions.',
+      descriptionAr: 'القمة النسوية بين المناطق والتخطيط للعمل المشترك، تجمع القيادات النسائية من جميع المناطق.'
+    },
+    {
+      year: 'December 2025 - January 2026',
+      title: 'Community Engagement Dialogue Initiatives',
+      titleAr: 'مبادرات حوار المشاركة المجتمعية',
+      description: 'Community Engagement Dialogue Initiatives implemented by regional teams to strengthen local connections.',
+      descriptionAr: 'تنفيذ مبادرات حوار المشاركة المجتمعية من قبل الفرق الإقليمية لتقوية الروابط المحلية.'
+    },
+    {
+      year: 'December 2025 - February 2026',
+      title: 'Advocacy Materials & Digital Storytelling',
+      titleAr: 'مواد المناصرة والسرد الرقمي',
+      description: 'Production and dissemination of Advocacy Materials & Digital Storytelling (videos, written stories).',
+      descriptionAr: 'إنتاج ونشر مواد المناصرة والسرد الرقمي (فيديوهات، قصص مكتوبة).'
+    }
+  ];
+
+  const branches = [
+    {
+      name: 'Rhizome Syria',
+      nameAr: 'ريزوم سوريا',
+      location: 'Damascus, Aleppo, Homs',
+      locationAr: 'دمشق، حلب، حمص',
+      focus: 'On-ground community building and direct support',
+      focusAr: 'بناء المجتمع الميداني والدعم المباشر',
+      projects: 25,
+      members: 800,
+      image: '/WhatsApp Image 2025-06-19 at 12.35.09 PM.jpeg'
+    },
+    {
+      name: 'Rhizome Canada',
+      nameAr: 'ريزوم كندا',
+      location: 'Toronto, Montreal, Vancouver',
+      locationAr: 'تورونتو، مونتريال، فانكوفر',
+      focus: 'Diaspora engagement and international coordination',
+      focusAr: 'إشراك الشتات والتنسيق الدولي',
+      projects: 18,
+      members: 650,
+      image: '/WhatsApp Image 2025-06-19 at 12.35.10 PM.jpeg'
+    }
+  ];
+
+  const team = [
+    {
+      name: 'Akshya',
+      nameAr: 'أكشيا',
+      role: 'Board Member',
+      roleAr: 'عضو مجلس إدارة',
+      bio: 'Akshya moves through communities with curiosity and care, blending psychology, anthropology, and a deep commitment to social justice. With roots stretching from Chennai, through Kuwait and Saudi Arabia, to amiskwacîwâskahikan (Edmonton), they understand intimately how cultural histories and systemic challenges shape our shared realities.',
+      bioAr: 'تتنقل أكشيا عبر المجتمعات بفضول واهتمام، مازجة بين علم النفس والأنثروبولوجيا والالتزام العميق بالعدالة الاجتماعية. مع جذور تمتد من تشيناي، عبر الكويت والسعودية، إلى إدمونتون، تفهم بشكل وثيق كيف تشكل التواريخ الثقافية والتحديات النظامية واقعنا المشترك.',
+      image: '/akshya.jpeg'
+    },
+    {
+      name: 'Sarah',
+      nameAr: 'سارة',
+      role: 'Board Member',
+      roleAr: 'عضو مجلس إدارة',
+      bio: 'Sarah is a creative force and community catalyst shaped by early experiences in her father\'s hometown in the Philippines and a lifelong connection to Edmonton\'s Chinatown. Observing firsthand how communities flourish through collaboration, and falter without it, she dedicates herself tirelessly to community wellness.',
+      bioAr: 'سارة قوة إبداعية ومحفز مجتمعي تشكلت من خلال تجارب مبكرة في مسقط رأس والدها في الفلبين وارتباط مدى الحياة بحي الصينيين في إدمونتون. من خلال ملاحظة مباشرة لكيفية ازدهار المجتمعات من خلال التعاون، وتعثرها بدونه، تكرس نفسها بلا كلل لرفاهية المجتمع.',
+      image: '/sarah.jpeg'
+    },
+    {
+      name: 'Amer',
+      nameAr: 'عامر',
+      role: 'Board Member',
+      roleAr: 'عضو مجلس إدارة',
+      bio: 'Amer moves seamlessly between policy corridors and grassroots communities, blending strategic rigor with genuine empathy. Shaped by experiences spanning Syrian newsrooms, Alberta\'s Indigenous relations, and anti-racism initiatives, he intimately understands how institutional power can be harnessed for meaningful change.',
+      bioAr: 'يتنقل عامر بسلاسة بين أروقة السياسة والمجتمعات الشعبية، مازجاً بين الصرامة الاستراتيجية والتعاطف الحقيقي. تشكل من خلال تجارب تمتد عبر غرف الأخبار السورية، وعلاقات ألبرتا مع السكان الأصليين، ومبادرات مكافحة العنصرية.',
+      image: '/amer.jpeg'
+    }
+  ];
+
+  const partners = [
+    {
+      name: 'Abanek Baidaa Volunteer Team',
+      nameAr: 'فريق متطوعي أبانك بيضاء',
+      description: 'Dedicated volunteer network providing grassroots support and community organizing across multiple regions.',
+      descriptionAr: 'شبكة متطوعين مكرسة تقدم الدعم الشعبي والتنظيم المجتمعي عبر مناطق متعددة.',
+      type: 'Community Partner',
+      typeAr: 'شريك مجتمعي',
+      image: 'https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=400'
+    },
+    {
+      name: 'Crystal Media Foundation',
+      nameAr: 'مؤسسة كريستال الإعلامية',
+      description: 'Media production and storytelling organization specializing in community narratives and cultural documentation.',
+      descriptionAr: 'منظمة إنتاج إعلامي وسرد متخصصة في السرديات المجتمعية والتوثيق الثقافي.',
+      type: 'Media Partner',
+      typeAr: 'شريك إعلامي',
+      image: 'https://images.pexels.com/photos/1884581/pexels-photo-1884581.jpeg?auto=compress&cs=tinysrgb&w=400'
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-stone-50 to-emerald-50 pt-16">
+      {/* Hero Section */}
+      <section className="py-20 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className={`text-center ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
+          >
+            <h1 className="text-5xl font-bold mb-6">
+              {t('about-title', 'About Rhizome Community Foundation', 'عن مؤسسة مجتمع الريزوم')}
+            </h1>
+            <p className="text-xl text-emerald-100 max-w-3xl mx-auto">
+              {t(
+                'about-subtitle',
+                'Connecting Syrian communities worldwide through innovative programs, cultural preservation, and collaborative action.',
+                'ربط المجتمعات السورية في جميع أنحاء العالم من خلال البرامج المبتكرة والحفاظ على الثقافة والعمل التعاوني.'
+              )}
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Mission & Vision */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl p-8"
+            >
+              <div className="flex items-center mb-6">
+                <Target className="h-8 w-8 text-emerald-600 mr-3" />
+                <h2 className={`text-3xl font-bold text-stone-900 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                  {t('our-mission', 'Our Mission', 'مهمتنا')}
+                </h2>
+              </div>
+              <p className={`text-lg text-stone-700 leading-relaxed ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                {t(
+                  'mission-text',
+                  'To build resilient networks that connect Syrian communities across borders, fostering collaboration, preserving cultural heritage, and empowering individuals to create positive change in their communities.',
+                  'بناء شبكات مرنة تربط المجتمعات السورية عبر الحدود، وتعزز التعاون، وتحافظ على التراث الثقافي، وتمكن الأفراد من إحداث تغيير إيجابي في مجتمعاتهم.'
+                )}
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="bg-gradient-to-br from-stone-50 to-stone-100 rounded-2xl p-8"
+            >
+              <div className="flex items-center mb-6">
+                <Globe className="h-8 w-8 text-stone-600 mr-3" />
+                <h2 className={`text-3xl font-bold text-stone-900 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                  {t('our-vision', 'Our Vision', 'رؤيتنا')}
+                </h2>
+              </div>
+              <p className={`text-lg text-stone-700 leading-relaxed ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                {t(
+                  'vision-text',
+                  'A world where Syrian communities thrive through interconnected support systems, where cultural identity is celebrated and preserved, and where every individual has the opportunity to contribute to positive social change.',
+                  'عالم تزدهر فيه المجتمعات السورية من خلال أنظمة الدعم المترابطة، حيث يتم الاحتفال بالهوية الثقافية والحفاظ عليها، وحيث تتاح لكل فرد الفرصة للمساهمة في التغيير الاجتماعي الإيجابي.'
+                )}
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline */}
+      <section className="py-20 bg-gradient-to-br from-stone-50 to-emerald-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className={`text-center mb-16 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
+          >
+            <h2 className="text-4xl font-bold text-stone-900 mb-6">
+              {t('our-journey', 'Our Journey', 'رحلتنا')}
+            </h2>
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto">
+              {t(
+                'journey-description',
+                'From the formation of our work group to building a comprehensive network of support and advocacy.',
+                'من تشكيل مجموعة العمل إلى بناء شبكة شاملة من الدعم والمناصرة.'
+              )}
+            </p>
+          </motion.div>
+
+          <div className="relative">
+            {/* Timeline Line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-emerald-200" />
+
+            {timeline.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                className={`relative flex items-center mb-12 ${
+                  index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
+                }`}
+              >
+                <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
+                  <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                    <div className="text-lg font-bold text-emerald-600 mb-2">{item.year}</div>
+                    <h3 className={`text-xl font-bold text-stone-900 mb-3 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                      {t(`timeline-${index}-title`, item.title, item.titleAr)}
+                    </h3>
+                    <p className={`text-stone-600 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                      {t(`timeline-${index}-desc`, item.description, item.descriptionAr)}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Timeline Dot */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-emerald-600 rounded-full border-4 border-white shadow-lg" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Branches */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className={`text-center mb-16 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
+          >
+            <h2 className="text-4xl font-bold text-stone-900 mb-6">
+              {t('our-branches', 'Our Branches', 'فروعنا')}
+            </h2>
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto">
+              {t(
+                'branches-description',
+                'Two complementary branches working together to serve Syrian communities globally.',
+                'فرعان متكاملان يعملان معاً لخدمة المجتمعات السورية عالمياً.'
+              )}
+            </p>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-12">
+            {branches.map((branch, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                className="bg-gradient-to-br from-white to-stone-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+              >
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src={branch.image}
+                    alt={t('branch-name', branch.name, branch.nameAr)}
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                
+                <div className="p-8">
+                  <h3 className={`text-2xl font-bold text-stone-900 mb-3 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                    {t('branch-name', branch.name, branch.nameAr)}
+                  </h3>
+                  
+                  <div className="flex items-center text-stone-600 mb-4">
+                    <MapPin className="h-5 w-5 mr-2" />
+                    <span className={currentLanguage.code === 'ar' ? 'font-arabic' : ''}>
+                      {t('branch-location', branch.location, branch.locationAr)}
+                    </span>
+                  </div>
+                  
+                  <p className={`text-stone-700 mb-6 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                    {t('branch-focus', branch.focus, branch.focusAr)}
+                  </p>
+                  
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="text-center bg-emerald-50 rounded-lg p-4">
+                      <div className="text-2xl font-bold text-emerald-600">{branch.projects}</div>
+                      <div className={`text-sm text-emerald-700 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                        {t('active-projects', 'Active Projects', 'مشاريع نشطة')}
+                      </div>
+                    </div>
+                    <div className="text-center bg-stone-100 rounded-lg p-4">
+                      <div className="text-2xl font-bold text-stone-600">{branch.members}</div>
+                      <div className={`text-sm text-stone-700 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                        {t('members', 'Members', 'أعضاء')}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership Team */}
+      <section className="py-20 bg-gradient-to-br from-emerald-50 to-stone-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className={`text-center mb-16 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
+          >
+            <h2 className="text-4xl font-bold text-stone-900 mb-6">
+              {t('our-team', 'Our Leadership Team', 'فريق القيادة')}
+            </h2>
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto">
+              {t(
+                'team-description',
+                'Dedicated leaders committed to building stronger communities.',
+                'قادة مكرسون ملتزمون ببناء مجتمعات أقوى.'
+              )}
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {team.map((member, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                whileHover={{ y: -10 }}
+                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center"
+              >
+                <img
+                  src={member.image}
+                  alt={t('member-name', member.name, member.nameAr)}
+                  className="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-emerald-100"
+                />
+                
+                <h3 className={`text-xl font-bold text-stone-900 mb-2 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                  {t('member-name', member.name, member.nameAr)}
+                </h3>
+                
+                <p className={`text-emerald-600 font-semibold mb-4 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                  {t('member-role', member.role, member.roleAr)}
+                </p>
+                
+                <p className={`text-stone-600 text-sm ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                  {t('member-bio', member.bio, member.bioAr)}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Partners Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className={`text-center mb-16 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
+          >
+            <h2 className="text-4xl font-bold text-stone-900 mb-6">
+              {t('our-partners', 'Our Partners', 'شركاؤنا')}
+            </h2>
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto">
+              {t(
+                'partners-description',
+                'Collaborating with dedicated organizations to amplify our impact and reach.',
+                'التعاون مع منظمات مكرسة لتضخيم تأثيرنا ووصولنا.'
+              )}
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {partners.map((partner, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                className="bg-gradient-to-br from-white to-stone-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src={partner.image}
+                    alt={t('partner-name', partner.name, partner.nameAr)}
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className={`text-xl font-bold text-stone-900 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                      {t('partner-name', partner.name, partner.nameAr)}
+                    </h3>
+                    <div className="flex items-center">
+                      <Handshake className="h-5 w-5 text-emerald-600 mr-2" />
+                      <span className={`text-sm text-emerald-600 font-medium ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                        {t('partner-type', partner.type, partner.typeAr)}
+                      </span>
+                    </div>
+                  </div>
+                  
+                  <p className={`text-stone-600 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                    {t('partner-description', partner.description, partner.descriptionAr)}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default AboutPage;
