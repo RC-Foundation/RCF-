@@ -25,15 +25,15 @@ const AboutPage: React.FC = () => {
       year: 'March 2025',
       title: 'First Program - "Aleppo Roots" Cultural Event',
       titleAr: 'البرنامج الأول - فعالية "جذور حلب" الثقافية',
-      description: 'Launch of our first major program featuring theatre and film production, celebrating Aleppo\'s rich cultural heritage.',
-      descriptionAr: 'إطلاق برنامجنا الرئيسي الأول الذي يضم المسرح وإنتاج الأفلام، احتفالاً بالتراث الثقافي الغني لحلب.'
+      description: 'Launch of our first major program featuring theatre and film production, celebrating Aleppo\'s rich cultural heritage, with about 300 people attending.',
+      descriptionAr: 'إطلاق برنامجنا الرئيسي الأول الذي يضم المسرح وإنتاج الأفلام، احتفالاً بالتراث الثقافي الغني لحلب، بحضور حوالي 300 شخص.'
     },
     {
       year: 'April 2025',
       title: 'Rhizome Network Syria Launch',
       titleAr: 'إطلاق شبكة ريزوم سوريا',
-      description: 'Launch of Rhizome Network Syria. Community Garden in Edmonton established with bi-weekly collaborations.',
-      descriptionAr: 'إطلاق شبكة ريزوم سوريا. تأسيس حديقة مجتمعية في إدمونتون مع تعاونات كل أسبوعين.'
+      description: 'Launch of Rhizome Network Syria. Community Garden in Edmonton established with bi-weekly collaborations. Rhizome formed two new partnerships, one of which is a 300-volunteer base team in North Syria.',
+      descriptionAr: 'إطلاق شبكة ريزوم سوريا. تأسيس حديقة مجتمعية في إدمونتون مع تعاونات كل أسبوعين. شكلت ريزوم شراكتين جديدتين، إحداهما فريق يضم 300 متطوع في شمال سوريا.'
     },
     {
       year: 'May 2025',
@@ -44,24 +44,24 @@ const AboutPage: React.FC = () => {
     },
     {
       year: 'June 2025',
-      title: 'Digital Initiative & Coastline Project Launch',
-      titleAr: 'إطلاق المبادرة الرقمية ومشروع الساحل',
-      description: 'Launch of Digital Initiative and Coastline Project. Rhizome Syria forms its board and seeks legal registration.',
-      descriptionAr: 'إطلاق المبادرة الرقمية ومشروع الساحل. تشكل ريزوم سوريا مجلس إدارتها وتسعى للتسجيل القانوني.'
+      title: 'Digital Literacy & Media Empowerment Initiative and Innovation Hub Launch',
+      titleAr: 'إطلاق مبادرة محو الأمية الرقمية وتمكين الإعلام ومركز الابتكار',
+      description: 'Launch of Digital Literacy & Media Empowerment Initiative and Innovation Hub in Latakia. Rhizome Syria forms its board and seeks legal registration.',
+      descriptionAr: 'إطلاق مبادرة محو الأمية الرقمية وتمكين الإعلام ومركز الابتكار في اللاذقية. تشكل ريزوم سوريا مجلس إدارتها وتسعى للتسجيل القانوني.'
     },
     {
       year: 'July 2025',
       title: 'Community Wall Launch',
       titleAr: 'إطلاق جدار المجتمع',
-      description: 'Launch of our digital storytelling platform to preserve and share community stories and experiences.',
-      descriptionAr: 'إطلاق منصة السرد الرقمي للحفاظ على قصص وتجارب المجتمع ومشاركتها.'
+      description: 'Launch of our digital storytelling platform, Wallfinity, to preserve and share community stories and experiences.',
+      descriptionAr: 'إطلاق منصة السرد الرقمي الخاصة بنا، وولفينيتي، للحفاظ على قصص وتجارب المجتمع ومشاركتها.'
     },
     {
       year: 'August - October 2025',
-      title: 'Regional Capacity-Building & Film Festival',
-      titleAr: 'بناء القدرات الإقليمية ومهرجان الأفلام',
-      description: 'Regional Team Capacity-Building Workshops (North, Coast, East). Rhizome International Film Festival in Edmonton.',
-      descriptionAr: 'ورش بناء قدرات الفرق الإقليمية (الشمال، الساحل، الشرق). مهرجان ريزوم الدولي للأفلام في إدمونتون.'
+      title: 'Regional Capacity-Building & Syrian Film Festival',
+      titleAr: 'بناء القدرات الإقليمية ومهرجان الأفلام السورية',
+      description: 'Regional Team Capacity-Building Workshops (North, Coast, East). Syrian Film Festival in Edmonton.',
+      descriptionAr: 'ورش بناء قدرات الفرق الإقليمية (الشمال، الساحل، الشرق). مهرجان الأفلام السورية في إدمونتون.'
     },
     {
       year: 'November 2025',

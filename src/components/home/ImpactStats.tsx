@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Users, Globe, Heart, Handshake, MapPin, Calendar, Award, Target } from 'lucide-react';
@@ -7,33 +7,6 @@ import { useLanguage } from '../../contexts/LanguageContext';
 const ImpactStats: React.FC = () => {
   const { t, currentLanguage } = useLanguage();
   const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
-
-  const AnimatedCounter: React.FC<{ value: number; inView: boolean }> = ({ value, inView }) => {
-    const [count, setCount] = useState(0);
-
-    useEffect(() => {
-      if (inView) {
-        const duration = 2000;
-        const steps = 60;
-        const increment = value / steps;
-        let current = 0;
-
-        const timer = setInterval(() => {
-          current += increment;
-          if (current >= value) {
-            setCount(value);
-            clearInterval(timer);
-          } else {
-            setCount(Math.floor(current));
-          }
-        }, duration / steps);
-
-        return () => clearInterval(timer);
-      }
-    }, [inView, value]);
-
-    return <span>{count.toLocaleString()}</span>;
-  };
 
   return (
     <section className="py-20 bg-white">
@@ -66,7 +39,7 @@ const ImpactStats: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* ONLY THE GREEN BOX WITH ALL STATS INSIDE */}
+        {/* Narrative Impact Section */}
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
@@ -88,116 +61,146 @@ const ImpactStats: React.FC = () => {
             </p>
           </div>
 
-          {/* Main Impact Stats */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center">
+          {/* Narrative Impact Points */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center"
+            >
               <Users className="h-8 w-8 mx-auto mb-3" />
-              <div className="text-3xl font-bold mb-1">
-                <AnimatedCounter value={1500} inView={inView} />+
-              </div>
-              <div className={`text-emerald-200 text-sm ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                {t('lives-impacted', 'Lives Impacted', 'حياة متأثرة')}
-              </div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center">
+              <h4 className={`font-semibold mb-2 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                {t('community-reach', 'Community Reach', 'الوصول المجتمعي')}
+              </h4>
+              <p className={`text-emerald-200 text-sm ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                {t(
+                  'community-reach-desc',
+                  'Our initiatives have touched countless lives, fostering growth and resilience across diverse communities.',
+                  'لقد لمست مبادراتنا حياة لا تحصى، وعززت النمو والمرونة عبر مجتمعات متنوعة.'
+                )}
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center"
+            >
               <Globe className="h-8 w-8 mx-auto mb-3" />
-              <div className="text-3xl font-bold mb-1">
-                <AnimatedCounter value={15} inView={inView} />
-              </div>
-              <div className={`text-emerald-200 text-sm ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                {t('countries', 'Countries', 'دولة')}
-              </div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center">
+              <h4 className={`font-semibold mb-2 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                {t('global-connections', 'Global Connections', 'الروابط العالمية')}
+              </h4>
+              <p className={`text-emerald-200 text-sm ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                {t(
+                  'global-connections-desc',
+                  'We connect individuals and organizations across continents, building a truly global network of support.',
+                  'نربط الأفراد والمنظمات عبر القارات، ونبني شبكة دعم عالمية حقيقية.'
+                )}
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center"
+            >
               <Heart className="h-8 w-8 mx-auto mb-3" />
-              <div className="text-3xl font-bold mb-1">
-                <AnimatedCounter value={50} inView={inView} />+
-              </div>
-              <div className={`text-emerald-200 text-sm ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                {t('active-projects', 'Active Projects', 'مشروع نشط')}
-              </div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center">
-              <Handshake className="h-8 w-8 mx-auto mb-3" />
-              <div className="text-3xl font-bold mb-1">
-                <AnimatedCounter value={25} inView={inView} />
-              </div>
-              <div className={`text-emerald-200 text-sm ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                {t('partnerships', 'Partnerships', 'شراكة')}
-              </div>
-            </div>
+              <h4 className={`font-semibold mb-2 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                {t('community-empowerment', 'Community Empowerment', 'تمكين المجتمع')}
+              </h4>
+              <p className={`text-emerald-200 text-sm ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                {t(
+                  'community-empowerment-desc',
+                  'Through dedicated projects and strong partnerships, we empower communities to drive their own positive change.',
+                  'من خلال المشاريع المكرسة والشراكات القوية، نمكن المجتمعات من قيادة تغييرها الإيجابي.'
+                )}
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center"
+            >
+              <Target className="h-8 w-8 mx-auto mb-3" />
+              <h4 className={`font-semibold mb-2 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                {t('tangible-impact', 'Tangible Impact', 'التأثير الملموس')}
+              </h4>
+              <p className={`text-emerald-200 text-sm ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                {t(
+                  'tangible-impact-desc',
+                  'Our efforts lead to tangible improvements in daily lives, from skill development to cultural preservation.',
+                  'تؤدي جهودنا إلى تحسينات ملموسة في الحياة اليومية، من تطوير المهارات إلى الحفاظ على الثقافة.'
+                )}
+              </p>
+            </motion.div>
           </div>
 
-          {/* Additional Performance Metrics */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-8">
-            <div className="text-center">
-              <div className="text-2xl font-bold mb-1">98%</div>
-              <div className={`text-emerald-200 text-sm ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                {t('satisfaction-rate', 'Satisfaction Rate', 'معدل الرضا')}
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold mb-1">24/7</div>
-              <div className={`text-emerald-200 text-sm ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                {t('community-support', 'Community Support', 'دعم المجتمع')}
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold mb-1">100%</div>
-              <div className={`text-emerald-200 text-sm ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                {t('transparency', 'Transparency', 'الشفافية')}
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold mb-1">85%</div>
-              <div className={`text-emerald-200 text-sm ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                {t('job-placement', 'Job Placement', 'معدل التوظيف')}
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold mb-1">1,200+</div>
-              <div className={`text-emerald-200 text-sm ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                {t('stories-documented', 'Stories Documented', 'قصة موثقة')}
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold mb-1">95%</div>
-              <div className={`text-emerald-200 text-sm ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                {t('program-completion', 'Program Completion', 'إكمال البرنامج')}
-              </div>
-            </div>
-          </div>
-
-          {/* Additional Impact Metrics */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
+          {/* Additional Narrative Elements */}
+          <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center"
+            >
               <MapPin className="h-6 w-6 mx-auto mb-2" />
-              <div className="text-xl font-bold mb-1">8</div>
-              <div className={`text-emerald-200 text-sm ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                {t('cities-served', 'Cities Served', 'مدن مخدومة')}
-              </div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
+              <h5 className={`font-semibold text-sm mb-1 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                {t('geographic-reach', 'Geographic Reach', 'الوصول الجغرافي')}
+              </h5>
+              <p className={`text-emerald-200 text-xs ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                {t('spanning-continents', 'Spanning continents and cultures', 'تمتد عبر القارات والثقافات')}
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center"
+            >
               <Calendar className="h-6 w-6 mx-auto mb-2" />
-              <div className="text-xl font-bold mb-1">120+</div>
-              <div className={`text-emerald-200 text-sm ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                {t('events-hosted', 'Events Hosted', 'فعالية استضافت')}
-              </div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
+              <h5 className={`font-semibold text-sm mb-1 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                {t('ongoing-commitment', 'Ongoing Commitment', 'الالتزام المستمر')}
+              </h5>
+              <p className={`text-emerald-200 text-xs ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                {t('year-round-engagement', 'Year-round community engagement', 'مشاركة مجتمعية على مدار السنة')}
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center"
+            >
               <Award className="h-6 w-6 mx-auto mb-2" />
-              <div className="text-xl font-bold mb-1">12</div>
-              <div className={`text-emerald-200 text-sm ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                {t('awards-received', 'Awards Received', 'جائزة مستلمة')}
-              </div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
-              <Target className="h-6 w-6 mx-auto mb-2" />
-              <div className="text-xl font-bold mb-1">500+</div>
-              <div className={`text-emerald-200 text-sm ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                {t('volunteers', 'Volunteers', 'متطوع')}
-              </div>
-            </div>
+              <h5 className={`font-semibold text-sm mb-1 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                {t('recognition', 'Recognition', 'الاعتراف')}
+              </h5>
+              <p className={`text-emerald-200 text-xs ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                {t('community-acknowledged-impact', 'Community-acknowledged impact', 'تأثير معترف به من المجتمع')}
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center"
+            >
+              <Handshake className="h-6 w-6 mx-auto mb-2" />
+              <h5 className={`font-semibold text-sm mb-1 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                {t('collaborative-spirit', 'Collaborative Spirit', 'الروح التعاونية')}
+              </h5>
+              <p className={`text-emerald-200 text-xs ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                {t('building-lasting-partnerships', 'Building lasting partnerships', 'بناء شراكات دائمة')}
+              </p>
+            </motion.div>
           </div>
         </motion.div>
       </div>

@@ -44,8 +44,8 @@ const ProgramsPage: React.FC = () => {
       duration: '12 weeks',
       durationAr: '12 أسبوعاً',
       status: 'active',
-      impact: '85% improved digital skills',
-      impactAr: 'تحسن المهارات الرقمية بنسبة 85%',
+      impact: 'Significant improvement in digital skills',
+      impactAr: 'تحسن كبير في المهارات الرقمية',
       image: 'https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=800',
       features: [
         'Digital skills training',
@@ -106,8 +106,8 @@ const ProgramsPage: React.FC = () => {
       duration: '6 months',
       durationAr: '6 أشهر',
       status: 'active',
-      impact: '95% program completion',
-      impactAr: 'معدل إكمال البرنامج 95%',
+      impact: 'Strong program completion rates',
+      impactAr: 'معدلات إكمال قوية للبرنامج',
       image: 'https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=800',
       features: [
         'Leadership training',
@@ -199,8 +199,8 @@ const ProgramsPage: React.FC = () => {
       duration: '8 weeks',
       durationAr: '8 أسابيع',
       status: 'active',
-      impact: '70% started businesses',
-      impactAr: '70% بدأن أعمالاً تجارية',
+      impact: 'Empowering individuals to launch new ventures',
+      impactAr: 'تمكين الأفراد من إطلاق مشاريع جديدة',
       image: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800',
       features: [
         'Economic empowerment',
@@ -319,9 +319,8 @@ const ProgramsPage: React.FC = () => {
 
   const stats = [
     { label: 'Active Programs', labelAr: 'برامج نشطة', value: programs.filter(p => p.status === 'active').length },
-    { label: 'Total Participants', labelAr: 'إجمالي المشاركين', value: programs.reduce((sum, p) => sum + p.participants, 0) },
-    { label: 'Countries', labelAr: 'دولة', value: 2 },
-    { label: 'Success Rate', labelAr: 'معدل النجاح', value: '92%' }
+    { label: 'Anticipated Participants', labelAr: 'المشاركون المتوقعون', value: 5000 },
+    { label: 'Countries', labelAr: 'دولة', value: 2 }
   ];
 
   return (
@@ -347,7 +346,7 @@ const ProgramsPage: React.FC = () => {
             </p>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               {stats.map((stat, index) => (
                 <motion.div
                   key={index}
