@@ -10,11 +10,10 @@ import ProgramsPage from './pages/ProgramsPage';
 import RhizomeSyriaPage from './pages/RhizomeSyriaPage';
 import CommunityWallPage from './pages/CommunityWallPage';
 import CalendarPage from './pages/CalendarPage';
-import AleppoRootsPage from './pages/AleppoRootsPage';
 import ContactPage from './pages/ContactPage';
 import AdminApprovalPage from './pages/AdminApprovalPage';
 import ParticleSystem from './components/common/ParticleSystem';
-import CustomCursor from './components/common/CustomCursor';
+import HypersonicCursor from './components/common/HypersonicCursor';
 
 function App() {
   return (
@@ -22,7 +21,7 @@ function App() {
       <PhotoProvider>
         <Router>
           <div className="min-h-screen bg-gradient-to-br from-stone-50 to-emerald-50">
-            <CustomCursor />
+            <HypersonicCursor />
             <Navigation />
             <main>
               <Routes>
@@ -32,7 +31,6 @@ function App() {
                 <Route path="/rhizome-syria" element={<RhizomeSyriaPage />} />
                 <Route path="/community-wall" element={<CommunityWallPage />} />
                 <Route path="/calendar" element={<CalendarPage />} />
-                <Route path="/aleppo-roots" element={<AleppoRootsPage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/admin" element={<AdminApprovalPage />} />
               </Routes>

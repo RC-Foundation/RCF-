@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Users, Target, Award, Calendar, Globe, Image, Palette } from 'lucide-react';
+import { MapPin, Users, Target, Award, Calendar, Globe, Image, Palette, Heart, Shield } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const RhizomeSyriaPage: React.FC = () => {
@@ -12,35 +12,35 @@ const RhizomeSyriaPage: React.FC = () => {
       nameAr: 'ريتا الحايك',
       role: 'Chair',
       roleAr: 'رئيسة',
-      bio: 'Leading the board with extensive experience in community development and strategic planning. Ritta brings a wealth of knowledge in organizational leadership and cross-cultural collaboration.',
-      bioAr: 'تقود مجلس الإدارة بخبرة واسعة في التنمية المجتمعية والتخطيط الاستراتيجي. تجلب ريتا ثروة من المعرفة في القيادة التنظيمية والتعاون عبر الثقافات.',
+      bio: 'Oversees governance and direction with experience in strategic planning, community systems, and feminist organizing.',
+      bioAr: 'تشرف على الحوكمة والتوجه بخبرة في التخطيط الاستراتيجي والأنظمة المجتمعية والتنظيم النسوي.',
       image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400'
     },
     {
       name: 'Abdullah Sejerie',
       nameAr: 'عبد الله سجرية',
-      role: 'Logistics',
-      roleAr: 'اللوجستيات',
-      bio: 'Overseeing operational logistics and ensuring smooth implementation of programs across all regions. Abdullah coordinates resources and manages the practical aspects of our initiatives.',
-      bioAr: 'يشرف على اللوجستيات التشغيلية ويضمن التنفيذ السلس للبرامج في جميع المناطق. ينسق عبد الله الموارد ويدير الجوانب العملية لمبادراتنا.',
+      role: 'Logistics & Operations',
+      roleAr: 'اللوجستيات والعمليات',
+      bio: 'Leads logistical coordination and field-level implementation, ensuring reliable support systems across all regions.',
+      bioAr: 'يقود التنسيق اللوجستي والتنفيذ على مستوى الميدان، مما يضمن أنظمة دعم موثوقة في جميع المناطق.',
       image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400'
     },
     {
       name: 'Kinda Ali',
       nameAr: 'كندة علي',
-      role: 'Strategy',
-      roleAr: 'الاستراتيجية',
-      bio: 'Developing strategic frameworks and long-term planning for sustainable community impact. Kinda focuses on creating innovative approaches to community engagement and program development.',
-      bioAr: 'تطوير الأطر الاستراتيجية والتخطيط طويل المدى للتأثير المجتمعي المستدام. تركز كندة على إنشاء مناهج مبتكرة للمشاركة المجتمعية وتطوير البرامج.',
+      role: 'Strategy & Outreach',
+      roleAr: 'الاستراتيجية والتوعية',
+      bio: 'Guides long-term planning and stakeholder engagement, focusing on interregional networks and strategic alliances.',
+      bioAr: 'توجه التخطيط طويل المدى ومشاركة أصحاب المصلحة، مع التركيز على الشبكات بين المناطق والتحالفات الاستراتيجية.',
       image: 'https://images.pexels.com/photos/1858175/pexels-photo-1858175.jpeg?auto=compress&cs=tinysrgb&w=400'
     },
     {
-      name: 'Hassan Traboulsi',
-      nameAr: 'حسان طرابلسي',
-      role: 'Executive Director',
-      roleAr: 'المدير التنفيذي',
-      bio: 'Leading day-to-day operations and program implementation with a focus on community-driven solutions. Hassan brings extensive experience in grassroots organizing and social development.',
-      bioAr: 'يقود العمليات اليومية وتنفيذ البرامج مع التركيز على الحلول المجتمعية. يجلب حسان خبرة واسعة في التنظيم الشعبي والتنمية الاجتماعية.',
+      name: 'Silva',
+      nameAr: 'سيلفا',
+      role: 'Programs Lead',
+      roleAr: 'قائدة البرامج',
+      bio: 'Manages Rhizome Syria\'s programmatic portfolio, with a focus on feminist frameworks, coastal civic organizing, and training modules. Silva brings experience in intersectional community work and participatory program design.',
+      bioAr: 'تدير محفظة برامج ريزوم سوريا، مع التركيز على الأطر النسوية والتنظيم المدني الساحلي ووحدات التدريب. تجلب سيلفا خبرة في العمل المجتمعي التقاطعي وتصميم البرامج التشاركية.',
       image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400'
     }
   ];
@@ -62,15 +62,15 @@ const RhizomeSyriaPage: React.FC = () => {
             <p className="text-xl text-emerald-100 max-w-3xl mx-auto">
               {t(
                 'rhizome-syria-subtitle',
-                'The Syrian arm of the Rhizome Community Foundation, free from past regime affiliations and committed to anti-sectarian values.',
-                'الذراع السوري لمؤسسة مجتمع الريزوم، متحرر من ارتباطات النظام السابق وملتزم بقيم مناهضة للطائفية.'
+                'The Syrian branch of the Rhizome Community Foundation – nonpartisan, community-rooted, and anti-sectarian.',
+                'الفرع السوري لمؤسسة مجتمع الريزوم - غير حزبي، متجذر في المجتمع، ومناهض للطائفية.'
               )}
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Main Content */}
+      {/* Mission Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12">
@@ -88,24 +88,16 @@ const RhizomeSyriaPage: React.FC = () => {
                 <p>
                   {t(
                     'mission-text-1',
-                    'Rhizome Syria is the Syrian arm of the Rhizome Community Foundation. Free from past regime affiliations and committed to anti-sectarian values, it works to strengthen social cohesion through lived cultural exchange and community engagement as paths to rebuilding the country.',
-                    'ريزوم سوريا هي الذراع السوري لمؤسسة مجتمع الريزوم. متحررة من ارتباطات النظام السابق وملتزمة بقيم مناهضة للطائفية، تعمل على تعزيز التماسك الاجتماعي من خلال التبادل الثقافي المعاش والمشاركة المجتمعية كمسارات لإعادة بناء البلاد.'
+                    'Rhizome Syria is the Syrian partner in a joint venture agreement with Rhizome Canada, together forming the Rhizome Community Foundation. Both branches operate with full legal independence while remaining strategically connected through shared governance principles, coordinated programming, and mutual accountability. The partnership is grounded in a decentralized, feminist, and anti-authoritarian ethos.',
+                    'ريزوم سوريا هي الشريك السوري في اتفاقية مشروع مشترك مع ريزوم كندا، وتشكلان معاً مؤسسة مجتمع الريزوم. يعمل كلا الفرعين باستقلالية قانونية كاملة مع البقاء مترابطين استراتيجياً من خلال مبادئ الحوكمة المشتركة والبرمجة المنسقة والمساءلة المتبادلة. تقوم الشراكة على أساس لامركزي ونسوي ومناهض للسلطوية.'
                   )}
                 </p>
                 
                 <p>
                   {t(
                     'mission-text-2',
-                    'Rhizome Syria operates a decentralized network of strategic local partnerships nationwide, maintaining independence and adaptability in its interactions with official bodies. It actively supports feminist movements in Syria\'s coastal region, incubating pioneering initiatives led by women.',
-                    'تدير ريزوم سوريا شبكة لامركزية من الشراكات المحلية الاستراتيجية على الصعيد الوطني، مع الحفاظ على الاستقلالية والقدرة على التكيف في تفاعلاتها مع الهيئات الرسمية. وتدعم بنشاط الحركات النسوية في المنطقة الساحلية السورية، وتحتضن مبادرات رائدة تقودها النساء.'
-                  )}
-                </p>
-                
-                <p>
-                  {t(
-                    'mission-text-3',
-                    'On the ground, Rhizome Syria manages a community support center in Latakia, providing economic and organizational empowerment training to women. It leads collaborative cultural projects in Aleppo and Latakia, supports local theater and visual arts, and engages in peace-building programs across the north and central regions, alongside fundraising campaigns on the coast.',
-                    'على أرض الواقع، تدير ريزوم سوريا مركزًا للدعم المجتمعي في اللاذقية، وتقدم تدريبات التمكين الاقتصادي والتنظيمي للنساء. وتقود مشاريع ثقافية تعاونية في حلب واللاذقية، وتدعم المسرح المحلي والفنون البصرية، وتشارك في برامج بناء السلام في مناطق الشمال والوسط، إلى جانب حملات جمع التبرعات على الساحل.'
+                    'Rhizome Syria works to strengthen social cohesion through cultural, feminist, and community initiatives. It is unaffiliated with any previous regime institutions and is explicitly anti-sectarian. The organization supports civil society networks, particularly in coastal, northern, and central Syria, and is committed to peacebuilding, cultural revitalization, and the empowerment of women and marginalized communities.',
+                    'تعمل ريزوم سوريا على تعزيز التماسك الاجتماعي من خلال المبادرات الثقافية والنسوية والمجتمعية. وهي غير منتسبة لأي مؤسسات نظام سابقة وهي صراحة مناهضة للطائفية. تدعم المنظمة شبكات المجتمع المدني، خاصة في سوريا الساحلية والشمالية والوسطى، وهي ملتزمة ببناء السلام وإحياء الثقافة وتمكين النساء والمجتمعات المهمشة.'
                   )}
                 </p>
               </div>
@@ -125,58 +117,23 @@ const RhizomeSyriaPage: React.FC = () => {
               
               <div className="bg-emerald-50 rounded-xl p-6 shadow-md">
                 <h3 className={`text-xl font-bold text-emerald-800 mb-4 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                  {t('key-facts', 'Key Facts', 'حقائق رئيسية')}
+                  {t('our-structure', 'Our Structure', 'هيكلنا')}
                 </h3>
                 
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <Target className="h-5 w-5 text-emerald-600 mt-1 mr-3 flex-shrink-0" />
-                    <span className={`text-gray-700 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                      {t(
-                        'fact-1',
-                        'Operates in multiple regions across Syria with a focus on coastal and northern areas',
-                        'تعمل في مناطق متعددة عبر سوريا مع التركيز على المناطق الساحلية والشمالية'
-                      )}
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <Users className="h-5 w-5 text-emerald-600 mt-1 mr-3 flex-shrink-0" />
-                    <span className={`text-gray-700 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                      {t(
-                        'fact-2',
-                        'Supports over 500 women through economic empowerment programs',
-                        'تدعم أكثر من 500 امرأة من خلال برامج التمكين الاقتصادي'
-                      )}
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <Award className="h-5 w-5 text-emerald-600 mt-1 mr-3 flex-shrink-0" />
-                    <span className={`text-gray-700 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                      {t(
-                        'fact-3',
-                        'Recognized for innovative peace-building methodologies',
-                        'معترف بها لمنهجياتها المبتكرة في بناء السلام'
-                      )}
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <Globe className="h-5 w-5 text-emerald-600 mt-1 mr-3 flex-shrink-0" />
-                    <span className={`text-gray-700 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                      {t(
-                        'fact-4',
-                        'Maintains strategic partnerships with international organizations',
-                        'تحافظ على شراكات استراتيجية مع منظمات دولية'
-                      )}
-                    </span>
-                  </li>
-                </ul>
+                <p className={`text-gray-700 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                  {t(
+                    'structure-text',
+                    'Rhizome Syria and Rhizome Canada operate as two legally distinct entities under a joint venture cooperation agreement, facilitating coordinated strategic planning, knowledge exchange, and dual accountability. The agreement enables secure funding flow, joint programming, and co-development of community-driven initiatives across geographies. Together, they form a transnational rhizomatic network committed to rebuilding Syria from the grassroots.',
+                    'تعمل ريزوم سوريا وريزوم كندا ككيانين قانونيين منفصلين تحت اتفاقية تعاون مشروع مشترك، مما يسهل التخطيط الاستراتيجي المنسق وتبادل المعرفة والمساءلة المزدوجة. تمكن الاتفاقية من تدفق التمويل الآمن والبرمجة المشتركة والتطوير المشترك للمبادرات المجتمعية عبر الجغرافيات. معاً، يشكلان شبكة ريزومية عابرة للحدود ملتزمة بإعادة بناء سوريا من القاعدة الشعبية.'
+                  )}
+                </p>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Programs Section */}
+      {/* Current Activities */}
       <section className="py-16 bg-gradient-to-br from-emerald-50 to-stone-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -187,13 +144,13 @@ const RhizomeSyriaPage: React.FC = () => {
             className="text-center mb-12"
           >
             <h2 className={`text-3xl font-bold text-emerald-800 mb-4 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`} style={{ fontFamily: '"Playfair Display", "Noto Sans Arabic", serif' }}>
-              {t('our-initiatives', 'Our Initiatives', 'مبادراتنا')}
+              {t('current-activities', 'Current Activities', 'الأنشطة الحالية')}
             </h2>
             <p className={`text-gray-600 max-w-3xl mx-auto ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
               {t(
-                'initiatives-description',
-                'Focused programs addressing key challenges and opportunities across Syria',
-                'برامج مركزة تعالج التحديات والفرص الرئيسية في جميع أنحاء سوريا'
+                'activities-description',
+                'Rhizome Syria operates a decentralized network of local partnerships while maintaining full adaptability in its engagement with formal and informal structures.',
+                'تدير ريزوم سوريا شبكة لامركزية من الشراكات المحلية مع الحفاظ على قدرة تكيف كاملة في تفاعلها مع الهياكل الرسمية وغير الرسمية.'
               )}
             </p>
           </motion.div>
@@ -201,45 +158,123 @@ const RhizomeSyriaPage: React.FC = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
+                title: 'Feminist-led Community Support Center in Latakia',
+                titleAr: 'مركز الدعم المجتمعي بقيادة نسوية في اللاذقية',
+                description: 'Providing economic and organizational empowerment to women.',
+                descriptionAr: 'توفير التمكين الاقتصادي والتنظيمي للنساء.',
+                icon: Heart
+              },
+              {
+                title: 'Collaborative Cultural Projects',
+                titleAr: 'المشاريع الثقافية التعاونية',
+                description: 'Theater, visual arts, and oral history initiatives in Aleppo and Latakia.',
+                descriptionAr: 'مبادرات المسرح والفنون البصرية والتاريخ الشفوي في حلب واللاذقية.',
+                icon: Palette
+              },
+              {
+                title: 'Peacebuilding Dialogues',
+                titleAr: 'حوارات بناء السلام',
+                description: 'Participatory workshops across northern and central regions.',
+                descriptionAr: 'ورش عمل تشاركية في المناطق الشمالية والوسطى.',
+                icon: Shield
+              },
+              {
+                title: 'Fundraising Campaigns',
+                titleAr: 'حملات جمع التبرعات',
+                description: 'Community platforms and fundraising initiatives on the coast.',
+                descriptionAr: 'منصات مجتمعية ومبادرات جمع التبرعات على الساحل.',
+                icon: Target
+              },
+              {
+                title: 'Digital Storytelling',
+                titleAr: 'السرد الرقمي',
+                description: 'Memory preservation through participatory digital tools.',
+                descriptionAr: 'الحفاظ على الذاكرة من خلال الأدوات الرقمية التشاركية.',
+                icon: Image
+              }
+            ].map((activity, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <div className="w-14 h-14 bg-emerald-100 rounded-full flex items-center justify-center mb-4">
+                  <activity.icon className="h-7 w-7 text-emerald-700" />
+                </div>
+                
+                <h3 className={`text-lg font-bold text-emerald-800 mb-3 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                  {t(`activity-${index}-title`, activity.title, activity.titleAr)}
+                </h3>
+                
+                <p className={`text-gray-600 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                  {t(`activity-${index}-desc`, activity.description, activity.descriptionAr)}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Key Initiatives */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <h2 className={`text-3xl font-bold text-emerald-800 mb-4 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`} style={{ fontFamily: '"Playfair Display", "Noto Sans Arabic", serif' }}>
+              {t('key-initiatives', 'Key Initiatives', 'المبادرات الرئيسية')}
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
                 title: 'Latakia Community Support Hub',
                 titleAr: 'مركز دعم مجتمع اللاذقية',
-                description: 'Comprehensive resource center providing economic support, organizational empowerment, and strategic assistance for local civil society groups.',
-                descriptionAr: 'مركز موارد شامل يقدم الدعم الاقتصادي والتمكين التنظيمي والمساعدة الاستراتيجية للمجموعات المجتمعية المحلية.',
+                description: 'A core site offering economic resilience programs, organizational mentoring, and a base for civil society incubation.',
+                descriptionAr: 'موقع أساسي يقدم برامج المرونة الاقتصادية والإرشاد التنظيمي وقاعدة لاحتضان المجتمع المدني.',
                 icon: Users
               },
               {
                 title: 'Cultural Revitalization Program',
                 titleAr: 'برنامج إحياء الثقافة',
-                description: 'Artistic and cultural initiatives in Aleppo and Latakia designed to foster community recovery, preserve heritage, and promote social unity.',
-                descriptionAr: 'مبادرات فنية وثقافية في حلب واللاذقية مصممة لتعزيز تعافي المجتمع والحفاظ على التراث وتعزيز الوحدة الاجتماعية.',
+                description: 'Arts-based programs in Aleppo and Latakia supporting local artists, preserving collective memory, and creating spaces for community recovery.',
+                descriptionAr: 'برامج قائمة على الفنون في حلب واللاذقية تدعم الفنانين المحليين وتحافظ على الذاكرة الجماعية وتخلق مساحات لتعافي المجتمع.',
                 icon: Palette
               },
               {
                 title: 'Interregional Women\'s Summit',
                 titleAr: 'قمة المرأة بين المناطق',
-                description: 'Annual national gathering bringing together women leaders for strategic planning, best-practice exchange, and collaborative action planning.',
-                descriptionAr: 'تجمع وطني سنوي يجمع القيادات النسائية للتخطيط الاستراتيجي وتبادل أفضل الممارسات والتخطيط للعمل التعاوني.',
+                description: 'A national forum gathering Syrian women leaders to co-develop policy, training modules, and interregional alliances.',
+                descriptionAr: 'منتدى وطني يجمع القيادات النسائية السورية لتطوير السياسات ووحدات التدريب والتحالفات بين المناطق.',
                 icon: Calendar
               },
               {
                 title: 'Peacebuilding Sessions',
                 titleAr: 'جلسات بناء السلام',
-                description: 'Nationwide dialogue facilitation and peacebuilding workshops conducted in collaboration with local councils, with particular focus on northern regions and Aleppo.',
-                descriptionAr: 'تيسير الحوار على الصعيد الوطني وورش عمل بناء السلام التي تجري بالتعاون مع المجالس المحلية، مع التركيز بشكل خاص على المناطق الشمالية وحلب.',
+                description: 'Localized facilitation of dialogue in conflict-affected areas with grassroots councils and youth networks.',
+                descriptionAr: 'تيسير محلي للحوار في المناطق المتأثرة بالنزاع مع المجالس الشعبية وشبكات الشباب.',
                 icon: Target
               },
               {
                 title: 'Hams Initiative',
                 titleAr: 'مبادرة همس',
-                description: 'A secure, anonymous reporting platform enabling safe sharing of critical information vital for maintaining civil peace throughout Syria.',
-                descriptionAr: 'منصة إبلاغ آمنة ومجهولة تمكن من المشاركة الآمنة للمعلومات الحيوية للحفاظ على السلم المدني في جميع أنحاء سوريا.',
+                description: 'A secure, anonymous, community-run platform for sharing sensitive information essential for maintaining civil peace.',
+                descriptionAr: 'منصة آمنة ومجهولة ومدارة من المجتمع لمشاركة المعلومات الحساسة الضرورية للحفاظ على السلم المدني.',
                 icon: Globe
               },
               {
                 title: 'Community Digital Photo Wall',
                 titleAr: 'جدار الصور الرقمية المجتمعية',
-                description: 'A collaborative digital platform targeting a 50,000 image stockpile, open to community members to contribute photos that capture local stories, culture, and community life across regions.',
-                descriptionAr: 'منصة رقمية تعاونية تستهدف مخزونًا من 50,000 صورة، مفتوحة لأعضاء المجتمع للمساهمة بالصور التي تلتقط القصص المحلية والثقافة وحياة المجتمع عبر المناطق.',
+                description: 'An open-source image archive documenting everyday life and community stories through a decentralized media repository.',
+                descriptionAr: 'أرشيف صور مفتوح المصدر يوثق الحياة اليومية وقصص المجتمع من خلال مستودع إعلامي لامركزي.',
                 icon: Image
               }
             ].map((initiative, index) => (
@@ -249,7 +284,7 @@ const RhizomeSyriaPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-emerald-600"
               >
                 <div className="w-14 h-14 bg-emerald-100 rounded-full flex items-center justify-center mb-4">
                   <initiative.icon className="h-7 w-7 text-emerald-700" />
@@ -269,7 +304,7 @@ const RhizomeSyriaPage: React.FC = () => {
       </section>
 
       {/* Board Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gradient-to-br from-emerald-50 to-stone-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -279,15 +314,8 @@ const RhizomeSyriaPage: React.FC = () => {
             className="text-center mb-12"
           >
             <h2 className={`text-3xl font-bold text-emerald-800 mb-4 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`} style={{ fontFamily: '"Playfair Display", "Noto Sans Arabic", serif' }}>
-              {t('our-board', 'Our Board', 'مجلس إدارتنا')}
+              {t('our-board-syria', 'Our Board (Syria)', 'مجلس إدارتنا (سوريا)')}
             </h2>
-            <p className={`text-gray-600 max-w-3xl mx-auto ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-              {t(
-                'board-description',
-                'Meet the dedicated board members driving our mission forward in Syria',
-                'تعرف على أعضاء مجلس الإدارة المتفانين الذين يدفعون مهمتنا إلى الأمام في سوريا'
-              )}
-            </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -336,22 +364,27 @@ const RhizomeSyriaPage: React.FC = () => {
             className={currentLanguage.code === 'ar' ? 'font-arabic' : ''}
           >
             <h2 className="text-3xl font-bold mb-6">
-              {t('get-involved-title', 'Get Involved with Rhizome Syria', 'شارك مع ريزوم سوريا')}
+              {t('get-involved-title', 'Ready to join or partner?', 'مستعد للانضمام أو الشراكة؟')}
             </h2>
             <p className="text-xl text-emerald-100 mb-8 max-w-3xl mx-auto">
               {t(
                 'get-involved-description',
-                'Join our network of change-makers and contribute to building a more resilient and connected Syria.',
-                'انضم إلى شبكتنا من صناع التغيير وساهم في بناء سوريا أكثر مرونة وترابطًا.'
+                'Whether in Syria or Canada, your participation helps us grow resilient, empowered communities.',
+                'سواء في سوريا أو كندا، مشاركتك تساعدنا في نمو مجتمعات مرنة وممكنة.'
               )}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="px-8 py-4 bg-white text-emerald-700 font-semibold rounded-full hover:bg-emerald-50 transition-colors">
-                {t('volunteer', 'Volunteer', 'تطوع')}
+                {t('apply-now', 'Apply Now', 'تقدم الآن')}
               </button>
               <button className="px-8 py-4 bg-emerald-900 text-white font-semibold rounded-full hover:bg-emerald-950 transition-colors">
-                {t('contact-us', 'Contact Us', 'اتصل بنا')}
+                {t('volunteer', 'Volunteer', 'تطوع')}
               </button>
+            </div>
+            <div className="mt-6 text-emerald-200">
+              <p>
+                {t('contact-info', 'Contact us at', 'اتصل بنا على')} info@rhizomesyria.org
+              </p>
             </div>
           </motion.div>
         </div>

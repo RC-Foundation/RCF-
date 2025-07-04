@@ -11,7 +11,10 @@ import {
   MapPin,
   Calendar,
   Target,
-  ArrowRight
+  ArrowRight,
+  Camera,
+  Shield,
+  Handshake
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -21,54 +24,53 @@ const ProgramsPage: React.FC = () => {
 
   const categories = [
     { key: 'all', en: 'All Programs', ar: 'جميع البرامج', icon: Globe },
-    { key: 'education', en: 'Education', ar: 'التعليم', icon: BookOpen },
-    { key: 'culture', en: 'Culture', ar: 'الثقافة', icon: Palette },
-    { key: 'community', en: 'Community', ar: 'المجتمع', icon: Users },
-    { key: 'technology', en: 'Technology', ar: 'التكنولوجيا', icon: Laptop },
-    { key: 'health', en: 'Health', ar: 'الصحة', icon: Heart }
+    { key: 'syria', en: 'In Syria & Region', ar: 'في سوريا والمنطقة', icon: MapPin },
+    { key: 'canada', en: 'In Canada', ar: 'في كندا', icon: Heart },
+    { key: 'cross-border', en: 'Cross-Border', ar: 'عبر الحدود', icon: Handshake }
   ];
 
   const programs = [
+    // Syria & Region Programs
     {
       id: '1',
-      title: 'Digital Literacy Initiative',
-      titleAr: 'مبادرة محو الأمية الرقمية',
-      category: 'education',
-      description: 'Comprehensive digital skills training for Syrian refugees and immigrants, covering basic computer skills, internet safety, and online job searching.',
-      descriptionAr: 'تدريب شامل على المهارات الرقمية للاجئين والمهاجرين السوريين، يغطي مهارات الكمبيوتر الأساسية والسلامة على الإنترنت والبحث عن وظائف عبر الإنترنت.',
-      location: 'Toronto, Montreal, Vancouver',
-      locationAr: 'تورونتو، مونتريال، فانكوفر',
+      title: 'Digital Literacy & Media Empowerment',
+      titleAr: 'محو الأمية الرقمية وتمكين الإعلام',
+      category: 'syria',
+      description: 'Workshops and online training empower Syrians—especially youth and women—with digital and media skills, countering misinformation and supporting civic engagement.',
+      descriptionAr: 'ورش العمل والتدريب عبر الإنترنت تمكن السوريين - خاصة الشباب والنساء - بالمهارات الرقمية والإعلامية، ومواجهة المعلومات المضللة ودعم المشاركة المدنية.',
+      location: 'Syria-wide, diaspora-supported',
+      locationAr: 'في جميع أنحاء سوريا، بدعم من الشتات',
       participants: 450,
       duration: '12 weeks',
       durationAr: '12 أسبوعاً',
       status: 'active',
-      impact: '85% job placement rate',
-      impactAr: 'معدل توظيف 85%',
+      impact: '85% improved digital skills',
+      impactAr: 'تحسن المهارات الرقمية بنسبة 85%',
       image: 'https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=800',
       features: [
-        'Basic computer skills',
-        'Internet navigation',
-        'Email and communication',
-        'Online job applications',
-        'Digital safety'
+        'Digital skills training',
+        'Media literacy',
+        'Civic engagement',
+        'Youth focus',
+        'Women empowerment'
       ],
       featuresAr: [
-        'مهارات الكمبيوتر الأساسية',
-        'التنقل في الإنترنت',
-        'البريد الإلكتروني والتواصل',
-        'طلبات العمل عبر الإنترنت',
-        'السلامة الرقمية'
+        'تدريب المهارات الرقمية',
+        'محو الأمية الإعلامية',
+        'المشاركة المدنية',
+        'التركيز على الشباب',
+        'تمكين المرأة'
       ]
     },
     {
       id: '2',
       title: 'Cultural Heritage Documentation',
       titleAr: 'توثيق التراث الثقافي',
-      category: 'culture',
-      description: 'Preserving Syrian cultural heritage through digital storytelling, oral history collection, and traditional arts workshops.',
-      descriptionAr: 'الحفاظ على التراث الثقافي السوري من خلال السرد الرقمي وجمع التاريخ الشفوي وورش الفنون التقليدية.',
-      location: 'Damascus, Aleppo, Berlin',
-      locationAr: 'دمشق، حلب، برلين',
+      category: 'syria',
+      description: 'Preserving Syria\'s collective memory through oral histories, storytelling, and cultural revitalization events in Aleppo, Latakia, and beyond.',
+      descriptionAr: 'الحفاظ على الذاكرة الجماعية السورية من خلال التواريخ الشفوية والسرد وأحداث إحياء الثقافة في حلب واللاذقية وما بعدها.',
+      location: 'Aleppo, Latakia, Damascus',
+      locationAr: 'حلب، اللاذقية، دمشق',
       participants: 320,
       duration: 'Ongoing',
       durationAr: 'مستمر',
@@ -78,26 +80,26 @@ const ProgramsPage: React.FC = () => {
       image: 'https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=800',
       features: [
         'Oral history collection',
-        'Traditional crafts workshops',
-        'Digital storytelling',
         'Cultural events',
-        'Heritage preservation'
+        'Memory preservation',
+        'Community storytelling',
+        'Heritage documentation'
       ],
       featuresAr: [
         'جمع التاريخ الشفوي',
-        'ورش الحرف التقليدية',
-        'السرد الرقمي',
         'الفعاليات الثقافية',
-        'الحفاظ على التراث'
+        'الحفاظ على الذاكرة',
+        'السرد المجتمعي',
+        'توثيق التراث'
       ]
     },
     {
       id: '3',
       title: 'Youth Leadership Development',
       titleAr: 'تطوير القيادة الشبابية',
-      category: 'community',
-      description: 'Empowering young Syrian leaders through mentorship, leadership training, and community project implementation.',
-      descriptionAr: 'تمكين القادة الشباب السوريين من خلال الإرشاد والتدريب على القيادة وتنفيذ المشاريع المجتمعية.',
+      category: 'syria',
+      description: 'Volunteer-driven networks and leadership training help young Syrians rebuild their communities as innovators and peacebuilders.',
+      descriptionAr: 'الشبكات المدفوعة بالمتطوعين والتدريب على القيادة تساعد الشباب السوري في إعادة بناء مجتمعاتهم كمبتكرين وبناة سلام.',
       location: 'Multiple cities',
       locationAr: 'مدن متعددة',
       participants: 180,
@@ -108,29 +110,29 @@ const ProgramsPage: React.FC = () => {
       impactAr: 'معدل إكمال البرنامج 95%',
       image: 'https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=800',
       features: [
-        'Leadership workshops',
-        'Mentorship program',
-        'Community projects',
-        'Public speaking training',
-        'Networking events'
+        'Leadership training',
+        'Community rebuilding',
+        'Innovation focus',
+        'Peacebuilding',
+        'Volunteer networks'
       ],
       featuresAr: [
-        'ورش القيادة',
-        'برنامج الإرشاد',
-        'المشاريع المجتمعية',
-        'تدريب الخطابة',
-        'فعاليات التواصل'
+        'تدريب القيادة',
+        'إعادة بناء المجتمع',
+        'التركيز على الابتكار',
+        'بناء السلام',
+        'شبكات المتطوعين'
       ]
     },
     {
       id: '4',
       title: 'Community Health Outreach',
       titleAr: 'التوعية الصحية المجتمعية',
-      category: 'health',
-      description: 'Providing health education, mental health support, and connecting families with healthcare resources.',
-      descriptionAr: 'توفير التثقيف الصحي ودعم الصحة النفسية وربط العائلات بموارد الرعاية الصحية.',
-      location: 'Toronto, Damascus',
-      locationAr: 'تورونتو، دمشق',
+      category: 'syria',
+      description: 'Grassroots health education, psychosocial support, and trauma resilience initiatives led by local volunteers in conflict-affected areas.',
+      descriptionAr: 'التثقيف الصحي الشعبي والدعم النفسي الاجتماعي ومبادرات مرونة الصدمات بقيادة المتطوعين المحليين في المناطق المتأثرة بالنزاع.',
+      location: 'Conflict-affected areas',
+      locationAr: 'المناطق المتأثرة بالنزاع',
       participants: 280,
       duration: 'Ongoing',
       durationAr: 'مستمر',
@@ -139,60 +141,60 @@ const ProgramsPage: React.FC = () => {
       impactAr: 'خدمت أكثر من 2,500 عائلة',
       image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
       features: [
-        'Health education workshops',
-        'Mental health support',
-        'Healthcare navigation',
-        'Wellness programs',
-        'Community clinics'
+        'Health education',
+        'Psychosocial support',
+        'Trauma resilience',
+        'Local volunteers',
+        'Community-led'
       ],
       featuresAr: [
-        'ورش التثقيف الصحي',
-        'دعم الصحة النفسية',
-        'التنقل في الرعاية الصحية',
-        'برامج العافية',
-        'العيادات المجتمعية'
+        'التثقيف الصحي',
+        'الدعم النفسي الاجتماعي',
+        'مرونة الصدمات',
+        'المتطوعون المحليون',
+        'بقيادة المجتمع'
       ]
     },
     {
       id: '5',
       title: 'Innovation Hub',
       titleAr: 'مركز الابتكار',
-      category: 'technology',
-      description: 'Supporting Syrian entrepreneurs and innovators with technology resources, mentorship, and startup incubation.',
-      descriptionAr: 'دعم رواد الأعمال والمبتكرين السوريين بموارد التكنولوجيا والإرشاد واحتضان الشركات الناشئة.',
-      location: 'Berlin, Toronto',
-      locationAr: 'برلين، تورونتو',
+      category: 'syria',
+      description: 'A collaborative center in Latakia supporting civil society, social entrepreneurs, and local initiatives with space, mentorship, and joint Canada-Syria management.',
+      descriptionAr: 'مركز تعاوني في اللاذقية يدعم المجتمع المدني ورواد الأعمال الاجتماعيين والمبادرات المحلية بالمساحة والإرشاد والإدارة المشتركة بين كندا وسوريا.',
+      location: 'Latakia, Syria',
+      locationAr: 'اللاذقية، سوريا',
       participants: 120,
       duration: '12 months',
       durationAr: '12 شهراً',
-      status: 'planned',
-      impact: '15 startups launched',
-      impactAr: '15 شركة ناشئة أُطلقت',
+      status: 'active',
+      impact: '15 initiatives launched',
+      impactAr: '15 مبادرة أُطلقت',
       image: 'https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=800',
       features: [
-        'Startup incubation',
-        'Technology training',
-        'Mentorship network',
-        'Funding support',
-        'Innovation workshops'
+        'Civil society support',
+        'Social entrepreneurship',
+        'Mentorship programs',
+        'Collaborative space',
+        'Cross-border management'
       ],
       featuresAr: [
-        'احتضان الشركات الناشئة',
-        'التدريب التقني',
-        'شبكة الإرشاد',
-        'دعم التمويل',
-        'ورش الابتكار'
+        'دعم المجتمع المدني',
+        'ريادة الأعمال الاجتماعية',
+        'برامج الإرشاد',
+        'مساحة تعاونية',
+        'الإدارة عبر الحدود'
       ]
     },
     {
       id: '6',
       title: 'Women Empowerment Circle',
       titleAr: 'دائرة تمكين المرأة',
-      category: 'community',
-      description: 'Supporting Syrian women through skill development, entrepreneurship training, and peer support networks.',
-      descriptionAr: 'دعم النساء السوريات من خلال تطوير المهارات والتدريب على ريادة الأعمال وشبكات الدعم النظير.',
-      location: 'Multiple locations',
-      locationAr: 'مواقع متعددة',
+      category: 'syria',
+      description: 'A national and diaspora-linked women\'s leadership network focused on economic empowerment, feminist organizing, and local council-building.',
+      descriptionAr: 'شبكة قيادة نسائية وطنية ومرتبطة بالشتات تركز على التمكين الاقتصادي والتنظيم النسوي وبناء المجالس المحلية.',
+      location: 'National network',
+      locationAr: 'شبكة وطنية',
       participants: 350,
       duration: '8 weeks',
       durationAr: '8 أسابيع',
@@ -201,18 +203,112 @@ const ProgramsPage: React.FC = () => {
       impactAr: '70% بدأن أعمالاً تجارية',
       image: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800',
       features: [
-        'Business training',
-        'Financial literacy',
-        'Networking events',
-        'Childcare support',
-        'Mentorship program'
+        'Economic empowerment',
+        'Feminist organizing',
+        'Leadership development',
+        'Local council building',
+        'Diaspora connections'
       ],
       featuresAr: [
-        'التدريب التجاري',
-        'محو الأمية المالية',
-        'فعاليات التواصل',
-        'دعم رعاية الأطفال',
-        'برنامج الإرشاد'
+        'التمكين الاقتصادي',
+        'التنظيم النسوي',
+        'تطوير القيادة',
+        'بناء المجالس المحلية',
+        'روابط الشتات'
+      ]
+    },
+    // Canada Programs
+    {
+      id: '7',
+      title: 'Community Garden Project',
+      titleAr: 'مشروع الحديقة المجتمعية',
+      category: 'canada',
+      description: 'A vibrant urban agriculture initiative in Edmonton, co-managed by newcomers and long-term residents. The garden provides fresh produce, hosts intercultural events, and fosters food security, environmental education, and community healing.',
+      descriptionAr: 'مبادرة زراعة حضرية نابضة بالحياة في إدمونتون، تدار بالتعاون بين الوافدين الجدد والمقيمين طويل الأمد. توفر الحديقة المنتجات الطازجة وتستضيف فعاليات ثقافية وتعزز الأمن الغذائي والتعليم البيئي والشفاء المجتمعي.',
+      location: 'Edmonton, Canada',
+      locationAr: 'إدمونتون، كندا',
+      participants: 85,
+      duration: 'Year-round',
+      durationAr: 'على مدار السنة',
+      status: 'active',
+      impact: '500+ families fed',
+      impactAr: 'أطعمت أكثر من 500 عائلة',
+      image: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800',
+      features: [
+        'Urban agriculture',
+        'Intercultural events',
+        'Food security',
+        'Environmental education',
+        'Community healing'
+      ],
+      featuresAr: [
+        'الزراعة الحضرية',
+        'الفعاليات الثقافية',
+        'الأمن الغذائي',
+        'التعليم البيئي',
+        'الشفاء المجتمعي'
+      ]
+    },
+    {
+      id: '8',
+      title: 'Syrian Film Festival',
+      titleAr: 'مهرجان الأفلام السورية',
+      category: 'canada',
+      description: 'An annual film event in Edmonton that spotlights Syrian and diasporic voices in cinema. The festival builds bridges, amplifies untold stories, and creates space for cultural dialogue between Syrians and the broader Canadian community.',
+      descriptionAr: 'حدث سينمائي سنوي في إدمونتون يسلط الضوء على الأصوات السورية وأصوات الشتات في السينما. يبني المهرجان الجسور ويضخم القصص غير المروية وينشئ مساحة للحوار الثقافي بين السوريين والمجتمع الكندي الأوسع.',
+      location: 'Edmonton, Canada',
+      locationAr: 'إدمونتون، كندا',
+      participants: 200,
+      duration: '1 week annually',
+      durationAr: 'أسبوع واحد سنوياً',
+      status: 'active',
+      impact: '50+ films showcased',
+      impactAr: 'أكثر من 50 فيلماً عُرض',
+      image: 'https://images.pexels.com/photos/1884581/pexels-photo-1884581.jpeg?auto=compress&cs=tinysrgb&w=800',
+      features: [
+        'Syrian cinema',
+        'Cultural dialogue',
+        'Community building',
+        'Storytelling platform',
+        'Annual event'
+      ],
+      featuresAr: [
+        'السينما السورية',
+        'الحوار الثقافي',
+        'بناء المجتمع',
+        'منصة السرد',
+        'حدث سنوي'
+      ]
+    },
+    {
+      id: '9',
+      title: 'Nonprofit Partnerships & Convening',
+      titleAr: 'شراكات المنظمات غير الربحية والتجمع',
+      category: 'canada',
+      description: 'RCF regularly convenes Syrian and allied nonprofits, grassroots groups, and community organizers in Edmonton and Western Canada. Through roundtables, collaborative projects, and shared advocacy, RCF strengthens the sector, builds new partnerships, and ensures Syrian-Canadian communities are heard in policy and public life.',
+      descriptionAr: 'تجمع مؤسسة مجتمع الريزوم بانتظام المنظمات غير الربحية السورية والمتحالفة والمجموعات الشعبية ومنظمي المجتمع في إدمونتون وغرب كندا. من خلال المائدة المستديرة والمشاريع التعاونية والمناصرة المشتركة، تقوي المؤسسة القطاع وتبني شراكات جديدة وتضمن سماع أصوات المجتمعات السورية الكندية في السياسة والحياة العامة.',
+      location: 'Edmonton & Western Canada',
+      locationAr: 'إدمونتون وغرب كندا',
+      participants: 150,
+      duration: 'Ongoing',
+      durationAr: 'مستمر',
+      status: 'active',
+      impact: '25+ organizations connected',
+      impactAr: 'أكثر من 25 منظمة متصلة',
+      image: 'https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=800',
+      features: [
+        'Nonprofit convening',
+        'Collaborative projects',
+        'Policy advocacy',
+        'Community organizing',
+        'Partnership building'
+      ],
+      featuresAr: [
+        'تجميع المنظمات غير الربحية',
+        'المشاريع التعاونية',
+        'مناصرة السياسات',
+        'التنظيم المجتمعي',
+        'بناء الشراكات'
       ]
     }
   ];
@@ -224,7 +320,7 @@ const ProgramsPage: React.FC = () => {
   const stats = [
     { label: 'Active Programs', labelAr: 'برامج نشطة', value: programs.filter(p => p.status === 'active').length },
     { label: 'Total Participants', labelAr: 'إجمالي المشاركين', value: programs.reduce((sum, p) => sum + p.participants, 0) },
-    { label: 'Countries', labelAr: 'دولة', value: 8 },
+    { label: 'Countries', labelAr: 'دولة', value: 2 },
     { label: 'Success Rate', labelAr: 'معدل النجاح', value: '92%' }
   ];
 
@@ -242,11 +338,11 @@ const ProgramsPage: React.FC = () => {
             <h1 className="text-5xl font-bold mb-6">
               {t('programs-title', 'Our Programs', 'برامجنا')}
             </h1>
-            <p className="text-xl text-emerald-100 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-emerald-100 mb-8 max-w-4xl mx-auto">
               {t(
                 'programs-subtitle',
-                'Comprehensive initiatives designed to empower, educate, and connect Syrian communities worldwide.',
-                'مبادرات شاملة مصممة لتمكين وتعليم وربط المجتمعات السورية في جميع أنحاء العالم.'
+                'Connecting Syrians and communities in Syria and Canada through grassroots action, cultural exchange, and collective leadership. Rhizome Syria and Rhizome Community Foundation (RCF) operate jointly across borders, delivering high-impact programs with local and diaspora leadership.',
+                'ربط السوريين والمجتمعات في سوريا وكندا من خلال العمل الشعبي والتبادل الثقافي والقيادة الجماعية. تعمل ريزوم سوريا ومؤسسة مجتمع الريزوم بشكل مشترك عبر الحدود، وتقدم برامج عالية التأثير بقيادة محلية وشتاتية.'
               )}
             </p>
 
@@ -326,7 +422,7 @@ const ProgramsPage: React.FC = () => {
                     alt={t('program-title', program.title, program.titleAr)}
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
                   />
-                  <div className="absolute top-4 left-4">
+                  <div className="absolute top-4 left-4 flex gap-2">
                     <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                       program.status === 'active' 
                         ? 'bg-green-100 text-green-800' 
@@ -335,6 +431,20 @@ const ProgramsPage: React.FC = () => {
                         : 'bg-gray-100 text-gray-800'
                     }`}>
                       {t(`status-${program.status}`, program.status, program.status)}
+                    </span>
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                      program.category === 'syria' 
+                        ? 'bg-emerald-100 text-emerald-800'
+                        : program.category === 'canada'
+                        ? 'bg-red-100 text-red-800'
+                        : 'bg-blue-100 text-blue-800'
+                    }`}>
+                      {t(`category-${program.category}`, 
+                        program.category === 'syria' ? 'Syria' : 
+                        program.category === 'canada' ? 'Canada' : 'Cross-Border',
+                        program.category === 'syria' ? 'سوريا' : 
+                        program.category === 'canada' ? 'كندا' : 'عبر الحدود'
+                      )}
                     </span>
                   </div>
                 </div>
@@ -414,13 +524,13 @@ const ProgramsPage: React.FC = () => {
             className={currentLanguage.code === 'ar' ? 'font-arabic' : ''}
           >
             <h2 className="text-4xl font-bold mb-6">
-              {t('join-programs-title', 'Ready to Get Involved?', 'مستعد للمشاركة؟')}
+              {t('join-network-title', 'Join Our Network', 'انضم إلى شبكتنا')}
             </h2>
             <p className="text-xl text-emerald-100 mb-8 max-w-3xl mx-auto">
               {t(
-                'join-programs-description',
-                'Join our programs and become part of a global community working towards positive change.',
-                'انضم إلى برامجنا وكن جزءاً من مجتمع عالمي يعمل من أجل التغيير الإيجابي.'
+                'join-network-description',
+                'Whether in Syria or Canada, your participation helps us grow resilient, empowered communities.',
+                'سواء في سوريا أو كندا، مشاركتك تساعدنا في نمو مجتمعات مرنة وممكنة.'
               )}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -430,6 +540,11 @@ const ProgramsPage: React.FC = () => {
               <button className="px-8 py-4 bg-emerald-800 text-white font-semibold rounded-full hover:bg-emerald-900 transition-colors">
                 {t('volunteer', 'Volunteer', 'تطوع')}
               </button>
+            </div>
+            <div className="mt-6 text-emerald-200">
+              <p>
+                {t('contact-programs', 'Contact:', 'اتصل:')} info@rhizomesyria.org | info@rcf-canada.org
+              </p>
             </div>
           </motion.div>
         </div>

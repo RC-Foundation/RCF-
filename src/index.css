@@ -4,9 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom Cursor */
+/* Custom Cursor - Disabled for hypersonic effect */
 * {
-  cursor: none;
+  cursor: auto;
 }
 
 /* Custom styles for Arabic text */
@@ -28,47 +28,16 @@
   --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
 }
 
-/* Cursor Styles - Fixed sizes */
-.cursor {
-  width: 8px;
-  height: 8px;
-  border: 1px solid var(--accent-color);
-  border-radius: 50%;
+/* Hypersonic Cursor Canvas */
+#hypersonic-canvas {
   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
   z-index: 9999;
-  transition: all 0.15s ease;
-  transition-property: width, height, border-width, background-color;
-  mix-blend-mode: difference;
-  transform: translate(-50%, -50%);
-}
-
-.cursor-follower {
-  width: 24px;
-  height: 24px;
-  background: var(--accent-color);
-  opacity: 0.15;
-  position: fixed;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transition: all 0.25s ease;
-  transition-property: width, height, opacity, background-color;
-  transform: translate(-50%, -50%);
-}
-
-.cursor.hover {
-  width: 16px;
-  height: 16px;
-  border-width: 2px;
-  background-color: rgba(185, 28, 28, 0.2);
-}
-
-.cursor-follower.hover {
-  width: 32px;
-  height: 32px;
-  opacity: 0.08;
-  background-color: var(--primary-color);
+  mix-blend-mode: screen;
 }
 
 /* Base Styles */
@@ -438,16 +407,6 @@ select:focus {
     grid-column: span 1;
     grid-row: span 1;
   }
-
-  /* Disable custom cursor on mobile */
-  * {
-    cursor: auto !important;
-  }
-  
-  .cursor,
-  .cursor-follower {
-    display: none;
-  }
 }
 
 @media (max-width: 480px) {
@@ -508,8 +467,7 @@ html {
     transition-duration: 0.01ms !important;
   }
   
-  .cursor,
-  .cursor-follower {
-    transition: none !important;
+  #hypersonic-canvas {
+    display: none !important;
   }
 }
