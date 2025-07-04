@@ -28,18 +28,6 @@
   --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
 }
 
-/* Hypersonic Cursor Canvas */
-#hypersonic-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: screen;
-}
-
 /* Base Styles */
 body {
   font-family: 'Poppins', 'Noto Sans Arabic', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
