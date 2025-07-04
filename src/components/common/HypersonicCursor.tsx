@@ -73,19 +73,19 @@ const HypersonicCursor: React.FC = () => {
 
         if (progress >= 1) return false; // Remove completed shockwaves
 
-        // Calculate current radius
-        const radius = progress * config.maxRadius * config.speed;
+        // Calculate current radius with Math.max to ensure non-negative value
+        const radius = Math.max(0, progress * config.maxRadius * config.speed);
         
         // Calculate opacity with steep falloff
         const opacity = config.opacity * (1 - progress) * Math.exp(-progress * 5);
 
-        if (opacity < 0.01) return false; // Remove nearly invisible shockwaves
+        if (opacity < 0.01 || radius <= 0) return false; // Remove nearly invisible or invalid shockwaves
 
         // Draw the shockwave ring
         ctx.save();
-        ctx.globalAlpha = opacity;
+        ctx.globalAlpha = Math.max(0, opacity);
         ctx.strokeStyle = config.color;
-        ctx.lineWidth = config.thickness * (1 - progress * 0.5); // Taper thickness
+        ctx.lineWidth = Math.max(0.1, config.thickness * (1 - progress * 0.5)); // Taper thickness with minimum
         ctx.shadowColor = config.color;
         ctx.shadowBlur = 10;
         
@@ -94,8 +94,8 @@ const HypersonicCursor: React.FC = () => {
         ctx.stroke();
         
         // Add inner glow effect
-        ctx.globalAlpha = opacity * 0.3;
-        ctx.lineWidth = config.thickness * 2;
+        ctx.globalAlpha = Math.max(0, opacity * 0.3);
+        ctx.lineWidth = Math.max(0.1, config.thickness * 2);
         ctx.shadowBlur = 20;
         ctx.stroke();
         
