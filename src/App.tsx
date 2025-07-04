@@ -12,6 +12,8 @@ import CommunityWallPage from './pages/CommunityWallPage';
 import CalendarPage from './pages/CalendarPage';
 import ContactPage from './pages/ContactPage';
 import AdminApprovalPage from './pages/AdminApprovalPage';
+import RhizomeSyriaSubpage from './pages/RhizomeSyriaSubpage';
+import RhizomeCanadaSubpage from './pages/RhizomeCanadaSubpage';
 import ParticleSystem from './components/common/ParticleSystem';
 import HypersonicCursor from './components/common/HypersonicCursor';
 
@@ -33,6 +35,8 @@ function App() {
                 <Route path="/calendar" element={<CalendarPage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/admin" element={<AdminApprovalPage />} />
+                <Route path="/rhizome-syria-subpage" element={<RhizomeSyriaSubpage />} />
+                <Route path="/rhizome-canada-subpage" element={<RhizomeCanadaSubpage />} />
               </Routes>
             </main>
             <Footer />
