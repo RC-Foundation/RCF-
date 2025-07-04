@@ -5,8 +5,39 @@
 @tailwind utilities;
 
 /* Custom Cursor - Disabled for hypersonic effect */
+/* Custom Cursor Styles */
 * {
-  cursor: auto;
+  cursor: none;
+}
+
+/* Custom circular cursor */
+body::before {
+  content: '';
+  position: fixed;
+  top: var(--cursor-y, 0);
+  left: var(--cursor-x, 0);
+  width: 20px;
+  height: 20px;
+  background: #064e3b;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+/* Cursor follower */
+body::after {
+  content: '';
+  position: fixed;
+  top: var(--follower-y, 0);
+  left: var(--follower-x, 0);
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(6, 78, 59, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
 }
 
 /* Custom styles for Arabic text */
