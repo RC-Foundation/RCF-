@@ -15,7 +15,7 @@ import AdminApprovalPage from './pages/AdminApprovalPage';
 import RhizomeSyriaSubpage from './pages/RhizomeSyriaSubpage';
 import RhizomeCanadaSubpage from './pages/RhizomeCanadaSubpage';
 import ParticleSystem from './components/common/ParticleSystem';
-import HypersonicCursor from './components/common/HypersonicCursor';
+import CustomCursor from './components/common/CustomCursor';
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
       <PhotoProvider>
         <Router>
           <div className="min-h-screen bg-gradient-to-br from-stone-50 to-emerald-50">
-            <HypersonicCursor />
+            <CustomCursor />
             <Navigation />
             <main>
               <Routes>
