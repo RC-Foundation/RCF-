@@ -35,18 +35,6 @@
 }
 
 .cursor.hover {
-  width: 30px;
-  height: 30px;
-  background-color: transparent;
-  border: 1px solid #064e3b;
-}
-
-.cursor-follower.hover {
-  width: 50px;
-  height: 50px;
-  border-color: #064e3b;
-}
-
 /* Custom styles for Arabic text */
 .font-arabic {
   font-family: 'Noto Sans Arabic', Arial, sans-serif;
