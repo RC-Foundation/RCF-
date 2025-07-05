@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Users, Target, Award, Calendar, Globe, Image, Palette, Heart, Shield } from 'lucide-react';
+import { MapPin, Users, Target, Award, Calendar, Globe, Image, Palette, Heart, Shield, Star, Sparkles } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const RhizomeSyriaPage: React.FC = () => {
@@ -39,67 +39,161 @@ const RhizomeSyriaPage: React.FC = () => {
       nameAr: 'سيلفا',
       role: 'Programs Lead',
       roleAr: 'قائدة البرامج',
-      bio: 'Manages Rhizome Syria\'s programmatic portfolio, with a focus on feminist frameworks, coastal civic organizing, and training modules. Silva brings experience in intersectional community work and participatory program design.',
-      bioAr: 'تدير محفظة برامج ريزوم سوريا، مع التركيز على الأطر النسوية والتنظيم المدني الساحلي ووحدات التدريب. تجلب سيلفا خبرة في العمل المجتمعي التقاطعي وتصميم البرامج التشاركية.',
+      bio: 'Manages Rhizome Syria\'s programmatic portfolio, with a focus on feminist frameworks, coastal civic organizing, and training modules.',
+      bioAr: 'تدير محفظة برامج ريزوم سوريا، مع التركيز على الأطر النسوية والتنظيم المدني الساحلي ووحدات التدريب.',
       image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400'
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-stone-50 to-emerald-50 pt-16">
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-emerald-700 to-emerald-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-orange-50 pt-16 relative overflow-hidden">
+      {/* Syrian Map Background */}
+      <div 
+        className="fixed inset-0 opacity-5 bg-no-repeat bg-center bg-contain pointer-events-none"
+        style={{
+          backgroundImage: `url('/slide0007_image015.png')`,
+          backgroundSize: '80%',
+          backgroundPosition: 'center 20%'
+        }}
+      />
+
+      {/* Hero Section with Logo-Inspired Design */}
+      <section className="relative py-24 overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-purple-400 to-blue-400 rounded-full opacity-20 animate-pulse" />
+          <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-orange-400 to-red-400 rounded-full opacity-20 animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute bottom-20 left-1/4 w-40 h-40 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full opacity-15 animate-pulse" style={{ animationDelay: '2s' }} />
+          <div className="absolute top-1/3 right-1/3 w-28 h-28 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-full opacity-20 animate-pulse" style={{ animationDelay: '0.5s' }} />
+        </div>
+
+        {/* Spiral Pattern Overlay */}
+        <div className="absolute inset-0 opacity-10">
+          <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="spiralGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#6B46C1" />
+                <stop offset="25%" stopColor="#0EA5E9" />
+                <stop offset="50%" stopColor="#F97316" />
+                <stop offset="75%" stopColor="#EF4444" />
+                <stop offset="100%" stopColor="#F59E0B" />
+              </linearGradient>
+            </defs>
+            <path d="M50,50 Q30,30 50,10 Q70,30 90,50 Q70,70 50,90 Q30,70 10,50 Q30,30 50,50" 
+                  fill="none" 
+                  stroke="url(#spiralGradient)" 
+                  strokeWidth="0.5" 
+                  opacity="0.3" />
+          </svg>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className={`text-center ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
           >
-            <h1 className="text-5xl font-bold mb-6" style={{ fontFamily: '"Playfair Display", "Noto Sans Arabic", serif' }}>
+            {/* Logo Integration */}
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 1, delay: 0.3 }}
+              className="flex justify-center mb-8"
+            >
+              <div className="relative">
+                <img 
+                  src="/20250629_1822_Gradient Logo Design_remix_01jyz38q10e56bpwt8s4ypzwhj.png" 
+                  alt="Rhizome Syria Logo" 
+                  className="h-32 w-auto drop-shadow-2xl"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-400/20 via-blue-400/20 to-orange-400/20 rounded-full blur-xl" />
+              </div>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-600 via-blue-600 via-orange-500 to-red-500 bg-clip-text text-transparent"
+              style={{ fontFamily: '"Playfair Display", "Noto Sans Arabic", serif' }}
+            >
               {t('rhizome-syria-title', 'Rhizome Syria', 'ريزوم سوريا')}
-            </h1>
-            <p className="text-xl text-emerald-100 max-w-3xl mx-auto">
+            </motion.h1>
+            
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-8 leading-relaxed"
+            >
               {t(
                 'rhizome-syria-subtitle',
                 'The Syrian branch of the Rhizome Community Foundation – nonpartisan, community-rooted, and anti-sectarian.',
                 'الفرع السوري لمؤسسة مجتمع الريزوم - غير حزبي، متجذر في المجتمع، ومناهض للطائفية.'
               )}
-            </p>
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+            >
+              <button className="group px-8 py-4 bg-gradient-to-r from-purple-600 via-blue-600 to-orange-500 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                <span className="flex items-center">
+                  <Sparkles className="h-5 w-5 mr-2 group-hover:animate-spin" />
+                  {t('explore-programs', 'Explore Our Programs', 'استكشف برامجنا')}
+                </span>
+              </button>
+              
+              <button className="px-8 py-4 bg-white/80 backdrop-blur-sm text-purple-700 font-semibold rounded-full border-2 border-purple-300 hover:bg-purple-50 transition-all duration-300">
+                {t('join-community', 'Join Our Community', 'انضم إلى مجتمعنا')}
+              </button>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* Mission Section */}
-      <section className="py-16 bg-white">
+      {/* Mission Section with Vibrant Cards */}
+      <section className="py-20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-16">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
+              className="relative"
             >
-              <h2 className={`text-3xl font-bold text-emerald-800 mb-6 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`} style={{ fontFamily: '"Playfair Display", "Noto Sans Arabic", serif' }}>
-                {t('our-mission', 'Our Mission', 'مهمتنا')}
-              </h2>
-              
-              <div className={`prose prose-lg max-w-none text-gray-700 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                <p>
-                  {t(
-                    'mission-text-1',
-                    'Rhizome Syria is the Syrian partner in a joint venture agreement with Rhizome Canada, together forming the Rhizome Community Foundation. Both branches operate with full legal independence while remaining strategically connected through shared governance principles, coordinated programming, and mutual accountability. The partnership is grounded in a decentralized, feminist, and anti-authoritarian ethos.',
-                    'ريزوم سوريا هي الشريك السوري في اتفاقية مشروع مشترك مع ريزوم كندا، وتشكلان معاً مؤسسة مجتمع الريزوم. يعمل كلا الفرعين باستقلالية قانونية كاملة مع البقاء مترابطين استراتيجياً من خلال مبادئ الحوكمة المشتركة والبرمجة المنسقة والمساءلة المتبادلة. تقوم الشراكة على أساس لامركزي ونسوي ومناهض للسلطوية.'
-                  )}
-                </p>
+              <div className="absolute -inset-4 bg-gradient-to-r from-purple-400 via-blue-400 to-orange-400 rounded-2xl opacity-20 blur-xl" />
+              <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-purple-200">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center mr-4">
+                    <Target className="h-6 w-6 text-white" />
+                  </div>
+                  <h2 className={`text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                    {t('our-mission', 'Our Mission', 'مهمتنا')}
+                  </h2>
+                </div>
                 
-                <p>
-                  {t(
-                    'mission-text-2',
-                    'Rhizome Syria works to strengthen social cohesion through cultural, feminist, and community initiatives. It is unaffiliated with any previous regime institutions and is explicitly anti-sectarian. The organization supports civil society networks, particularly in coastal, northern, and central Syria, and is committed to peacebuilding, cultural revitalization, and the empowerment of women and marginalized communities.',
-                    'تعمل ريزوم سوريا على تعزيز التماسك الاجتماعي من خلال المبادرات الثقافية والنسوية والمجتمعية. وهي غير منتسبة لأي مؤسسات نظام سابقة وهي صراحة مناهضة للطائفية. تدعم المنظمة شبكات المجتمع المدني، خاصة في سوريا الساحلية والشمالية والوسطى، وهي ملتزمة ببناء السلام وإحياء الثقافة وتمكين النساء والمجتمعات المهمشة.'
-                  )}
-                </p>
+                <div className={`space-y-6 text-gray-700 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                  <p className="text-lg leading-relaxed">
+                    {t(
+                      'mission-text-1',
+                      'Rhizome Syria is the Syrian partner in a joint venture agreement with Rhizome Canada, together forming the Rhizome Community Foundation. Both branches operate with full legal independence while remaining strategically connected through shared governance principles, coordinated programming, and mutual accountability.',
+                      'ريزوم سوريا هي الشريك السوري في اتفاقية مشروع مشترك مع ريزوم كندا، وتشكلان معاً مؤسسة مجتمع الريزوم. يعمل كلا الفرعين باستقلالية قانونية كاملة مع البقاء مترابطين استراتيجياً من خلال مبادئ الحوكمة المشتركة والبرمجة المنسقة والمساءلة المتبادلة.'
+                    )}
+                  </p>
+                  
+                  <p className="text-lg leading-relaxed">
+                    {t(
+                      'mission-text-2',
+                      'Rhizome Syria works to strengthen social cohesion through cultural, feminist, and community initiatives. It is unaffiliated with any previous regime institutions and is explicitly anti-sectarian.',
+                      'تعمل ريزوم سوريا على تعزيز التماسك الاجتماعي من خلال المبادرات الثقافية والنسوية والمجتمعية. وهي غير منتسبة لأي مؤسسات نظام سابقة وهي صراحة مناهضة للطائفية.'
+                    )}
+                  </p>
+                </div>
               </div>
             </motion.div>
             
@@ -108,23 +202,32 @@ const RhizomeSyriaPage: React.FC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
+              className="space-y-6"
             >
-              <img 
-                src="/WhatsApp Image 2025-06-19 at 12.35.09 PM copy.jpeg" 
-                alt="Rhizome Syria Activities" 
-                className="w-full h-auto rounded-xl shadow-xl mb-8"
-              />
+              <div className="relative">
+                <img 
+                  src="/WhatsApp Image 2025-06-19 at 12.35.09 PM copy.jpeg" 
+                  alt="Rhizome Syria Activities" 
+                  className="w-full h-80 object-cover rounded-2xl shadow-2xl"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-purple-600/30 via-transparent to-blue-600/20 rounded-2xl" />
+              </div>
               
-              <div className="bg-emerald-50 rounded-xl p-6 shadow-md">
-                <h3 className={`text-xl font-bold text-emerald-800 mb-4 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                  {t('our-structure', 'Our Structure', 'هيكلنا')}
-                </h3>
+              <div className="bg-gradient-to-br from-orange-50 via-yellow-50 to-red-50 rounded-2xl p-6 shadow-xl border border-orange-200">
+                <div className="flex items-center mb-4">
+                  <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center mr-3">
+                    <Globe className="h-5 w-5 text-white" />
+                  </div>
+                  <h3 className={`text-xl font-bold text-orange-800 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                    {t('our-structure', 'Our Structure', 'هيكلنا')}
+                  </h3>
+                </div>
                 
-                <p className={`text-gray-700 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                <p className={`text-gray-700 leading-relaxed ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
                   {t(
                     'structure-text',
-                    'Rhizome Syria and Rhizome Canada operate as two legally distinct entities under a joint venture cooperation agreement, facilitating coordinated strategic planning, knowledge exchange, and dual accountability. The agreement enables secure funding flow, joint programming, and co-development of community-driven initiatives across geographies. Together, they form a transnational rhizomatic network committed to rebuilding Syria from the grassroots.',
-                    'تعمل ريزوم سوريا وريزوم كندا ككيانين قانونيين منفصلين تحت اتفاقية تعاون مشروع مشترك، مما يسهل التخطيط الاستراتيجي المنسق وتبادل المعرفة والمساءلة المزدوجة. تمكن الاتفاقية من تدفق التمويل الآمن والبرمجة المشتركة والتطوير المشترك للمبادرات المجتمعية عبر الجغرافيات. معاً، يشكلان شبكة ريزومية عابرة للحدود ملتزمة بإعادة بناء سوريا من القاعدة الشعبية.'
+                    'Rhizome Syria and Rhizome Canada operate as two legally distinct entities under a joint venture cooperation agreement, facilitating coordinated strategic planning, knowledge exchange, and dual accountability.',
+                    'تعمل ريزوم سوريا وريزوم كندا ككيانين قانونيين منفصلين تحت اتفاقية تعاون مشروع مشترك، مما يسهل التخطيط الاستراتيجي المنسق وتبادل المعرفة والمساءلة المزدوجة.'
                   )}
                 </p>
               </div>
@@ -133,20 +236,21 @@ const RhizomeSyriaPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Current Activities */}
-      <section className="py-16 bg-gradient-to-br from-emerald-50 to-stone-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Current Activities with Colorful Grid */}
+      <section className="py-20 relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-50/50 via-blue-50/50 to-orange-50/50" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-12"
+            className="text-center mb-16"
           >
-            <h2 className={`text-3xl font-bold text-emerald-800 mb-4 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`} style={{ fontFamily: '"Playfair Display", "Noto Sans Arabic", serif' }}>
+            <h2 className={`text-4xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-orange-500 bg-clip-text text-transparent mb-6 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
               {t('current-activities', 'Current Activities', 'الأنشطة الحالية')}
             </h2>
-            <p className={`text-gray-600 max-w-3xl mx-auto ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+            <p className={`text-xl text-gray-600 max-w-3xl mx-auto ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
               {t(
                 'activities-description',
                 'Rhizome Syria operates a decentralized network of local partnerships while maintaining full adaptability in its engagement with formal and informal structures.',
@@ -162,35 +266,40 @@ const RhizomeSyriaPage: React.FC = () => {
                 titleAr: 'مركز الدعم المجتمعي بقيادة نسوية في اللاذقية',
                 description: 'Providing economic and organizational empowerment to women.',
                 descriptionAr: 'توفير التمكين الاقتصادي والتنظيمي للنساء.',
-                icon: Heart
+                icon: Heart,
+                gradient: 'from-purple-500 to-pink-500'
               },
               {
                 title: 'Collaborative Cultural Projects',
                 titleAr: 'المشاريع الثقافية التعاونية',
                 description: 'Theater, visual arts, and oral history initiatives in Aleppo and Latakia.',
                 descriptionAr: 'مبادرات المسرح والفنون البصرية والتاريخ الشفوي في حلب واللاذقية.',
-                icon: Palette
+                icon: Palette,
+                gradient: 'from-blue-500 to-cyan-500'
               },
               {
                 title: 'Peacebuilding Dialogues',
                 titleAr: 'حوارات بناء السلام',
                 description: 'Participatory workshops across northern and central regions.',
                 descriptionAr: 'ورش عمل تشاركية في المناطق الشمالية والوسطى.',
-                icon: Shield
+                icon: Shield,
+                gradient: 'from-orange-500 to-red-500'
               },
               {
                 title: 'Fundraising Campaigns',
                 titleAr: 'حملات جمع التبرعات',
                 description: 'Community platforms and fundraising initiatives on the coast.',
                 descriptionAr: 'منصات مجتمعية ومبادرات جمع التبرعات على الساحل.',
-                icon: Target
+                icon: Target,
+                gradient: 'from-yellow-500 to-orange-500'
               },
               {
                 title: 'Digital Storytelling',
                 titleAr: 'السرد الرقمي',
                 description: 'Memory preservation through participatory digital tools.',
                 descriptionAr: 'الحفاظ على الذاكرة من خلال الأدوات الرقمية التشاركية.',
-                icon: Image
+                icon: Image,
+                gradient: 'from-green-500 to-blue-500'
               }
             ].map((activity, index) => (
               <motion.div
@@ -199,121 +308,41 @@ const RhizomeSyriaPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="group relative"
               >
-                <div className="w-14 h-14 bg-emerald-100 rounded-full flex items-center justify-center mb-4">
-                  <activity.icon className="h-7 w-7 text-emerald-700" />
+                <div className="absolute -inset-2 bg-gradient-to-r opacity-20 rounded-2xl blur-xl group-hover:opacity-30 transition-opacity" 
+                     style={{ background: `linear-gradient(135deg, var(--tw-gradient-stops))` }} />
+                <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200">
+                  <div className={`w-14 h-14 bg-gradient-to-r ${activity.gradient} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                    <activity.icon className="h-7 w-7 text-white" />
+                  </div>
+                  
+                  <h3 className={`text-lg font-bold text-gray-800 mb-3 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                    {t(`activity-${index}-title`, activity.title, activity.titleAr)}
+                  </h3>
+                  
+                  <p className={`text-gray-600 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                    {t(`activity-${index}-desc`, activity.description, activity.descriptionAr)}
+                  </p>
                 </div>
-                
-                <h3 className={`text-lg font-bold text-emerald-800 mb-3 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                  {t(`activity-${index}-title`, activity.title, activity.titleAr)}
-                </h3>
-                
-                <p className={`text-gray-600 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                  {t(`activity-${index}-desc`, activity.description, activity.descriptionAr)}
-                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Key Initiatives */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Board Section with Enhanced Design */}
+      <section className="py-20 relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-100/50 via-blue-100/50 to-orange-100/50" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-12"
+            className="text-center mb-16"
           >
-            <h2 className={`text-3xl font-bold text-emerald-800 mb-4 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`} style={{ fontFamily: '"Playfair Display", "Noto Sans Arabic", serif' }}>
-              {t('key-initiatives', 'Key Initiatives', 'المبادرات الرئيسية')}
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Latakia Community Support Hub',
-                titleAr: 'مركز دعم مجتمع اللاذقية',
-                description: 'A core site offering economic resilience programs, organizational mentoring, and a base for civil society incubation.',
-                descriptionAr: 'موقع أساسي يقدم برامج المرونة الاقتصادية والإرشاد التنظيمي وقاعدة لاحتضان المجتمع المدني.',
-                icon: Users
-              },
-              {
-                title: 'Cultural Revitalization Program',
-                titleAr: 'برنامج إحياء الثقافة',
-                description: 'Arts-based programs in Aleppo and Latakia supporting local artists, preserving collective memory, and creating spaces for community recovery.',
-                descriptionAr: 'برامج قائمة على الفنون في حلب واللاذقية تدعم الفنانين المحليين وتحافظ على الذاكرة الجماعية وتخلق مساحات لتعافي المجتمع.',
-                icon: Palette
-              },
-              {
-                title: 'Interregional Women\'s Summit',
-                titleAr: 'قمة المرأة بين المناطق',
-                description: 'A national forum gathering Syrian women leaders to co-develop policy, training modules, and interregional alliances.',
-                descriptionAr: 'منتدى وطني يجمع القيادات النسائية السورية لتطوير السياسات ووحدات التدريب والتحالفات بين المناطق.',
-                icon: Calendar
-              },
-              {
-                title: 'Peacebuilding Sessions',
-                titleAr: 'جلسات بناء السلام',
-                description: 'Localized facilitation of dialogue in conflict-affected areas with grassroots councils and youth networks.',
-                descriptionAr: 'تيسير محلي للحوار في المناطق المتأثرة بالنزاع مع المجالس الشعبية وشبكات الشباب.',
-                icon: Target
-              },
-              {
-                title: 'Hams Initiative',
-                titleAr: 'مبادرة همس',
-                description: 'A secure, anonymous, community-run platform for sharing sensitive information essential for maintaining civil peace.',
-                descriptionAr: 'منصة آمنة ومجهولة ومدارة من المجتمع لمشاركة المعلومات الحساسة الضرورية للحفاظ على السلم المدني.',
-                icon: Globe
-              },
-              {
-                title: 'Community Digital Photo Wall',
-                titleAr: 'جدار الصور الرقمية المجتمعية',
-                description: 'An open-source image archive documenting everyday life and community stories through a decentralized media repository.',
-                descriptionAr: 'أرشيف صور مفتوح المصدر يوثق الحياة اليومية وقصص المجتمع من خلال مستودع إعلامي لامركزي.',
-                icon: Image
-              }
-            ].map((initiative, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-emerald-600"
-              >
-                <div className="w-14 h-14 bg-emerald-100 rounded-full flex items-center justify-center mb-4">
-                  <initiative.icon className="h-7 w-7 text-emerald-700" />
-                </div>
-                
-                <h3 className={`text-xl font-bold text-emerald-800 mb-3 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                  {t(`initiative-${index}-title`, initiative.title, initiative.titleAr)}
-                </h3>
-                
-                <p className={`text-gray-600 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                  {t(`initiative-${index}-desc`, initiative.description, initiative.descriptionAr)}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Board Section */}
-      <section className="py-16 bg-gradient-to-br from-emerald-50 to-stone-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-12"
-          >
-            <h2 className={`text-3xl font-bold text-emerald-800 mb-4 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`} style={{ fontFamily: '"Playfair Display", "Noto Sans Arabic", serif' }}>
+            <h2 className={`text-4xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-orange-500 bg-clip-text text-transparent mb-6 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
               {t('our-board-syria', 'Our Board (Syria)', 'مجلس إدارتنا (سوريا)')}
             </h2>
           </motion.div>
@@ -326,26 +355,35 @@ const RhizomeSyriaPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+                className="group relative"
               >
-                <img 
-                  src={member.image} 
-                  alt={member.name} 
-                  className="w-full h-48 object-cover object-center"
-                />
-                
-                <div className="p-6">
-                  <h3 className={`text-lg font-bold text-emerald-800 mb-2 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                    {t(`board-member-${index}-name`, member.name, member.nameAr)}
-                  </h3>
+                <div className="absolute -inset-2 bg-gradient-to-r from-purple-400 via-blue-400 to-orange-400 rounded-2xl opacity-20 blur-xl group-hover:opacity-30 transition-opacity" />
+                <div className="relative bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={member.image} 
+                      alt={member.name} 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                    <div className="absolute top-4 right-4">
+                      <Star className="h-6 w-6 text-yellow-400 drop-shadow-lg" />
+                    </div>
+                  </div>
                   
-                  <p className={`text-emerald-600 font-medium mb-3 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                    {t(`board-member-${index}-role`, member.role, member.roleAr)}
-                  </p>
-                  
-                  <p className={`text-gray-600 text-sm ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                    {t(`board-member-${index}-bio`, member.bio, member.bioAr)}
-                  </p>
+                  <div className="p-6">
+                    <h3 className={`text-lg font-bold text-gray-800 mb-2 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                      {t(`board-member-${index}-name`, member.name, member.nameAr)}
+                    </h3>
+                    
+                    <p className={`text-purple-600 font-medium mb-3 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                      {t(`board-member-${index}-role`, member.role, member.roleAr)}
+                    </p>
+                    
+                    <p className={`text-gray-600 text-sm leading-relaxed ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
+                      {t(`board-member-${index}-bio`, member.bio, member.bioAr)}
+                    </p>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -353,20 +391,31 @@ const RhizomeSyriaPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-16 bg-gradient-to-r from-emerald-700 to-emerald-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* Call to Action with Spiral Design */}
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-blue-600 via-orange-500 to-red-500" />
+        <div className="absolute inset-0 opacity-20">
+          <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M50,50 Q20,20 50,5 Q80,20 95,50 Q80,80 50,95 Q20,80 5,50 Q20,20 50,50" 
+                  fill="none" 
+                  stroke="white" 
+                  strokeWidth="0.5" 
+                  opacity="0.3" />
+          </svg>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className={currentLanguage.code === 'ar' ? 'font-arabic' : ''}
+            className={`text-white ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
           >
-            <h2 className="text-3xl font-bold mb-6">
+            <h2 className="text-4xl font-bold mb-6">
               {t('get-involved-title', 'Ready to join or partner?', 'مستعد للانضمام أو الشراكة؟')}
             </h2>
-            <p className="text-xl text-emerald-100 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
               {t(
                 'get-involved-description',
                 'Whether in Syria or Canada, your participation helps us grow resilient, empowered communities.',
@@ -374,14 +423,14 @@ const RhizomeSyriaPage: React.FC = () => {
               )}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-white text-emerald-700 font-semibold rounded-full hover:bg-emerald-50 transition-colors">
+              <button className="px-8 py-4 bg-white text-purple-700 font-semibold rounded-full hover:bg-gray-100 transition-colors shadow-lg">
                 {t('apply-now', 'Apply Now', 'تقدم الآن')}
               </button>
-              <button className="px-8 py-4 bg-emerald-900 text-white font-semibold rounded-full hover:bg-emerald-950 transition-colors">
+              <button className="px-8 py-4 bg-white/20 backdrop-blur-sm text-white font-semibold rounded-full border-2 border-white/50 hover:bg-white/30 transition-colors">
                 {t('volunteer', 'Volunteer', 'تطوع')}
               </button>
             </div>
-            <div className="mt-6 text-emerald-200">
+            <div className="mt-6 text-white/80">
               <p>
                 {t('contact-info', 'Contact us at', 'اتصل بنا على')} info@rhizomesyria.org
               </p>
