@@ -174,13 +174,13 @@ const AboutPage: React.FC = () => {
             className={`text-center ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
           >
             <h1 className="text-5xl font-bold mb-6">
-              {t('about-title', 'About Rhizome Community Foundation', 'عن مؤسسة مجتمع الريزوم')}
+              {t('about-title', 'About Rhizome Community Foundation', 'عن مؤسسة ريزوم المجتمعية')}
             </h1>
             <p className="text-xl text-emerald-100 max-w-3xl mx-auto">
               {t(
                 'about-subtitle',
-                'Connecting Syrian communities worldwide through innovative programs, cultural preservation, and collaborative action.',
-                'ربط المجتمعات السورية في جميع أنحاء العالم من خلال البرامج المبتكرة والحفاظ على الثقافة والعمل التعاوني.'
+                'Weaving connections across continents through transformative programs, cultural stewardship, and collaborative innovation.',
+                'ننسج الروابط عبر القارات من خلال برامج تحويلية ورعاية ثقافية وابتكار تشاركي.'
               )}
             </p>
           </motion.div>
@@ -201,14 +201,14 @@ const AboutPage: React.FC = () => {
               <div className="flex items-center mb-6">
                 <Target className="h-8 w-8 text-emerald-600 mr-3" />
                 <h2 className={`text-3xl font-bold text-stone-900 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                  {t('our-mission', 'Our Mission', 'مهمتنا')}
+                  {t('our-mission', 'Our Purpose', 'رسالتنا')}
                 </h2>
               </div>
               <p className={`text-lg text-stone-700 leading-relaxed ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
                 {t(
                   'mission-text',
-                  'To build resilient networks that connect Syrian communities across borders, fostering collaboration, preserving cultural heritage, and empowering individuals to create positive change in their communities.',
-                  'بناء شبكات مرنة تربط المجتمعات السورية عبر الحدود، وتعزز التعاون، وتحافظ على التراث الثقافي، وتمكن الأفراد من إحداث تغيير إيجابي في مجتمعاتهم.'
+                  'We cultivate resilient networks that unite Syrian communities globally, fostering collaboration, safeguarding cultural heritage, and empowering individuals to drive meaningful transformation in their communities.',
+                  'نرعى شبكات مرنة توحد المجتمعات السورية عالمياً، نعزز التعاون ونحمي التراث الثقافي ونمكن الأفراد من قيادة التحول الهادف في مجتمعاتهم.'
                 )}
               </p>
             </motion.div>
@@ -223,14 +223,14 @@ const AboutPage: React.FC = () => {
               <div className="flex items-center mb-6">
                 <Globe className="h-8 w-8 text-stone-600 mr-3" />
                 <h2 className={`text-3xl font-bold text-stone-900 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                  {t('our-vision', 'Our Vision', 'رؤيتنا')}
+                  {t('our-vision', 'Our Aspiration', 'تطلعنا')}
                 </h2>
               </div>
               <p className={`text-lg text-stone-700 leading-relaxed ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
                 {t(
                   'vision-text',
-                  'A world where Syrian communities thrive through interconnected support systems, where cultural identity is celebrated and preserved, and where every individual has the opportunity to contribute to positive social change.',
-                  'عالم تزدهر فيه المجتمعات السورية من خلال أنظمة الدعم المترابطة، حيث يتم الاحتفال بالهوية الثقافية والحفاظ عليها، وحيث تتاح لكل فرد الفرصة للمساهمة في التغيير الاجتماعي الإيجابي.'
+                  'A world where Syrian communities flourish through interconnected support systems, where cultural identity is celebrated and preserved, and where every individual has the power to contribute to transformative social change.',
+                  'عالم تزدهر فيه المجتمعات السورية من خلال أنظمة الدعم المترابطة، حيث تُحتفى بالهوية الثقافية وتُحفظ، وحيث يملك كل فرد القوة للمساهمة في التغيير الاجتماعي التحويلي.'
                 )}
               </p>
             </motion.div>

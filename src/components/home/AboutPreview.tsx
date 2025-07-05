@@ -39,14 +39,14 @@ const AboutPreview: React.FC = () => {
             className={currentLanguage.code === 'ar' ? 'font-arabic' : ''}
           >
             <h2 className="text-4xl font-bold text-stone-900 mb-6" style={{ fontFamily: '"Playfair Display", "Noto Sans Arabic", serif' }}>
-              {t('about-title', 'Our Mission', 'مهمتنا')}
+              {t('about-title', 'Our Purpose', 'رسالتنا')}
             </h2>
             
             <p className="text-lg text-stone-600 mb-8 leading-relaxed">
               {t(
                 'about-description',
-                'An integrated alliance, a decentralized rhizomatic network rebuilding communities from within through cultural preservation, educational initiatives, and collaborative action.',
-                'تحالف متكامل، شبكة ريزومية لامركزية تعيد بناء المجتمعات من الداخل من خلال الحفاظ على الثقافة والمبادرات التعليمية والعمل التعاوني.'
+                'We cultivate resilient communities through the power of connection—preserving heritage, fostering innovation, and creating pathways for meaningful change.',
+                'نرعى مجتمعات مرنة من خلال قوة التواصل—نحافظ على التراث ونعزز الابتكار وننشئ مسارات للتغيير الهادف.'
               )}
             </p>
 
@@ -55,7 +55,7 @@ const AboutPreview: React.FC = () => {
               className="group inline-flex items-center px-6 py-3 bg-emerald-600 text-white font-semibold rounded-lg hover:bg-emerald-700 transition-all duration-300 transform hover:scale-105"
             >
               <span className="mr-2">
-                {t('learn-more', 'Learn More About Us', 'تعرف علينا أكثر')}
+                {t('learn-more', 'Explore Our Story', 'اكتشف قصتنا')}
               </span>
               <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Link>

@@ -19,21 +19,21 @@ const ImpactStats: React.FC = () => {
           className={`text-center mb-16 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
         >
           <h2 className="text-4xl font-bold text-stone-900 mb-6" style={{ fontFamily: '"Playfair Display", "Noto Sans Arabic", serif' }}>
-            {t('impact-title', 'Our Impact', 'تأثيرنا')}
+            {t('impact-title', 'Creating Ripples of Change', 'نخلق موجات من التغيير')}
           </h2>
           <div className="max-w-4xl mx-auto">
             <p className="text-xl text-stone-600 mb-8">
               {t(
                 'impact-narrative',
-                'Our work transcends borders and builds bridges between communities separated by geography but united by shared heritage and hope. Through grassroots organizing and cultural preservation, we create spaces where Syrian voices can flourish, where traditional knowledge meets innovative solutions, and where individual stories weave together into a powerful collective narrative of resilience.',
-                'يتجاوز عملنا الحدود ويبني الجسور بين المجتمعات المنفصلة جغرافياً ولكن المتحدة بالتراث المشترك والأمل. من خلال التنظيم الشعبي والحفاظ على الثقافة، ننشئ مساحات حيث يمكن للأصوات السورية أن تزدهر، حيث تلتقي المعرفة التقليدية بالحلول المبتكرة، وحيث تنسج القصص الفردية معاً في سرد جماعي قوي للمرونة.'
+                'We weave connections that transcend borders, uniting communities through shared heritage and collective hope. Our grassroots approach creates spaces where Syrian voices flourish, traditional wisdom meets innovation, and individual stories become powerful narratives of resilience and renewal.',
+                'ننسج روابط تتجاوز الحدود، نوحد المجتمعات من خلال التراث المشترك والأمل الجماعي. نهجنا الشعبي ينشئ مساحات تزدهر فيها الأصوات السورية، حيث تلتقي الحكمة التقليدية بالابتكار، وتصبح القصص الفردية سرديات قوية للمرونة والتجديد.'
               )}
             </p>
             <p className="text-lg text-stone-600">
               {t(
                 'impact-narrative-2',
-                'Every program we launch, every partnership we forge, and every story we preserve contributes to a growing ecosystem of support that strengthens our communities from within. We measure our success not just in numbers, but in the renewed sense of belonging, the preserved cultural practices, the new skills acquired, and the lasting connections formed across continents.',
-                'كل برنامج نطلقه، وكل شراكة نقيمها، وكل قصة نحافظ عليها تساهم في نظام بيئي متنامٍ من الدعم يقوي مجتمعاتنا من الداخل. نقيس نجاحنا ليس فقط بالأرقام، ولكن بالشعور المتجدد بالانتماء، والممارسات الثقافية المحفوظة، والمهارات الجديدة المكتسبة، والروابط الدائمة المتكونة عبر القارات.'
+                'Each initiative we launch, every partnership we cultivate, and every story we preserve builds an ecosystem of empowerment that strengthens communities from within. Our success lives in renewed belonging, preserved traditions, acquired skills, and lasting connections that span continents.',
+                'كل مبادرة نطلقها، وكل شراكة نرعاها، وكل قصة نحافظ عليها تبني نظاماً بيئياً للتمكين يقوي المجتمعات من الداخل. نجاحنا يكمن في الانتماء المتجدد والتقاليد المحفوظة والمهارات المكتسبة والروابط الدائمة التي تمتد عبر القارات.'
               )}
             </p>
           </div>
@@ -50,13 +50,13 @@ const ImpactStats: React.FC = () => {
         >
           <div className="text-center mb-8">
             <h3 className={`text-3xl font-bold mb-4 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-              {t('growing-network', 'Growing Network', 'شبكة متنامية')}
+              {t('growing-network', 'Expanding Horizons', 'آفاق متوسعة')}
             </h3>
             <p className={`text-emerald-100 mb-8 max-w-3xl mx-auto text-lg ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
               {t(
                 'network-description',
-                'Every day, our community grows stronger as more individuals join our mission to build bridges and create positive change.',
-                'كل يوم، يصبح مجتمعنا أقوى حيث ينضم المزيد من الأفراد إلى مهمتنا لبناء الجسور وخلق التغيير الإيجابي.'
+                'Each day brings new voices to our movement, strengthening the bonds that connect communities and amplify our collective impact.',
+                'كل يوم يجلب أصواتاً جديدة لحراكنا، يقوي الروابط التي تصل المجتمعات ويضخم تأثيرنا الجماعي.'
               )}
             </p>
           </div>

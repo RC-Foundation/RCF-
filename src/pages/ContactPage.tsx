@@ -127,13 +127,13 @@ const ContactPage: React.FC = () => {
             className={`text-center ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
           >
             <h1 className="text-5xl font-bold mb-6">
-              {t('contact-title', 'Get in Touch', 'تواصل معنا')}
+              {t('contact-title', 'Connect With Us', 'تواصل معنا')}
             </h1>
             <p className="text-xl text-emerald-100 mb-8 max-w-3xl mx-auto">
               {t(
                 'contact-subtitle',
-                'We\'d love to hear from you. Send us a message and we\'ll respond as soon as possible.',
-                'نحب أن نسمع منك. أرسل لنا رسالة وسنرد في أقرب وقت ممكن.'
+                'Your voice matters to us. Reach out and let\'s start a conversation about creating change together.',
+                'صوتك مهم لنا. تواصل معنا ولنبدأ حواراً حول خلق التغيير معاً.'
               )}
             </p>
 

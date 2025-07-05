@@ -184,7 +184,7 @@ const HeroSection: React.FC = () => {
             transition={{ duration: 1.2, delay: 0.3 }}
             style={{ fontFamily: '"Playfair Display", "Noto Sans Arabic", serif' }}
           >
-            {t('hero-title', 'Rhizome Community Foundation', 'مؤسسة مجتمع الريزوم')}
+            {t('hero-title', 'Rhizome Community Foundation', 'مؤسسة ريزوم المجتمعية')}
           </motion.h1>
           
           <motion.p
@@ -195,8 +195,8 @@ const HeroSection: React.FC = () => {
           >
             {t(
               'hero-subtitle',
-              'An integrated alliance, a decentralized rhizomatic network rebuilding communities from within.',
-              'تحالف متكامل، شبكة ريزومية لامركزية تعيد بناء المجتمعات من الداخل.'
+              'Where communities flourish through interconnected networks of change, cultural preservation, and collaborative action.',
+              'حيث تزدهر المجتمعات عبر شبكات التغيير المترابطة والحفاظ على الثقافة والعمل التشاركي.'
             )}
           </motion.p>
           
@@ -211,7 +211,7 @@ const HeroSection: React.FC = () => {
               className="group inline-flex items-center px-8 py-4 bg-emerald-600 text-white font-semibold rounded-full shadow-lg hover:bg-emerald-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
               <span className="mr-2">
-                {t('explore-programs', 'Explore Our Programs', 'استكشف برامجنا')}
+                {t('explore-programs', 'Discover Our Impact', 'اكتشف تأثيرنا')}
               </span>
               <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Link>
@@ -220,7 +220,7 @@ const HeroSection: React.FC = () => {
               to="/community-wall"
               className="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-full border-2 border-white/30 hover:bg-white/20 transition-all duration-300"
             >
-              {t('join-community', 'Join Our Community', 'انضم إلى مجتمعنا')}
+              {t('join-community', 'Join the Movement', 'انضم للحراك')}
             </Link>
           </motion.div>
         </motion.div>

@@ -335,13 +335,13 @@ const ProgramsPage: React.FC = () => {
             className={`text-center ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
           >
             <h1 className="text-5xl font-bold mb-6">
-              {t('programs-title', 'Our Programs', 'برامجنا')}
+              {t('programs-title', 'Transformative Initiatives', 'مبادرات تحويلية')}
             </h1>
             <p className="text-xl text-emerald-100 mb-8 max-w-4xl mx-auto">
               {t(
                 'programs-subtitle',
-                'Connecting Syrians and communities in Syria and Canada through grassroots action, cultural exchange, and collective leadership. Rhizome Syria and Rhizome Community Foundation (RCF) operate jointly across borders, delivering high-impact programs with local and diaspora leadership.',
-                'ربط السوريين والمجتمعات في سوريا وكندا من خلال العمل الشعبي والتبادل الثقافي والقيادة الجماعية. تعمل ريزوم سوريا ومؤسسة مجتمع الريزوم بشكل مشترك عبر الحدود، وتقدم برامج عالية التأثير بقيادة محلية وشتاتية.'
+                'Bridging Syrian communities across Syria and Canada through grassroots innovation, cultural exchange, and collaborative leadership. Our cross-border partnership delivers transformative programs that amplify local voices and diaspora expertise.',
+                'نربط المجتمعات السورية عبر سوريا وكندا من خلال الابتكار الشعبي والتبادل الثقافي والقيادة التشاركية. شراكتنا عبر الحدود تقدم برامج تحويلية تضخم الأصوات المحلية وخبرات الشتات.'
               )}
             </p>
 

@@ -57,13 +57,13 @@ const ProgramsPreview: React.FC = () => {
           className={`text-center mb-16 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
         >
           <h2 className="text-4xl font-bold text-stone-900 mb-6">
-            {t('programs-title', 'Our Programs', 'برامجنا')}
+            {t('programs-title', 'Transformative Initiatives', 'مبادرات تحويلية')}
           </h2>
           <p className="text-xl text-stone-600 max-w-3xl mx-auto">
             {t(
               'programs-description',
-              'Comprehensive initiatives designed to empower, connect, and support Syrian communities through education, culture, and innovation.',
-              'مبادرات شاملة مصممة لتمكين وربط ودعم المجتمعات السورية من خلال التعليم والثقافة والابتكار.'
+              'Innovative programs that bridge communities, amplify voices, and create lasting impact through education, culture, and collaborative action.',
+              'برامج مبتكرة تربط المجتمعات وتضخم الأصوات وتخلق تأثيراً دائماً من خلال التعليم والثقافة والعمل التشاركي.'
             )}
           </p>
         </motion.div>
@@ -109,7 +109,7 @@ const ProgramsPreview: React.FC = () => {
             className="group inline-flex items-center px-8 py-4 bg-emerald-700 text-white font-semibold rounded-full shadow-lg hover:bg-emerald-800 hover:shadow-xl transition-all duration-300 transform hover:scale-105"
           >
             <span className="mr-2">
-              {t('view-all-programs', 'View All Programs', 'عرض جميع البرامج')}
+              {t('view-all-programs', 'Explore All Initiatives', 'استكشف جميع المبادرات')}
             </span>
             <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Link>

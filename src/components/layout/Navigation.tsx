@@ -57,10 +57,10 @@ const Navigation: React.FC = () => {
             />
             <div className={`${currentLanguage.code === 'ar' ? 'font-arabic text-xs' : 'text-xs'}`}>
               <div className="font-bold text-emerald-800 text-sm">
-                {t('nav-title', 'Rhizome Community', 'مجتمع الريزوم')}
+                {t('nav-title', 'Rhizome Community', 'ريزوم المجتمعية')}
               </div>
               <div className="text-xs text-stone-600">
-                {t('nav-subtitle', 'Foundation', 'المؤسسة')}
+                {t('nav-subtitle', 'Foundation', 'مؤسسة')}
               </div>
             </div>
           </Link>

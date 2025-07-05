@@ -39,13 +39,13 @@ const CommunityPreview: React.FC = () => {
           className={`text-center mb-16 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
         >
           <h2 className="text-4xl font-bold text-stone-900 mb-6" style={{ fontFamily: '"Playfair Display", "Noto Sans Arabic", serif' }}>
-            {t('community-wall-title', 'Wallfinity', 'وولفينيتي')}
+            {t('community-wall-title', 'Community Canvas', 'لوحة المجتمع')}
           </h2>
           <p className="text-xl text-stone-600 max-w-3xl mx-auto mb-8">
             {t(
               'community-wall-description',
-              'A living tapestry of our community\'s stories, achievements, and moments of connection.',
-              'نسيج حي من قصص مجتمعنا وإنجازاته ولحظات التواصل.'
+              'A vibrant mosaic of stories, achievements, and moments that define our shared journey.',
+              'فسيفساء نابضة من القصص والإنجازات واللحظات التي تحدد رحلتنا المشتركة.'
             )}
           </p>
 
@@ -55,7 +55,7 @@ const CommunityPreview: React.FC = () => {
               <div className="flex items-center space-x-2">
                 <Target className="h-5 w-5 text-emerald-600" />
                 <span className="text-sm font-medium text-stone-700">
-                  {t('documentation-goal', 'Documentation Goal', 'هدف التوثيق')}
+                  {t('documentation-goal', 'Community Stories', 'قصص المجتمع')}
                 </span>
               </div>
               <span className="text-sm font-bold text-emerald-600">

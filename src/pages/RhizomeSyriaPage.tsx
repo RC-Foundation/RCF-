@@ -129,8 +129,8 @@ const RhizomeSyriaPage: React.FC = () => {
             >
               {t(
                 'rhizome-syria-subtitle',
-                'The Syrian branch of the Rhizome Community Foundation – nonpartisan, community-rooted, and anti-sectarian.',
-                'الفرع السوري لمؤسسة مجتمع الريزوم - غير حزبي، متجذر في المجتمع، ومناهض للطائفية.'
+                'Syria\'s voice in the Rhizome Community Foundation – independent, community-centered, and united beyond divisions.',
+                'صوت سوريا في مؤسسة ريزوم المجتمعية - مستقل، متمحور حول المجتمع، وموحد فوق الانقسامات.'
               )}
             </motion.p>
 
@@ -143,12 +143,12 @@ const RhizomeSyriaPage: React.FC = () => {
               <button className="group px-8 py-4 bg-gradient-to-r from-purple-600 via-blue-600 to-orange-500 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                 <span className="flex items-center">
                   <Sparkles className="h-5 w-5 mr-2 group-hover:animate-spin" />
-                  {t('explore-programs', 'Explore Our Programs', 'استكشف برامجنا')}
+                  {t('explore-programs', 'Discover Our Impact', 'اكتشف تأثيرنا')}
                 </span>
               </button>
               
               <button className="px-8 py-4 bg-white/80 backdrop-blur-sm text-purple-700 font-semibold rounded-full border-2 border-purple-300 hover:bg-purple-50 transition-all duration-300">
-                {t('join-community', 'Join Our Community', 'انضم إلى مجتمعنا')}
+                {t('join-community', 'Join the Movement', 'انضم للحراك')}
               </button>
             </motion.div>
           </motion.div>

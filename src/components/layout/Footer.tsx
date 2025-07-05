@@ -19,14 +19,14 @@ const Footer: React.FC = () => {
             <div className="flex items-center space-x-3">
               <Network className="h-6 w-6 text-green-400" />
               <h3 className={`text-lg font-semibold ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                {t('footer-title', 'Rhizome Syria', 'ريزوم سوريا')}
+                {t('footer-title', 'Rhizome Community', 'ريزوم المجتمعية')}
               </h3>
             </div>
             <p className={`text-gray-300 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
               {t(
                 'footer-description',
-                'Building resilient networks of Syrian communities through innovation, culture, and collaboration.',
-                'بناء شبكات مرنة للمجتمعات السورية من خلال الابتكار والثقافة والتعاون.'
+                'Cultivating resilient networks of Syrian communities through innovation, cultural stewardship, and collaborative action.',
+                'نرعى شبكات مرنة للمجتمعات السورية من خلال الابتكار ورعاية الثقافة والعمل التشاركي.'
               )}
             </p>
           </motion.div>

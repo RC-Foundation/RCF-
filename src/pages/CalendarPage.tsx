@@ -364,13 +364,13 @@ const CalendarPage: React.FC = () => {
             className={`text-center ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
           >
             <h1 className="text-5xl font-bold mb-6">
-              {t('calendar-title', 'Community Calendar', 'تقويم المجتمع')}
+              {t('calendar-title', 'Events & Opportunities', 'الفعاليات والفرص')}
             </h1>
             <p className="text-xl text-emerald-100 mb-8 max-w-3xl mx-auto">
               {t(
                 'calendar-subtitle',
-                'Live events, workshops, and opportunities from Syrian NGOs and organizations worldwide.',
-                'فعاليات وورش عمل وفرص مباشرة من المنظمات غير الحكومية والمؤسسات السورية حول العالم.'
+                'Discover live events, workshops, and opportunities from Syrian organizations and partners worldwide.',
+                'اكتشف الفعاليات المباشرة وورش العمل والفرص من المنظمات السورية والشركاء حول العالم.'
               )}
             </p>
 

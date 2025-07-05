@@ -127,13 +127,13 @@ const CommunityWallPage: React.FC = () => {
             className={`text-center ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
           >
             <h1 className="text-5xl font-bold mb-6">
-              {t('community-wall-title', 'Community Wall', 'جدار المجتمع')}
+              {t('community-wall-title', 'Community Canvas', 'لوحة المجتمع')}
             </h1>
             <p className="text-xl text-emerald-100 mb-8 max-w-3xl mx-auto">
               {t(
                 'community-wall-subtitle',
-                'A living collection of stories, moments, and memories from our global Syrian community.',
-                'مجموعة حية من القصص واللحظات والذكريات من مجتمعنا السوري العالمي.'
+                'A vibrant tapestry of stories, moments, and memories that celebrate our global Syrian community.',
+                'نسيج نابض من القصص واللحظات والذكريات التي تحتفي بمجتمعنا السوري العالمي.'
               )}
             </p>
 
