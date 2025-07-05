@@ -1,9 +1,8 @@
 import React from 'react';
-import CustomCursor from './CustomCursor';
 
-// This component now just renders the CustomCursor without any hypersonic effects
+// This component is now empty to ensure no hypersonic effects are rendered
 const HypersonicCursor: React.FC = () => {
-  return <CustomCursor />;
+  return null;
 };
 
 export default HypersonicCursor;

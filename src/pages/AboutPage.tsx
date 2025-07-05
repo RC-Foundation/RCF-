@@ -11,8 +11,8 @@ const AboutPage: React.FC = () => {
       year: 'December 2024',
       title: 'Rhizome Syria & Diaspora Work Group Formation',
       titleAr: 'تشكيل مجموعة عمل ريزوم سوريا والشتات',
-      description: 'Rhizome Syria & Diaspora Work Group formed upon regime collapse, marking a new chapter in Syrian community organizing.',
-      descriptionAr: 'تشكلت مجموعة عمل ريزوم سوريا والشتات عند انهيار النظام، مما يمثل فصلاً جديداً في التنظيم المجتمعي السوري.'
+      description: 'Rhizome Syria & Diaspora Work Group formed in the wake of major political changes in Syria, marking a new chapter in Syrian community organizing.',
+      descriptionAr: 'تشكلت مجموعة عمل ريزوم سوريا والشتات في أعقاب التغييرات السياسية الكبرى في سوريا، مما يمثل فصلاً جديداً في التنظيم المجتمعي السوري.'
     },
     {
       year: 'February 2025',
@@ -23,10 +23,10 @@ const AboutPage: React.FC = () => {
     },
     {
       year: 'March 2025',
-      title: 'First Program - "Aleppo Roots" Cultural Event',
-      titleAr: 'البرنامج الأول - فعالية "جذور حلب" الثقافية',
-      description: 'Launch of our first major program featuring theatre and film production, celebrating Aleppo\'s rich cultural heritage, with about 300 people attending.',
-      descriptionAr: 'إطلاق برنامجنا الرئيسي الأول الذي يضم المسرح وإنتاج الأفلام، احتفالاً بالتراث الثقافي الغني لحلب، بحضور حوالي 300 شخص.'
+      title: 'Cultural Heritage Program Launch - "Aleppo Roots" Event',
+      titleAr: 'إطلاق برنامج التراث الثقافي - فعالية "جذور حلب"',
+      description: 'Launch of our Cultural Heritage Documentation Program with the inaugural "Aleppo Roots" event featuring theatre and film production, celebrating Aleppo\'s rich cultural heritage, with about 300 people attending.',
+      descriptionAr: 'إطلاق برنامج توثيق التراث الثقافي مع فعالية "جذور حلب" الافتتاحية التي تضم المسرح وإنتاج الأفلام، احتفالاً بالتراث الثقافي الغني لحلب، بحضور حوالي 300 شخص.'
     },
     {
       year: 'April 2025',
@@ -37,10 +37,10 @@ const AboutPage: React.FC = () => {
     },
     {
       year: 'May 2025',
-      title: 'Aleppo Castle Eid Family Festivities',
-      titleAr: 'احتفالات عيد قلعة حلب العائلية',
-      description: 'Community celebration bringing families together to honor traditions and strengthen bonds during Eid festivities.',
-      descriptionAr: 'احتفال مجتمعي يجمع العائلات معاً لتكريم التقاليد وتقوية الروابط خلال احتفالات العيد.'
+      title: 'Community Engagement - Aleppo Castle Eid Family Festivities',
+      titleAr: 'المشاركة المجتمعية - احتفالات عيد قلعة حلب العائلية',
+      description: 'Community celebration event bringing families together to honor traditions and strengthen bonds during Eid festivities, part of our ongoing Cultural Heritage Documentation Program.',
+      descriptionAr: 'فعالية احتفال مجتمعي تجمع العائلات معاً لتكريم التقاليد وتقوية الروابط خلال احتفالات العيد، كجزء من برنامج توثيق التراث الثقافي المستمر.'
     },
     {
       year: 'June 2025',
@@ -53,8 +53,8 @@ const AboutPage: React.FC = () => {
       year: 'July 2025',
       title: 'Community Wall Launch',
       titleAr: 'إطلاق جدار المجتمع',
-      description: 'Launch of our digital storytelling platform, Wallfinity, to preserve and share community stories and experiences.',
-      descriptionAr: 'إطلاق منصة السرد الرقمي الخاصة بنا، وولفينيتي، للحفاظ على قصص وتجارب المجتمع ومشاركتها.'
+      description: 'Launch of Wallfinity, our digital storytelling platform and Community Wall, to preserve and share community stories and experiences.',
+      descriptionAr: 'إطلاق وولفينيتي، منصة السرد الرقمي وجدار المجتمع، للحفاظ على قصص وتجارب المجتمع ومشاركتها.'
     },
     {
       year: 'August - October 2025',
@@ -90,22 +90,22 @@ const AboutPage: React.FC = () => {
     {
       name: 'Rhizome Syria',
       nameAr: 'ريزوم سوريا',
-      location: 'Damascus, Aleppo, Homs',
-      locationAr: 'دمشق، حلب، حمص',
+      location: 'Damascus, Aleppo, Homs, Latakia',
+      locationAr: 'دمشق، حلب، حمص، اللاذقية',
       focus: 'On-ground community building and direct support',
       focusAr: 'بناء المجتمع الميداني والدعم المباشر',
-      projects: 25,
+      programs: 6,
       members: 800,
       image: '/WhatsApp Image 2025-06-19 at 12.35.09 PM.jpeg'
     },
     {
       name: 'Rhizome Canada',
       nameAr: 'ريزوم كندا',
-      location: 'Toronto, Montreal, Vancouver',
-      locationAr: 'تورونتو، مونتريال، فانكوفر',
+      location: 'Edmonton, Toronto, Montreal, Vancouver',
+      locationAr: 'إدمونتون، تورونتو، مونتريال، فانكوفر',
       focus: 'Diaspora engagement and international coordination',
       focusAr: 'إشراك الشتات والتنسيق الدولي',
-      projects: 18,
+      programs: 3,
       members: 650,
       image: '/WhatsApp Image 2025-06-19 at 12.35.10 PM.jpeg'
     }
@@ -143,7 +143,7 @@ const AboutPage: React.FC = () => {
 
   const partners = [
     {
-      name: 'Abanek Baidaa Volunteer Team',
+      name: 'Abanek Bayda Volunteer Team',
       nameAr: 'فريق متطوعي أبانك بيضاء',
       description: 'Dedicated volunteer network providing grassroots support and community organizing across multiple regions.',
       descriptionAr: 'شبكة متطوعين مكرسة تقدم الدعم الشعبي والتنظيم المجتمعي عبر مناطق متعددة.',
@@ -311,8 +311,8 @@ const AboutPage: React.FC = () => {
             <p className="text-xl text-stone-600 max-w-3xl mx-auto">
               {t(
                 'branches-description',
-                'Two complementary branches working together to serve Syrian communities globally.',
-                'فرعان متكاملان يعملان معاً لخدمة المجتمعات السورية عالمياً.'
+                'Two complementary branches working together to serve Syrian communities globally. Note: Programs refer to our comprehensive long-term initiatives, while events are specific activities within these programs.',
+                'فرعان متكاملان يعملان معاً لخدمة المجتمعات السورية عالمياً. ملاحظة: تشير البرامج إلى مبادراتنا الشاملة طويلة المدى، بينما الفعاليات هي أنشطة محددة ضمن هذه البرامج.'
               )}
             </p>
           </motion.div>
@@ -353,9 +353,9 @@ const AboutPage: React.FC = () => {
                   
                   <div className="grid grid-cols-2 gap-4">
                     <div className="text-center bg-emerald-50 rounded-lg p-4">
-                      <div className="text-2xl font-bold text-emerald-600">{branch.projects}</div>
+                      <div className="text-2xl font-bold text-emerald-600">{branch.programs}</div>
                       <div className={`text-sm text-emerald-700 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}>
-                        {t('active-projects', 'Active Projects', 'مشاريع نشطة')}
+                        {t('active-programs', 'Active Programs', 'برامج نشطة')}
                       </div>
                     </div>
                     <div className="text-center bg-stone-100 rounded-lg p-4">

@@ -30,7 +30,7 @@ const Navigation: React.FC = () => {
     { key: 'rhizome-syria', path: '/rhizome-syria', en: 'Rhizome Syria', ar: 'ريزوم سوريا' },
     { key: 'community-wall', path: '/community-wall', en: 'Wallfinity', ar: 'وولفينيتي' },
     { key: 'calendar', path: '/calendar', en: 'Calendar', ar: 'التقويم' },
-    { key: 'hams', path: '/hams', en: 'Hams', ar: 'همس' }
+    { key: 'contact', path: '/contact', en: 'Contact', ar: 'اتصل بنا' }
   ];
 
   return (
