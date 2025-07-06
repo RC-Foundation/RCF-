@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react';
 const CustomCursor: React.FC = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
   const followerRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLDivElement>(null);
   const mouseX = useRef(0);
   const mouseY = useRef(0);
   const cursorX = useRef(0);
@@ -13,12 +14,32 @@ const CustomCursor: React.FC = () => {
   useEffect(() => {
     const cursor = cursorRef.current;
     const follower = followerRef.current;
+    const canvas = canvasRef.current;
 
-    if (!cursor || !follower) return;
+    if (!cursor || !follower || !canvas) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const isMobile = window.matchMedia('(max-width: 768px)').matches || 'ontouchstart' in window;
+    if (isMobile) return;
 
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.current = e.clientX;
       mouseY.current = e.clientY;
+    };
+
+    const handleMouseDown = () => {
+      cursor.classList.add('active');
+      const ripple = document.createElement('span');
+      ripple.className = 'cursor-ripple';
+      ripple.style.left = `${mouseX.current}px`;
+      ripple.style.top = `${mouseY.current}px`;
+      canvas.appendChild(ripple);
+      setTimeout(() => {
+        ripple.remove();
+        cursor.classList.remove('active');
+      }, 600);
     };
 
     const animateCursor = () => {
@@ -69,6 +90,7 @@ const CustomCursor: React.FC = () => {
 
     // Initial setup
     document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mousedown', handleMouseDown);
     animateCursor();
     addHoverListeners();
 
@@ -93,6 +115,7 @@ const CustomCursor: React.FC = () => {
 
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mousedown', handleMouseDown);
       observer.disconnect();
       
       // Clean up all listeners
@@ -109,6 +132,7 @@ const CustomCursor: React.FC = () => {
     <>
       <div ref={cursorRef} className="cursor" />
       <div ref={followerRef} className="cursor-follower" />
+      <div ref={canvasRef} id="hypersonic-canvas" />
     </>
   );
 };

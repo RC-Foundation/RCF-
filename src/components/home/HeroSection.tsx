@@ -195,8 +195,8 @@ const HeroSection: React.FC = () => {
           >
             {t(
               'hero-subtitle',
-              'Where communities flourish through interconnected networks of change, cultural preservation, and collaborative action.',
-              'حيث تزدهر المجتمعات عبر شبكات التغيير المترابطة والحفاظ على الثقافة والعمل التشاركي.'
+              'Catalyzing Systems Change Through Collective Intelligence and Distributed Networks.',
+              'تحفيز التغيير المنظومي عبر الذكاء الجمعي والشبكات الموزعة.'
             )}
           </motion.p>
           
