@@ -14,7 +14,7 @@ const RhizomeSyriaPage: React.FC = () => {
       roleAr: 'رئيسة',
       bio: 'Oversees governance and direction with experience in strategic planning, community systems, and feminist organizing.',
       bioAr: 'تشرف على الحوكمة والتوجه بخبرة في التخطيط الاستراتيجي والأنظمة المجتمعية والتنظيم النسوي.',
-      image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400'
+      image: 'https://via.placeholder.com/400x400/6B46C1/FFFFFF?text=Board+Member'
     },
     {
       name: 'Abdullah Sejerie',
@@ -23,7 +23,7 @@ const RhizomeSyriaPage: React.FC = () => {
       roleAr: 'اللوجستيات والعمليات',
       bio: 'Leads logistical coordination and field-level implementation, ensuring reliable support systems across all regions.',
       bioAr: 'يقود التنسيق اللوجستي والتنفيذ على مستوى الميدان، مما يضمن أنظمة دعم موثوقة في جميع المناطق.',
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400'
+      image: 'https://via.placeholder.com/400x400/0EA5E9/FFFFFF?text=Board+Member'
     },
     {
       name: 'Kinda Ali',
@@ -32,7 +32,7 @@ const RhizomeSyriaPage: React.FC = () => {
       roleAr: 'الاستراتيجية والتوعية',
       bio: 'Guides long-term planning and stakeholder engagement, focusing on interregional networks and strategic alliances.',
       bioAr: 'توجه التخطيط طويل المدى ومشاركة أصحاب المصلحة، مع التركيز على الشبكات بين المناطق والتحالفات الاستراتيجية.',
-      image: 'https://images.pexels.com/photos/1858175/pexels-photo-1858175.jpeg?auto=compress&cs=tinysrgb&w=400'
+      image: 'https://via.placeholder.com/400x400/F97316/FFFFFF?text=Board+Member'
     },
     {
       name: 'Silva',
@@ -41,7 +41,7 @@ const RhizomeSyriaPage: React.FC = () => {
       roleAr: 'قائدة البرامج',
       bio: 'Manages Rhizome Syria\'s programmatic portfolio, with a focus on feminist frameworks, coastal civic organizing, and training modules.',
       bioAr: 'تدير محفظة برامج ريزوم سوريا، مع التركيز على الأطر النسوية والتنظيم المدني الساحلي ووحدات التدريب.',
-      image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400'
+      image: 'https://via.placeholder.com/400x400/EF4444/FFFFFF?text=Board+Member'
     }
   ];
 
