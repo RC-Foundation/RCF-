@@ -209,8 +209,8 @@ const RhizomaticIntro: React.FC = () => {
             >
               {t(
                 'hero-subtitle',
-                'Building interconnected networks of change through community organizing, cultural initiatives, and collaborative action.',
-                'بناء شبكات مترابطة للتغيير من خلال التنظيم المجتمعي والمبادرات الثقافية والعمل التعاوني.'
+                'Catalyzing Systems Change Through Collective Intelligence and Distributed Networks.',
+                'تحفيز التغيير المنظومي عبر الذكاء الجمعي والشبكات الموزعة.'
               )}
             </motion.p>
             
