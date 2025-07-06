@@ -143,13 +143,13 @@ const AboutPage: React.FC = () => {
 
   const partners = [
     {
-      name: 'Abanek Bayda Volunteer Team',
-      nameAr: 'فريق متطوعي أبانك بيضاء',
+      name: 'Anamil Baidaa Volunteer Team',
+      nameAr: 'فريق متطوعي أناميل بيضاء',
       description: 'Dedicated volunteer network providing grassroots support and community organizing across multiple regions.',
       descriptionAr: 'شبكة متطوعين مكرسة تقدم الدعم الشعبي والتنظيم المجتمعي عبر مناطق متعددة.',
       type: 'Community Partner',
       typeAr: 'شريك مجتمعي',
-      image: 'https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=400'
+      image: 'https://via.placeholder.com/400x300/059669/FFFFFF?text=Partner+Organization'
     },
     {
       name: 'Crystal Media Foundation',
@@ -158,7 +158,25 @@ const AboutPage: React.FC = () => {
       descriptionAr: 'منظمة إنتاج إعلامي وسرد متخصصة في السرديات المجتمعية والتوثيق الثقافي.',
       type: 'Media Partner',
       typeAr: 'شريك إعلامي',
-      image: 'https://images.pexels.com/photos/1884581/pexels-photo-1884581.jpeg?auto=compress&cs=tinysrgb&w=400'
+      image: 'https://via.placeholder.com/400x300/3B82F6/FFFFFF?text=Partner+Organization'
+    },
+    {
+      name: 'Syrian Compass Youth',
+      nameAr: 'بوصلة الشباب السوري',
+      description: 'Youth-led organization focused on empowering young Syrians through leadership development and community engagement.',
+      descriptionAr: 'منظمة بقيادة الشباب تركز على تمكين الشباب السوري من خلال تطوير القيادة والمشاركة المجتمعية.',
+      type: 'Youth Partner',
+      typeAr: 'شريك شبابي',
+      image: 'https://via.placeholder.com/400x300/F59E0B/FFFFFF?text=Partner+Organization'
+    },
+    {
+      name: 'Amal Organization',
+      nameAr: 'منظمة أمل',
+      description: 'Humanitarian organization providing essential services and support to Syrian communities in need.',
+      descriptionAr: 'منظمة إنسانية تقدم الخدمات الأساسية والدعم للمجتمعات السورية المحتاجة.',
+      type: 'Humanitarian Partner',
+      typeAr: 'شريك إنساني',
+      image: 'https://via.placeholder.com/400x300/DC2626/FFFFFF?text=Partner+Organization'
     }
   ];
 
