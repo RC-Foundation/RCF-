@@ -209,6 +209,19 @@ const AboutPage: React.FC = () => {
         </div>
       </section>
 
+      {/* About Us – How We Began */}
+<section className="py-16 bg-white">
+  <div className="max-w-4xl mx-auto px-4">
+    <h2 className="text-3xl font-bold text-stone-900 mb-4">About Us</h2>
+    <h3 className="text-xl font-semibold text-emerald-700 mb-3">How We Began</h3>
+    <p className="text-lg text-stone-700 mb-3">
+      Rhizome Community Foundation was established in 2025 by Amer, Akshya, and Sarah—three Edmonton-based advocates with strong international ties connecting India, the Philippines, Syria, and Canada—alongside Aboudi, a Syrian designer based in Italy. Inspired by the urgent need for community-driven solutions after the defunding of Edmonton's social sector, and recognizing the opportunity for meaningful action in post-Assad Syria, our founders came together to launch an organization focused on empowering grassroots innovation and resilience.
+    </p>
+    <p className="text-lg text-stone-700">
+      Our mission is rooted in deep respect for local wisdom, horizontal collaboration, and equitable partnerships, fostering a globally interconnected movement for positive social change.
+    </p>
+  </div>
+</section>
       {/* Mission & Vision */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
