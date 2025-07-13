@@ -7,7 +7,13 @@ const Header: React.FC = () => {
 
   return (
     <header className="rhizome-intro">
-      <div className="container">
+      <div className="container flex flex-col items-center">
+        {/* Logo at the top */}
+        <img
+          src="public/20250710_0555_Rhizome Logo Design_remix_01jzt2tem6e8zse9br715pa28n (2).png" // Place rhizome-logo.png in your public directory
+          alt="Rhizome Logo"
+          style={{ height: '96px', marginBottom: '1rem' }}
+        />
         <motion.h1
           initial={{ filter: 'blur(12px)', opacity: 0 }}
           animate={{ filter: 'blur(0px)', opacity: 1 }}
