@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { MapPin, Users, Target, Award, Calendar, Globe, Handshake } from 'lucide-react';
+import { MapPin, Target, Globe, Handshake } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const AboutPage: React.FC = () => {
