@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Users, Target, Award, Calendar, Globe, Image, Palette, Heart, Shield, Star, Sparkles } from 'lucide-react';
+import { Target, Globe, Image, Palette, Heart, Shield, Star, Sparkles } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import SyrianCitiesMap from '../components/common/SyrianCitiesMap';
 import VolunteerForms from '../components/common/VolunteerForms';
