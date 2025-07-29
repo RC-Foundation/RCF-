@@ -82,19 +82,19 @@ const RhizomeSyriaPage: React.FC = () => {
   const goals = [
     {
       en: 'Decentralized: No single point of failure.',
-      ar: 'تحوّل تقوده البيانات\nقرارات مستنيرة، ونهوض جماعي'
+      ar:'نظام لامركزي لا يتوقّف بتوقّف جزء منه'
     },
     {
       en: 'Interconnected: Strength through collaboration.',
-      ar: 'تمكين الإرادة الذاتية\nالمجتمعات في موقع القيادة'
+      ar: 'تمكين الإرادة المحلية، تفكيك الهرمية بالتعاون جذرية'
     },
     {
       en: 'Adaptable: Able to navigate complex and changing environments.',
-      ar: 'قلب موازين القوة\nتفكيك الهرمية، وتعاون جذري'
+      ar: 'قابل للتكيّف يُجيد التحرّك بثقة ومرونة وسط الظروف المتغيرة والمعقدة'
     },
     {
       en: 'Community-Rooted: Growing from local needs and knowledge.',
-      ar: 'قلب موازين القوة\nتفكيك الهرمية، وتعاون جذري'
+      ar: 'متجذّر مجتمعياً ينمو من احتياجات المجتمع المحلي ومعارفه'
     }
   ];
 
@@ -174,7 +174,7 @@ const RhizomeSyriaPage: React.FC = () => {
               {t(
                 'rhizome-syria-subtitle',
                 'Syria, Reimagined From the Roots Up.',
-                'صوت سوريا في مؤسسة رايزوم المجتمعية - مستقل، متمحور حول المجتمع، وموحد فوق الانقسامات.'
+                'رايزوم سوريا، تنميةٌ تُبنى من الجذور'
               )}
             </motion.p>
 
