@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import {
-  BarChart,
-  Bar,
   LineChart,
   Line,
   AreaChart,
@@ -18,22 +16,18 @@ import {
   Cell,
 } from 'recharts';
 import {
-  Users,
-  Building,
   Home,
   TrendingUp,
   Activity,
   HelpCircle,
   RefreshCw,
-  Shield,
   Droplets,
-  Heart,
   Briefcase,
-  AlertTriangle,
 } from 'lucide-react';
 import '../../styles/recovery-dashboard.css';
 import DataSources from '../../components/recovery-dashboard/DataSources';
 import DataSourcesMap from '../../components/recovery-dashboard/DataSourcesMap.jsx';
+import { Button } from '../../components/ui/Button';
 
 // Sample indicator data
 const indicators = [
@@ -74,22 +68,28 @@ const RecoveryDashboardPage: React.FC = () => {
   const getIndicatorDetails = (id: string) => {
     switch (id) {
       case 'idp_returns':
-        return { icon: <Home className="h-5 w-5" />, color: 'bg-green-600' };
+        return {
+          icon: <Home className="h-5 w-5" aria-hidden />,
+          color: 'bg-green-600',
+        };
       case 'humanitarian_access':
-        return { icon: <Droplets className="h-5 w-5" />, color: 'bg-red-600' };
+        return {
+          icon: <Droplets className="h-5 w-5" aria-hidden />,
+          color: 'bg-red-600',
+        };
       case 'education_access':
         return {
-          icon: <Briefcase className="h-5 w-5" />,
+          icon: <Briefcase className="h-5 w-5" aria-hidden />,
           color: 'bg-blue-600',
         };
       case 'electricity_hours':
         return {
-          icon: <Activity className="h-5 w-5" />,
+          icon: <Activity className="h-5 w-5" aria-hidden />,
           color: 'bg-yellow-600',
         };
       default:
         return {
-          icon: <HelpCircle className="h-5 w-5" />,
+          icon: <HelpCircle className="h-5 w-5" aria-hidden />,
           color: 'bg-gray-600',
         };
     }
@@ -141,28 +141,33 @@ const RecoveryDashboardPage: React.FC = () => {
           {/* Timeframe selector */}
           <div
             className={`flex mt-4 bg-white/10 rounded-lg p-1 w-fit ${isArabic ? 'flex-row-reverse mr-auto' : 'ml-0'}`}
+            role="tablist"
+            aria-label={isArabic ? 'تحديد الإطار الزمني' : 'Select timeframe'}
           >
-            {['week', 'month', 'quarter', 'year'].map((timeframe) => (
-              <button
-                key={timeframe}
-                className={`px-3 py-1.5 text-sm font-medium rounded-md transition ${
-                  selectedTimeframe === timeframe
-                    ? 'bg-white text-blue-700'
-                    : 'text-white/80 hover:bg-white/20'
-                } ${isArabic ? 'rs-arabic' : ''}`}
-                onClick={() => setSelectedTimeframe(timeframe)}
-              >
-                {isArabic
-                  ? timeframe === 'week'
-                    ? 'أسبوع'
-                    : timeframe === 'month'
-                      ? 'شهر'
-                      : timeframe === 'quarter'
-                        ? 'ربع سنة'
-                        : 'سنة'
-                  : timeframe.charAt(0).toUpperCase() + timeframe.slice(1)}
-              </button>
-            ))}
+            {['week', 'month', 'quarter', 'year'].map((timeframe) => {
+              const active = selectedTimeframe === timeframe;
+              const label = isArabic
+                ? timeframe === 'week'
+                  ? 'أسبوع'
+                  : timeframe === 'month'
+                    ? 'شهر'
+                    : timeframe === 'quarter'
+                      ? 'ربع سنة'
+                      : 'سنة'
+                : timeframe.charAt(0).toUpperCase() + timeframe.slice(1);
+              return (
+                <Button
+                  key={timeframe}
+                  variant={active ? 'secondary' : 'outline'}
+                  className={`px-3 py-1.5 text-sm font-medium rounded-md !shadow-none ${active ? 'ring-0' : 'opacity-80 hover:opacity-100'} ${isArabic ? 'rs-arabic' : ''}`}
+                  aria-pressed={active}
+                  role="tab"
+                  onClick={() => setSelectedTimeframe(timeframe)}
+                >
+                  {label}
+                </Button>
+              );
+            })}
           </div>
         </header>
 
@@ -217,8 +222,12 @@ const RecoveryDashboardPage: React.FC = () => {
         </div>
 
         {/* Main chart */}
-        <div className="bg-white p-6 rounded-lg shadow-md mb-8">
+        <div
+          className="bg-white p-6 rounded-lg shadow-md mb-8"
+          aria-labelledby="displacement-trends-heading"
+        >
           <h2
+            id="displacement-trends-heading"
             className={`text-xl font-bold mb-4 ${isArabic ? 'rs-arabic text-right' : ''}`}
           >
             {isArabic ? 'اتجاهات السكان النازحين' : 'Displacement Trends'}
@@ -257,8 +266,12 @@ const RecoveryDashboardPage: React.FC = () => {
         {/* Secondary charts */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           {/* Sectoral funding chart */}
-          <div className="bg-white p-6 rounded-lg shadow-md">
+          <div
+            className="bg-white p-6 rounded-lg shadow-md"
+            aria-labelledby="funding-sector-heading"
+          >
             <h2
+              id="funding-sector-heading"
               className={`text-xl font-bold mb-4 ${isArabic ? 'rs-arabic text-right' : ''}`}
             >
               {isArabic ? 'التمويل حسب القطاع' : 'Funding by Sector'}
@@ -292,8 +305,12 @@ const RecoveryDashboardPage: React.FC = () => {
           </div>
 
           {/* Area chart for cumulative returns */}
-          <div className="bg-white p-6 rounded-lg shadow-md">
+          <div
+            className="bg-white p-6 rounded-lg shadow-md"
+            aria-labelledby="cumulative-returns-heading"
+          >
             <h2
+              id="cumulative-returns-heading"
               className={`text-xl font-bold mb-4 ${isArabic ? 'rs-arabic text-right' : ''}`}
             >
               {isArabic ? 'العودة التراكمية' : 'Cumulative Returns'}

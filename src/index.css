@@ -3,6 +3,7 @@
 /* Import styles for hero section extension */
 @import './styles/hero-extension.css';
 @import './styles/golden-ratio.css';
+@import './styles/ui.css';
 
 @tailwind base;
 @tailwind components;
@@ -31,6 +32,8 @@
   --border-radius: var(--rs-radius-lg);
   --shadow: var(--rs-shadow-md);
   --shadow-lg: var(--rs-shadow-xl);
+  /* Hero customization */
+  --hero-heading-font: 'Poppins', 'Open Sans', 'Noto Sans Arabic', sans-serif;
 }
 
 /* Cursor Styles - Fixed sizes */

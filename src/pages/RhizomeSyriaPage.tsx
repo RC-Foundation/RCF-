@@ -1,18 +1,13 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import {
-  Target,
-  Globe,
-  Palette,
-  Heart,
-  Shield,
-  Sparkles,
-} from 'lucide-react';
+import { Target, Globe, Palette, Heart, Shield, Sparkles } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import VolunteerForms from '../components/common/VolunteerForms';
 import FeaturedLeaders from '../components/community/FeaturedLeaders';
 import RhizomeSyriaGallery from '../components/gallery/RhizomeSyriaGallery';
 import '../styles/rhizome-syria.css';
+import { Button } from '../components/ui/Button';
+// Reordered / refactored for unified button styling and accessibility improvements
 
 const RhizomeSyriaPage: React.FC = () => {
   const { t, currentLanguage } = useLanguage();
@@ -68,7 +63,10 @@ const RhizomeSyriaPage: React.FC = () => {
     { en: 'Independent financing', ar: 'التمويل المتسقل' },
     { en: 'Dismantling hierarchy', ar: 'تفكيك الهرمية' },
     { en: 'Data analysis', ar: 'التحليل البياني' },
-    { en: 'Coordinating local resources and knowledge', ar: 'تنسيق المصادر والمعارف المحلية' },
+    {
+      en: 'Coordinating local resources and knowledge',
+      ar: 'تنسيق المصادر والمعارف المحلية',
+    },
     { en: 'Sustainable healthy relations', ar: 'علاقات صحية مستديمة' },
   ];
 
@@ -76,11 +74,26 @@ const RhizomeSyriaPage: React.FC = () => {
     { en: 'Interwoven networks', ar: 'الشبكة المتشابكة' },
     { en: 'Dialogue and horizontal decision-making', ar: 'الحوار والأفقية' },
     { en: 'Adaptability and freedom', ar: 'التكيف والتحرر' },
-    { en: 'Diversity and decentralized renewal', ar: 'التنوع والتجدد اللامركزية' },
-    { en: 'Deep collaboration and intersection', ar: 'التعاون والتداخل العميق' },
-    { en: 'Expanding reach across the land', ar: 'الامتداد والانتشار في الأرض' },
-    { en: 'Change through community participation', ar: 'التغيير بالمشاركة المجتمعية' },
-    { en: 'Empowerment, freedom, and resilience', ar: 'التمكين والحرية والمرونة' },
+    {
+      en: 'Diversity and decentralized renewal',
+      ar: 'التنوع والتجدد اللامركزية',
+    },
+    {
+      en: 'Deep collaboration and intersection',
+      ar: 'التعاون والتداخل العميق',
+    },
+    {
+      en: 'Expanding reach across the land',
+      ar: 'الامتداد والانتشار في الأرض',
+    },
+    {
+      en: 'Change through community participation',
+      ar: 'التغيير بالمشاركة المجتمعية',
+    },
+    {
+      en: 'Empowerment, freedom, and resilience',
+      ar: 'التمكين والحرية والمرونة',
+    },
   ];
 
   return (
@@ -90,13 +103,16 @@ const RhizomeSyriaPage: React.FC = () => {
         className="fixed inset-0 opacity-5 bg-no-repeat bg-center bg-contain pointer-events-none"
         style={{
           backgroundImage: `url('/slide0007_image015.png')`,
-          backgroundSize: '45%',  /* Reduced from 60% to 45% to zoom out more */
+          backgroundSize: '45%' /* Reduced from 60% to 45% to zoom out more */,
           backgroundPosition: 'center 20%',
         }}
       />
 
       {/* Hero Section with Logo-Inspired Design */}
-      <section className="rs-hero relative overflow-hidden" style={{ background: "var(--rs-gradient-dawn)" }}>
+      <section
+        className="rs-hero relative overflow-hidden"
+        style={{ background: 'var(--rs-gradient-dawn)' }}
+      >
         {/* Animated Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-purple-400 to-blue-400 rounded-full opacity-20 animate-pulse" />
@@ -154,19 +170,20 @@ const RhizomeSyriaPage: React.FC = () => {
             className={`text-center ${currentLanguage.code === 'ar' ? 'rs-arabic' : ''}`}
           >
             {/* Logo Integration */}
-          <motion.h1
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="flex justify-center mb-8"
-          >
-            <img
-              src="/20250629_1822_Gradient Logo Design_remix_01jyz38q10e56bpwt8s4ypzwhj.png"
-              alt="Rhizome Syria Logo"
-              className="h-64 md:h-80 w-auto drop-shadow-xl"
-            />
-          </motion.h1>
-
+            <motion.h1
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 1, delay: 0.3 }}
+              className="flex justify-center mb-8"
+            >
+              <img
+                src="/20250629_1822_Gradient Logo Design_remix_01jyz38q10e56bpwt8s4ypzwhj.png"
+                alt="Rhizome Syria Logo"
+                className="h-64 md:h-80 w-auto drop-shadow-xl"
+                width={512}
+                height={512}
+              />
+            </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -187,22 +204,42 @@ const RhizomeSyriaPage: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.9 }}
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
-              <button className="group px-8 py-4 bg-gradient-to-r from-purple-600 via-blue-600 to-orange-400 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                <span className="flex items-center">
-                  <Sparkles className="h-5 w-5 mr-2 group-hover:animate-spin" />
+              <Link
+                to="/programs"
+                className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-purple-400 rounded-full"
+              >
+                <Button
+                  variant="primary"
+                  leftIcon={<Sparkles className="h-5 w-5" />}
+                  className="px-8 py-4 rounded-full shadow-lg hover:shadow-xl"
+                  aria-label={t(
+                    'explore-programs',
+                    'Discover Our Impact',
+                    'اكتشف تأثيرنا'
+                  )}
+                >
                   {t(
                     'explore-programs',
                     'Discover Our Impact',
                     'اكتشف تأثيرنا'
                   )}
-                </span>
-              </button>
-
+                </Button>
+              </Link>
               <Link
                 to="/join"
-                className="px-8 py-4 bg-white/80 backdrop-blur-sm text-purple-700 font-semibold rounded-full border-2 border-purple-300 hover:bg-purple-50 transition-all duration-300"
+                className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-purple-400 rounded-full"
               >
-                {t('join-community', 'Join the Movement', 'انضم للحراك')}
+                <Button
+                  variant="secondary"
+                  className="px-8 py-4 rounded-full shadow"
+                  aria-label={t(
+                    'join-community',
+                    'Join the Movement',
+                    'انضم للحراك'
+                  )}
+                >
+                  {t('join-community', 'Join the Movement', 'انضم للحراك')}
+                </Button>
               </Link>
             </motion.div>
           </motion.div>
@@ -212,14 +249,14 @@ const RhizomeSyriaPage: React.FC = () => {
       {/* Overview Section */}
       <section className="rs-section relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-white to-purple-50/50" />
-        
+
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-10 w-64 h-64 border-2 border-purple-300 rounded-full" />
           <div className="absolute bottom-40 right-20 w-80 h-80 border-2 border-blue-300 rounded-full" />
           <div className="absolute top-1/3 right-1/3 w-40 h-40 border-2 border-orange-300 rounded-full" />
         </div>
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -227,13 +264,17 @@ const RhizomeSyriaPage: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className={`rs-heading-2 mb-8 text-center bg-gradient-to-r from-purple-600 via-blue-600 to-orange-400 bg-clip-text text-transparent ${currentLanguage.code === 'ar' ? 'rs-arabic' : ''}`}>
+            <h2
+              className={`rs-heading-2 mb-8 text-center bg-gradient-to-r from-purple-600 via-blue-600 to-orange-400 bg-clip-text text-transparent ${currentLanguage.code === 'ar' ? 'rs-arabic' : ''}`}
+            >
               {t('overview-title', 'About Rhizome Syria', 'عن رايزوم سوريا')}
             </h2>
-            
+
             <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
               <div>
-                <div className={`rs-card p-8 mb-6 bg-gradient-to-br from-white to-purple-50 ${currentLanguage.code === 'ar' ? 'rs-arabic' : ''}`}>
+                <div
+                  className={`rs-card p-8 mb-6 bg-gradient-to-br from-white to-purple-50 ${currentLanguage.code === 'ar' ? 'rs-arabic' : ''}`}
+                >
                   <p className="rs-body-large mb-6 leading-relaxed">
                     {t(
                       'overview-intro',
@@ -241,11 +282,11 @@ const RhizomeSyriaPage: React.FC = () => {
                       'شبكة سورية لامركزية من المجتمع المدني تؤمن بقوة المجتمعات المحلية في صناعة التغيير وتعمل في مناطق متنوعة بمرونة وملكية محلية'
                     )}
                   </p>
-                  
+
                   <div className="flex justify-center mb-6">
                     <div className="h-1 w-24 bg-gradient-to-r from-purple-500 via-blue-500 to-orange-500 rounded-full"></div>
                   </div>
-                  
+
                   <p className="rs-body italic text-center text-gray-600">
                     {t(
                       'overview-quote',
@@ -255,12 +296,14 @@ const RhizomeSyriaPage: React.FC = () => {
                   </p>
                 </div>
               </div>
-              
+
               <div className="relative">
                 <div className="relative rounded-2xl overflow-hidden shadow-xl">
-                  <img 
-                    src="/WhatsApp Image 2025-06-17 at 12.35.13 AM (2).jpeg" 
-                    alt="Rhizome Syria Community" 
+                  <img
+                    src="/WhatsApp Image 2025-06-17 at 12.35.13 AM (2).jpeg"
+                    alt="Rhizome Syria Community"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-auto object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-purple-900/60 to-transparent"></div>
@@ -274,46 +317,86 @@ const RhizomeSyriaPage: React.FC = () => {
               <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-purple-100">
                 <div className="flex items-center mb-6">
                   <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
                     </svg>
                   </div>
-                  <h3 className={`rs-heading-3 ml-4 ${currentLanguage.code === 'ar' ? 'rs-arabic' : ''}`}>
+                  <h3
+                    className={`rs-heading-3 ml-4 ${currentLanguage.code === 'ar' ? 'rs-arabic' : ''}`}
+                  >
                     {t('methods-heading', 'Our Approach', 'منهجيتنا')}
                   </h3>
                 </div>
-                
+
                 <div className="grid grid-cols-2 gap-3">
                   {methods.map((item, index) => (
-                    <div key={index} className={`flex items-start space-x-2 ${currentLanguage.code === 'ar' ? 'space-x-reverse rs-arabic' : ''}`}>
+                    <div
+                      key={index}
+                      className={`flex items-start space-x-2 ${currentLanguage.code === 'ar' ? 'space-x-reverse rs-arabic' : ''}`}
+                    >
                       <div className="flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center mt-1">
                         <span className="text-white text-xs">{index + 1}</span>
                       </div>
-                      <p className="rs-body">{t(`method-${index}`, item.en, item.ar)}</p>
+                      <p className="rs-body">
+                        {t(`method-${index}`, item.en, item.ar)}
+                      </p>
                     </div>
                   ))}
                 </div>
               </div>
-              
+
               <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-blue-100">
                 <div className="flex items-center mb-6">
                   <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-orange-500 rounded-xl flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      />
                     </svg>
                   </div>
-                  <h3 className={`rs-heading-3 ml-4 ${currentLanguage.code === 'ar' ? 'rs-arabic' : ''}`}>
-                    {t('goals-heading', 'The Rhizome Philosophy', 'فلسفة الريزوم')}
+                  <h3
+                    className={`rs-heading-3 ml-4 ${currentLanguage.code === 'ar' ? 'rs-arabic' : ''}`}
+                  >
+                    {t(
+                      'goals-heading',
+                      'The Rhizome Philosophy',
+                      'فلسفة الريزوم'
+                    )}
                   </h3>
                 </div>
-                
+
                 <div className="grid grid-cols-2 gap-3">
                   {goals.map((item, index) => (
-                    <div key={index} className={`flex items-start space-x-2 ${currentLanguage.code === 'ar' ? 'space-x-reverse rs-arabic' : ''}`}>
+                    <div
+                      key={index}
+                      className={`flex items-start space-x-2 ${currentLanguage.code === 'ar' ? 'space-x-reverse rs-arabic' : ''}`}
+                    >
                       <div className="flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-r from-blue-500 to-orange-500 flex items-center justify-center mt-1">
                         <span className="text-white text-xs">{index + 1}</span>
                       </div>
-                      <p className="rs-body">{t(`goal-${index}`, item.en, item.ar)}</p>
+                      <p className="rs-body">
+                        {t(`goal-${index}`, item.en, item.ar)}
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -337,7 +420,9 @@ const RhizomeSyriaPage: React.FC = () => {
               <div className="absolute -inset-4 bg-gradient-to-r from-purple-400 via-blue-400 to-orange-400 rounded-2xl opacity-20 blur-xl" />
               <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-purple-200">
                 <div className="flex items-center mb-6">
-                  <div className={`w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center mr-4 ${currentLanguage.code === 'ar' ? 'rtl-icon-box' : ''}`}>
+                  <div
+                    className={`w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center mr-4 ${currentLanguage.code === 'ar' ? 'rtl-icon-box' : ''}`}
+                  >
                     <Target className="h-6 w-6 text-white" />
                   </div>
                   <h2
@@ -380,6 +465,8 @@ const RhizomeSyriaPage: React.FC = () => {
                 <img
                   src="/WhatsApp Image 2025-06-19 at 12.35.09 PM copy.jpeg"
                   alt="Rhizome Syria Activities"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-80 object-cover rounded-2xl shadow-2xl"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-purple-600/30 via-transparent to-blue-600/20 rounded-2xl" />
@@ -387,7 +474,9 @@ const RhizomeSyriaPage: React.FC = () => {
 
               <div className="bg-gradient-to-br from-orange-50 via-yellow-50 to-red-50 rounded-2xl p-6 shadow-xl border border-orange-200">
                 <div className="flex items-center mb-4">
-                  <div className={`w-10 h-10 bg-gradient-to-r from-orange-400 to-red-500 rounded-lg flex items-center justify-center mr-3 ${currentLanguage.code === 'ar' ? 'rtl-icon-box' : ''}`}>
+                  <div
+                    className={`w-10 h-10 bg-gradient-to-r from-orange-400 to-red-500 rounded-lg flex items-center justify-center mr-3 ${currentLanguage.code === 'ar' ? 'rtl-icon-box' : ''}`}
+                  >
                     <Globe className="h-5 w-5 text-white" />
                   </div>
                   <h3
@@ -448,7 +537,8 @@ const RhizomeSyriaPage: React.FC = () => {
               {
                 title: 'Introductory Local Visits',
                 titleAr: 'زيارات محلية تعارفية',
-                description: 'Understanding the Syrian context and activating community participation.',
+                description:
+                  'Understanding the Syrian context and activating community participation.',
                 descriptionAr: 'لفهم الواقع السوري وتفعيل المشاركة المجتمعية.',
                 icon: Globe,
                 gradient: 'from-blue-500 to-green-500',
@@ -456,32 +546,40 @@ const RhizomeSyriaPage: React.FC = () => {
               {
                 title: 'Field Surveys & Syrian Data House',
                 titleAr: 'مسوح ميدانية ومبادرة بيت البيانات السوري',
-                description: 'Launching data-driven surveys to inform development strategies.',
-                descriptionAr: 'إطلاق مسوح ميدانية لتغذية مبادرة بيت البيانات السوري.',
+                description:
+                  'Launching data-driven surveys to inform development strategies.',
+                descriptionAr:
+                  'إطلاق مسوح ميدانية لتغذية مبادرة بيت البيانات السوري.',
                 icon: Target,
                 gradient: 'from-purple-500 to-pink-500',
               },
               {
                 title: 'Safe Reporting Platform',
                 titleAr: 'منصة الإبلاغ الآمن',
-                description: 'Creating a secure channel for community reports and feedback.',
-                descriptionAr: 'إنشاء قناة آمنة للتقارير المجتمعية والتغذية الراجعة.',
+                description:
+                  'Creating a secure channel for community reports and feedback.',
+                descriptionAr:
+                  'إنشاء قناة آمنة للتقارير المجتمعية والتغذية الراجعة.',
                 icon: Shield,
                 gradient: 'from-orange-400 to-red-500',
               },
               {
                 title: 'Volunteer Network & National Charter',
                 titleAr: 'قاعدة تطوعية وميثاق وطني',
-                description: 'Building a volunteer base and launching a national charter for civic work.',
-                descriptionAr: 'بناء قاعدة تطوعية وإطلاق ميثاق وطني للعمل التطوعي.',
+                description:
+                  'Building a volunteer base and launching a national charter for civic work.',
+                descriptionAr:
+                  'بناء قاعدة تطوعية وإطلاق ميثاق وطني للعمل التطوعي.',
                 icon: Heart,
                 gradient: 'from-yellow-500 to-orange-400',
               },
               {
                 title: 'Participatory Cultural Initiatives',
                 titleAr: 'مبادرات ثقافية تشاركية',
-                description: 'Youth and women empowerment, economic reconciliation, community healing, digital storytelling and fundraising.',
-                descriptionAr: 'تمكين شبابي ونسائي، مصالحة اقتصادية، تعافٍ مجتمعي، السرد الرقمي وحملات جمع التبرعات.',
+                description:
+                  'Youth and women empowerment, economic reconciliation, community healing, digital storytelling and fundraising.',
+                descriptionAr:
+                  'تمكين شبابي ونسائي، مصالحة اقتصادية، تعافٍ مجتمعي، السرد الرقمي وحملات جمع التبرعات.',
                 icon: Palette,
                 gradient: 'from-blue-500 to-cyan-500',
               },
@@ -569,31 +667,33 @@ const RhizomeSyriaPage: React.FC = () => {
               className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <div className="h-60 overflow-hidden">
-                <img 
-                  src="/WhatsApp Image 2025-06-17 at 12.35.13 AM (2).jpeg" 
+                <img
+                  src="/WhatsApp Image 2025-06-17 at 12.35.13 AM (2).jpeg"
                   alt="Aleppo Roots Cultural Event"
-                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" 
+                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div className="p-6">
-                <h3 className={`text-2xl font-bold mb-2 ${currentLanguage.code === 'ar' ? 'rs-arabic' : ''}`}>
+                <h3
+                  className={`text-2xl font-bold mb-2 ${currentLanguage.code === 'ar' ? 'rs-arabic' : ''}`}
+                >
                   {t(
                     'aleppo-roots-title',
                     'Aleppo Roots Cultural Event',
                     'فعالية جذور حلب الثقافية'
                   )}
                 </h3>
-                <p className={`text-gray-500 mb-4 ${currentLanguage.code === 'ar' ? 'rs-arabic' : ''}`}>
-                  {t(
-                    'aleppo-roots-date',
-                    'July 15, 2025',
-                    '١٥ يوليو ٢٠٢٥'
-                  )}
+                <p
+                  className={`text-gray-500 mb-4 ${currentLanguage.code === 'ar' ? 'rs-arabic' : ''}`}
+                >
+                  {t('aleppo-roots-date', 'July 15, 2025', '١٥ يوليو ٢٠٢٥')}
                 </p>
-                <p className={`mb-4 ${currentLanguage.code === 'ar' ? 'rs-arabic' : ''}`}>
+                <p
+                  className={`mb-4 ${currentLanguage.code === 'ar' ? 'rs-arabic' : ''}`}
+                >
                   {t(
                     'aleppo-roots-desc',
-                    'A cultural event featuring theatre and music performances, and community engagement with nonprofits and volunteer teams. Celebrating Aleppo\'s rich cultural heritage with approximately 300 attendees.',
+                    "A cultural event featuring theatre and music performances, and community engagement with nonprofits and volunteer teams. Celebrating Aleppo's rich cultural heritage with approximately 300 attendees.",
                     'فعالية ثقافية تضم عروض مسرحية وموسيقية، ومشاركة مجتمعية مع المنظمات غير الربحية وفرق المتطوعين. احتفالاً بالتراث الثقافي الغني لمدينة حلب بحضور حوالي ٣٠٠ شخص.'
                   )}
                 </p>
@@ -620,31 +720,29 @@ const RhizomeSyriaPage: React.FC = () => {
               className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <div className="h-60 overflow-hidden">
-                <img 
-                  src="/WhatsApp Image 2025-06-17 at 12.35.14 AM (2).jpeg" 
+                <img
+                  src="/WhatsApp Image 2025-06-17 at 12.35.14 AM (2).jpeg"
                   alt="فرحة طفل وفرحة Event"
-                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" 
+                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div className="p-6">
-                <h3 className={`text-2xl font-bold mb-2 ${currentLanguage.code === 'ar' ? 'rs-arabic' : ''}`}>
-                  {t(
-                    'farhatchild-title',
-                    'فرحة طفل وفرحة',
-                    'فرحة طفل وفرحة'
-                  )}
+                <h3
+                  className={`text-2xl font-bold mb-2 ${currentLanguage.code === 'ar' ? 'rs-arabic' : ''}`}
+                >
+                  {t('farhatchild-title', 'فرحة طفل وفرحة', 'فرحة طفل وفرحة')}
                 </h3>
-                <p className={`text-gray-500 mb-4 ${currentLanguage.code === 'ar' ? 'rs-arabic' : ''}`}>
-                  {t(
-                    'farhatchild-date',
-                    'June 1, 2025',
-                    '١ يونيو ٢٠٢٥'
-                  )}
+                <p
+                  className={`text-gray-500 mb-4 ${currentLanguage.code === 'ar' ? 'rs-arabic' : ''}`}
+                >
+                  {t('farhatchild-date', 'June 1, 2025', '١ يونيو ٢٠٢٥')}
                 </p>
-                <p className={`mb-4 ${currentLanguage.code === 'ar' ? 'rs-arabic' : ''}`}>
+                <p
+                  className={`mb-4 ${currentLanguage.code === 'ar' ? 'rs-arabic' : ''}`}
+                >
                   {t(
                     'farhatchild-desc',
-                    'A children\'s festival at Aleppo Castle featuring mascots, games, and activities for families. A celebration of childhood joy and community spirit with over 250 children and parents participating.',
+                    "A children's festival at Aleppo Castle featuring mascots, games, and activities for families. A celebration of childhood joy and community spirit with over 250 children and parents participating.",
                     'مهرجان للأطفال في قلعة حلب يضم شخصيات كرتونية وألعابًا وأنشطة للعائلات. احتفال بفرحة الطفولة وروح المجتمع بمشاركة أكثر من ٢٥٠ طفل وأهاليهم.'
                   )}
                 </p>
@@ -792,11 +890,19 @@ const RhizomeSyriaPage: React.FC = () => {
             </div>
             <div className="mt-6 text-white/80 space-y-1">
               <p>
-                {t('contact-info', 'Reach us anytime at', 'أينما كنتم تواصلوا بلا حواجز عبر')}{' '}
+                {t(
+                  'contact-info',
+                  'Reach us anytime at',
+                  'أينما كنتم تواصلوا بلا حواجز عبر'
+                )}{' '}
                 info@rhizomsyria.org | 0958461227 | rhizomsyria.org
               </p>
               <p>
-                {t('address-info', 'For registration or volunteering visit', 'للتسجيل والتطوع مع رايزوم')}{' '}
+                {t(
+                  'address-info',
+                  'For registration or volunteering visit',
+                  'للتسجيل والتطوع مع رايزوم'
+                )}{' '}
                 {t(
                   'address-details',
                   'Latakia, Sheikh Khalaf Square, Joule Jamal Building 1, opposite Salah Al-Din Library',

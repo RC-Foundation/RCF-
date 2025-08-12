@@ -1,0 +1,19 @@
+/* Global UI utility additions */
+@layer components {
+  .btn-glow {
+    box-shadow:
+      0 4px 18px -2px rgba(255, 255, 255, 0.25),
+      0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  }
+  .glass-surface {
+    @apply backdrop-blur-md bg-white/10 border border-white/20 shadow-lg shadow-black/10;
+  }
+  .elevated-card {
+    @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-lg;
+  }
+  .gradient-text {
+    background: linear-gradient(135deg, #6b46c1, #0ea5e9, #fb923c);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+}
