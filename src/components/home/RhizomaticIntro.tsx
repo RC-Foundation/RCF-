@@ -59,7 +59,8 @@ const RhizomaticIntro: React.FC = () => {
         .map((otherNode, j) => ({
           index: j,
           distance: Math.sqrt(
-            Math.pow(node.x - otherNode.x, 2) + Math.pow(node.y - otherNode.y, 2)
+            Math.pow(node.x - otherNode.x, 2) +
+              Math.pow(node.y - otherNode.y, 2)
           ),
         }))
         .filter((item) => item.index !== i)
@@ -96,18 +97,19 @@ const RhizomaticIntro: React.FC = () => {
       });
 
       // Draw enhanced connections
-      ctx.strokeStyle = 'rgba(16, 185, 129, 0.4)';
+      ctx.strokeStyle = 'rgba(113, 80, 181, 0.4)'; // Using RS primary purple
       ctx.lineWidth = 1.5;
       nodes.forEach((node) => {
         node.connections.forEach((connectionIndex) => {
           const connectedNode = nodes[connectionIndex];
           const distance = Math.sqrt(
-            Math.pow(node.x - connectedNode.x, 2) + Math.pow(node.y - connectedNode.y, 2)
+            Math.pow(node.x - connectedNode.x, 2) +
+              Math.pow(node.y - connectedNode.y, 2)
           );
-          
+
           if (distance < 200) {
             const opacity = (200 - distance) / 200;
-            ctx.strokeStyle = `rgba(16, 185, 129, ${opacity * 0.6})`;
+            ctx.strokeStyle = `rgba(113, 80, 181, ${opacity * 0.6})`; // Using RS primary purple
             ctx.beginPath();
             ctx.moveTo(node.x, node.y);
             ctx.lineTo(connectedNode.x, connectedNode.y);
@@ -121,17 +123,21 @@ const RhizomaticIntro: React.FC = () => {
         // Main node
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(16, 185, 129, ${node.opacity})`;
+        ctx.fillStyle = `rgba(113, 80, 181, ${node.opacity})`; // Using RS primary purple
         ctx.fill();
-        
+
         // Glow effect
         const gradient = ctx.createRadialGradient(
-          node.x, node.y, 0,
-          node.x, node.y, node.size * 3
+          node.x,
+          node.y,
+          0,
+          node.x,
+          node.y,
+          node.size * 3
         );
-        gradient.addColorStop(0, `rgba(16, 185, 129, ${node.opacity * 0.3})`);
-        gradient.addColorStop(1, 'rgba(16, 185, 129, 0)');
-        
+        gradient.addColorStop(0, `rgba(113, 80, 181, ${node.opacity * 0.3})`); // Using RS primary purple
+        gradient.addColorStop(1, 'rgba(113, 80, 181, 0)'); // Using RS primary purple
+
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.size * 3, 0, Math.PI * 2);
         ctx.fillStyle = gradient;
@@ -150,20 +156,20 @@ const RhizomaticIntro: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary-50 via-white to-secondary-50">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[var(--rs-light-gray)] via-white to-[var(--rs-cream)]">
       {/* Enhanced Animated Background */}
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full gpu-accelerated"
         style={{ width: '100%', height: '100%' }}
       />
-      
+
       {/* Floating geometric shapes */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(5)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-20 h-20 bg-gradient-to-br from-primary-200 to-secondary-200 rounded-full opacity-20 morphing-bg"
+            className="absolute w-20 h-20 bg-gradient-to-br from-[var(--rs-primary-purple-light)] to-[var(--rs-primary-blue-light)] rounded-full opacity-20 morphing-bg"
             style={{
               left: `${20 + i * 15}%`,
               top: `${30 + i * 10}%`,
@@ -176,12 +182,12 @@ const RhizomaticIntro: React.FC = () => {
             transition={{
               duration: 8 + i * 2,
               repeat: Infinity,
-              ease: "easeInOut",
+              ease: 'easeInOut',
             }}
           />
         ))}
       </div>
-      
+
       {/* Content Overlay */}
       <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
         <ScrollReveal>
@@ -192,20 +198,20 @@ const RhizomaticIntro: React.FC = () => {
             className={`${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
           >
             <motion.h1
-              className="text-5xl md:text-7xl font-bold mb-6 gradient-text"
-              animate={{ 
+              className="heading-1 text-5xl md:text-7xl font-bold mb-6 gradient-text"
+              animate={{
                 backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
               }}
               transition={{ duration: 5, repeat: Infinity }}
             >
               {t('hero-title', 'Rhizome Syria', 'رايزوم سوريا')}
             </motion.h1>
-            
+
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1 }}
-              className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed"
+              className="body-large text-xl md:text-2xl mb-8 leading-relaxed"
             >
               {t(
                 'hero-subtitle',
@@ -213,7 +219,7 @@ const RhizomaticIntro: React.FC = () => {
                 'نجمع كافة الأصوات النابضة في المجتمع المدني السوري عبر شبكة جذمورية لامركزية لنبني وطننا معاً.'
               )}
             </motion.p>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -224,17 +230,17 @@ const RhizomaticIntro: React.FC = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="btn-enhanced px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover-glow"
+                  className="button-primary px-8 py-4 font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover-glow"
                 >
                   {t('explore-projects', 'Explore Projects', 'استكشف المشاريع')}
                 </motion.button>
               </RippleEffect>
-              
+
               <RippleEffect>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="btn-enhanced px-8 py-4 bg-white text-primary-600 font-semibold rounded-full border-2 border-primary-600 hover:bg-primary-50 transition-all duration-300"
+                  className="button-secondary px-8 py-4 font-semibold rounded-full transition-all duration-300"
                 >
                   {t('join-community', 'Join Community', 'انضم للمجتمع')}
                 </motion.button>
@@ -243,7 +249,7 @@ const RhizomaticIntro: React.FC = () => {
           </motion.div>
         </ScrollReveal>
       </div>
-      
+
       {/* Enhanced Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -253,15 +259,20 @@ const RhizomaticIntro: React.FC = () => {
       >
         <motion.div
           animate={{ y: [0, 15, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="w-8 h-12 border-2 border-primary-600 rounded-full flex justify-center relative overflow-hidden"
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          className="w-8 h-12 border-2 border-[var(--rs-primary-purple)] rounded-full flex justify-center relative overflow-hidden"
         >
           <motion.div
             animate={{ y: [0, 20, 0] }}
-            transition={{ duration: 2, repeat: Infinity, delay: 0.5, ease: "easeInOut" }}
-            className="w-2 h-4 bg-gradient-to-b from-primary-600 to-primary-400 rounded-full mt-2"
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              delay: 0.5,
+              ease: 'easeInOut',
+            }}
+            className="w-2 h-4 bg-gradient-to-b from-[var(--rs-primary-purple)] to-[var(--rs-primary-blue)] rounded-full mt-2"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary-100 to-transparent opacity-30 animate-pulse" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--rs-primary-purple-light)] to-transparent opacity-30 animate-pulse" />
         </motion.div>
       </motion.div>
     </section>

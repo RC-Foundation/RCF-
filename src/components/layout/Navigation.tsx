@@ -40,11 +40,19 @@ const Navigation: React.FC = () => {
     },
     { key: 'calendar', path: '/calendar', en: 'Calendar', ar: 'التقويم' },
     {
+      key: 'recovery-dashboard',
+      path: '/recovery-dashboard',
+      en: 'Recovery Dashboard',
+      ar: 'لوحة التعافي',
+    },
+    /* Interactive tab removed as requested
+    {
       key: 'interactive',
       path: '/interactive',
       en: 'Interactive',
       ar: 'تفاعلي',
     },
+    */
     { key: 'contact', path: '/contact', en: 'Contact', ar: 'اتصل بنا' },
   ];
 
@@ -56,7 +64,7 @@ const Navigation: React.FC = () => {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
             ? 'bg-white/50 backdrop-blur-md shadow-md ring-1 ring-white/40'
-            : 'bg-white/20 backdrop-blur-sm ring-1 ring-white/30'
+            : 'bg-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -74,10 +82,10 @@ const Navigation: React.FC = () => {
               <div
                 className={`${currentLanguage.code === 'ar' ? 'font-arabic text-xs' : 'text-xs'}`}
               >
-                <div className="font-bold text-sm bg-gradient-to-r from-teal-600 to-indigo-600 bg-clip-text text-transparent">
+                <div className="font-bold text-sm bg-gradient-to-r from-teal-600 to-indigo-600 bg-clip-text text-transparent drop-shadow-sm">
                   {t('nav-title', 'Rhizome Community', 'رايزوم المجتمعية')}
                 </div>
-                <div className="text-xs text-stone-600">
+                <div className="text-xs text-white drop-shadow-sm">
                   {t('nav-subtitle', 'Foundation', 'مؤسسة')}
                 </div>
               </div>
@@ -94,7 +102,7 @@ const Navigation: React.FC = () => {
                       ? 'text-transparent bg-gradient-to-r from-teal-600 to-indigo-600 bg-clip-text'
                       : isScrolled
                         ? 'text-stone-800 hover:text-teal-700'
-                        : 'text-white hover:text-teal-200'
+                        : 'text-white hover:text-white/80 drop-shadow-sm'
                   } ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
                 >
                   {t(`nav-${item.key}`, item.en, item.ar)}
@@ -114,7 +122,7 @@ const Navigation: React.FC = () => {
                   className={`flex items-center space-x-1 px-2 py-2 text-sm font-medium transition-colors duration-200 ${
                     isScrolled
                       ? 'text-stone-800 hover:text-teal-700'
-                      : 'text-white hover:text-teal-200'
+                      : 'text-white hover:text-white/80 drop-shadow-sm'
                   }`}
                 >
                   <Globe className="h-4 w-4" />
@@ -218,13 +226,6 @@ const Navigation: React.FC = () => {
           )}
         </AnimatePresence>
       </motion.nav>
-      <div className="bg-gradient-to-r from-teal-800 via-sky-800 to-indigo-900 text-white text-center text-sm py-2">
-        {t(
-          'experimental-release',
-          'This website is an experimental release. Content may change.',
-          'هذا الموقع إصدار تجريبي والمحتوى قابل للتغيير.'
-        )}
-      </div>
     </>
   );
 };

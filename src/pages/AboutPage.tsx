@@ -111,6 +111,11 @@ const AboutPage: React.FC = () => {
       programs: 6,
       beneficiaries: 800,
       image: '/WhatsApp Image 2025-06-19 at 12.35.09 PM.jpeg',
+      additionalImages: [
+        '/WhatsApp Image 2025-07-13 at 6.55.09 AM (1).jpeg',
+        '/WhatsApp Image 2025-07-13 at 6.55.09 AM (3).jpeg',
+        '/WhatsApp Image 2025-07-13 at 6.55.09 AM (5).jpeg',
+      ],
     },
     {
       name: 'Rhizome Canada',
@@ -122,6 +127,11 @@ const AboutPage: React.FC = () => {
       programs: 3,
       beneficiaries: 650,
       image: '/WhatsApp Image 2025-06-19 at 12.35.10 PM.jpeg',
+      additionalImages: [
+        '/WhatsApp Image 2025-07-13 at 6.55.10 AM (1).jpeg',
+        '/WhatsApp Image 2025-07-13 at 6.55.10 AM (2).jpeg',
+        '/WhatsApp Image 2025-07-13 at 6.55.10 AM (3).jpeg',
+      ],
     },
   ];
 
@@ -134,7 +144,7 @@ const AboutPage: React.FC = () => {
       bio: 'Akshya moves through communities with curiosity and care, blending psychology, anthropology, and a deep commitment to social justice. With roots stretching from Chennai, through Kuwait and Saudi Arabia, to amiskwacîwâskahikan (Edmonton), they understand intimately how cultural histories and systemic challenges shape our shared realities.',
       bioAr:
         'تتنقل أكشيا عبر المجتمعات بفضول واهتمام، مازجة بين علم النفس والأنثروبولوجيا والالتزام العميق بالعدالة الاجتماعية. مع جذور تمتد من تشيناي، عبر الكويت والسعودية، إلى إدمونتون، تفهم بشكل وثيق كيف تشكل التواريخ الثقافية والتحديات النظامية واقعنا المشترك.',
-      image: '/akshya.jpeg',
+      image: '/WhatsApp Image 2025-06-17 at 12.39.55 AM (1).jpeg',
     },
     {
       name: 'Sarah',
@@ -241,9 +251,11 @@ const AboutPage: React.FC = () => {
       {/* About Us – How We Began */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-stone-900 mb-4">About Us</h2>
+          <h2 className="text-3xl font-bold text-stone-900 mb-4">
+            {t('about-us-heading', 'About Us', 'من نحن')}
+          </h2>
           <h3 className="text-xl font-semibold text-indigo-700 mb-3">
-            How We Began
+            {t('how-we-began', 'How We Began', 'كيف بدأنا')}
           </h3>
           <p className="text-lg text-stone-700 mb-3">
             Rhizome Community Foundation was established in 2025 by Amer,
@@ -430,7 +442,20 @@ const AboutPage: React.FC = () => {
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
                   />
                 </div>
-
+                {/* Additional Image Gallery */}
+                {branch.additionalImages && (
+                  <div className="grid grid-cols-3 gap-2 p-2">
+                    {branch.additionalImages.map((img, i) => (
+                      <div key={i} className="h-24 overflow-hidden rounded-lg">
+                        <img
+                          src={img}
+                          alt={`${t('branch-name', branch.name, branch.nameAr)} - Image ${i + 1}`}
+                          className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}{' '}
                 <div className="p-8">
                   <h3
                     className={`text-2xl font-bold text-stone-900 mb-3 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}

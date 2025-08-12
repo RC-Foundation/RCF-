@@ -58,22 +58,105 @@ const CommunityWallPage: React.FC = () => {
     { key: 'events', en: 'Events', ar: 'الفعاليات' },
   ];
 
-  // Generate additional photos for infinite scroll
+  // Generate additional photos for infinite scroll from open source images
   const generateMorePhotos = useCallback(() => {
     const additionalPhotos = [];
     const basePhotos = photos.filter((p) => p.approved);
 
+    // Define themed keywords that match our foundation's focus
+    const themeKeywords = [
+      'community',
+      'syria',
+      'collaboration',
+      'education',
+      'youth empowerment',
+      'civil society',
+      'middle east culture',
+      'community building',
+      'social impact',
+      'humanitarian',
+      'volunteers',
+      'cultural exchange',
+    ];
+
+    // Define potential categories
+    const possibleCategories = [
+      'community',
+      'culture',
+      'education',
+      'youth',
+      'events',
+    ];
+
     for (let i = 0; i < 12; i++) {
-      const basePhoto = basePhotos[i % basePhotos.length];
+      // Select a random theme keyword and category for each image
+      const randomTheme =
+        themeKeywords[Math.floor(Math.random() * themeKeywords.length)];
+      const randomCategory =
+        possibleCategories[
+          Math.floor(Math.random() * possibleCategories.length)
+        ];
+
+      // Generate creative titles based on the theme
+      const titleBase = {
+        community: { en: 'Community Connection', ar: 'تواصل مجتمعي' },
+        syria: { en: 'Syrian Heritage', ar: 'التراث السوري' },
+        collaboration: { en: 'Collaborative Initiative', ar: 'مبادرة تعاونية' },
+        education: { en: 'Educational Workshop', ar: 'ورشة تعليمية' },
+        'youth empowerment': { en: 'Youth Leadership', ar: 'قيادة الشباب' },
+        'civil society': {
+          en: 'Civil Society Forum',
+          ar: 'منتدى المجتمع المدني',
+        },
+        'middle east culture': {
+          en: 'Cultural Celebration',
+          ar: 'احتفال ثقافي',
+        },
+        'community building': { en: 'Community Project', ar: 'مشروع مجتمعي' },
+        'social impact': { en: 'Impact Initiative', ar: 'مبادرة مؤثرة' },
+        humanitarian: { en: 'Humanitarian Effort', ar: 'جهد إنساني' },
+        volunteers: { en: 'Volunteer Action', ar: 'عمل تطوعي' },
+        'cultural exchange': { en: 'Cultural Exchange', ar: 'تبادل ثقافي' },
+      }[randomTheme] || { en: 'Community Moment', ar: 'لحظة مجتمعية' };
+
+      // Random sequence number to make title unique
+      const seq = Math.floor(Math.random() * 100);
+
+      // Create location data
+      const locations = [
+        { en: 'Damascus, Syria', ar: 'دمشق، سوريا' },
+        { en: 'Aleppo, Syria', ar: 'حلب، سوريا' },
+        { en: 'Homs, Syria', ar: 'حمص، سوريا' },
+        { en: 'Latakia, Syria', ar: 'اللاذقية، سوريا' },
+        { en: 'Toronto, Canada', ar: 'تورونتو، كندا' },
+        { en: 'Edmonton, Canada', ar: 'إدمونتون، كندا' },
+        { en: 'Global Initiative', ar: 'مبادرة عالمية' },
+      ];
+      const randomLocation =
+        locations[Math.floor(Math.random() * locations.length)];
+
+      // Create a unique timestamp for the Unsplash API to avoid caching
+      const timestamp = Date.now() + i;
+
       additionalPhotos.push({
-        ...basePhoto,
-        id: `generated-${Date.now()}-${i}`,
-        title: `${basePhoto.title} ${Math.floor(Math.random() * 100)}`,
-        titleAr: `${basePhoto.titleAr} ${Math.floor(Math.random() * 100)}`,
-        url: `https://source.unsplash.com/600x600/?syria&sig=${Date.now() + i}`,
+        id: `generated-${timestamp}-${i}`,
+        title: `${titleBase.en} #${seq}`,
+        titleAr: `${titleBase.ar} #${seq}`,
+        description: `Open source image representing our ${randomTheme} initiatives`,
+        descriptionAr: `صورة مفتوحة المصدر تمثل مبادراتنا في ${titleBase.ar}`,
+        location: randomLocation.en,
+        locationAr: randomLocation.ar,
+        category: randomCategory,
+        uploadedBy: 'Community Canvas',
         uploadDate: new Date(
           Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000
         ).toISOString(),
+        // Use Unsplash source API with our themed keywords for relevant images
+        url: `https://source.unsplash.com/600x600/?${encodeURIComponent(randomTheme)}&sig=${timestamp}`,
+        approved: true,
+        featured: Math.random() > 0.7,
+        likes: Math.floor(Math.random() * 50),
+        comments: [],
       });
     }
     return additionalPhotos;
@@ -84,15 +167,23 @@ const CommunityWallPage: React.FC = () => {
     ...generateMorePhotos(),
   ]);
 
+  // State to track if we're currently loading more photos
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+
+  // Infinite scroll implementation
   useEffect(() => {
-    if (inView && loadedPhotos < allPhotos.length) {
+    if (inView && !isLoadingMore) {
+      setIsLoadingMore(true);
+
+      // Add a small delay to simulate loading and prevent rapid multiple calls
       setTimeout(() => {
         const newPhotos = generateMorePhotos();
         setAllPhotos((prev) => [...prev, ...newPhotos]);
-        setLoadedPhotos((prev) => prev + 12);
-      }, 500);
+        setLoadedPhotos((prev) => prev + newPhotos.length);
+        setIsLoadingMore(false);
+      }, 800);
     }
-  }, [inView, loadedPhotos, allPhotos.length, generateMorePhotos]);
+  }, [inView, isLoadingMore, generateMorePhotos]);
 
   useEffect(() => {
     let filtered = allPhotos.slice(0, loadedPhotos);
@@ -172,10 +263,24 @@ const CommunityWallPage: React.FC = () => {
                 </button>
               </div>
             ) : (
-              <p className="text-xl text-indigo-100 mb-8 max-w-3xl mx-auto">
+              <p className="text-xl text-indigo-100 mb-4 max-w-3xl mx-auto">
                 {currentLanguage.code === 'ar' ? taglineAr : taglineEn}
               </p>
             )}
+
+            {/* Explanation of infinite scroll with open source images */}
+            <p
+              className={`text-md text-indigo-200 mb-8 max-w-3xl mx-auto ${
+                currentLanguage.code === 'ar' ? 'font-arabic' : ''
+              }`}
+            >
+              {t(
+                'community-canvas-explanation',
+                'Our Community Canvas features an infinite scroll gallery showcasing open-source images related to our themes. As you scroll, new photos are continuously added. Over time, these will be replaced by real community contributions.',
+                'تعرض لوحة المجتمع معرضًا لا نهائيًا للصور مفتوحة المصدر المتعلقة بموضوعاتنا. أثناء التمرير، تتم إضافة صور جديدة باستمرار. مع مرور الوقت، سيتم استبدال هذه بمساهمات المجتمع الحقيقية.'
+              )}
+            </p>
+
             {isAdmin && !editingTagline && (
               <button
                 className="mb-4 underline"
@@ -239,9 +344,7 @@ const CommunityWallPage: React.FC = () => {
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
                 <Camera className="h-8 w-8 mx-auto mb-2" />
-                <div className="text-2xl font-bold">
-                  {filteredPhotos.length}+
-                </div>
+                <div className="text-2xl font-bold">{allPhotos.length}+</div>
                 <div className="text-sm text-indigo-200">
                   {t('stories', 'Stories', 'قصة')}
                 </div>
@@ -397,9 +500,30 @@ const CommunityWallPage: React.FC = () => {
             ))}
           </div>
 
-          {/* Load More Trigger */}
-          <div ref={loadMoreRef} className="mt-12 text-center">
-            {loadedPhotos < allPhotos.length && (
+          {/* Load More Trigger & Loading Indicator */}
+          <div ref={loadMoreRef} className="mt-12 text-center pb-8">
+            {isLoadingMore ? (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="flex flex-col items-center justify-center space-y-3"
+              >
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ repeat: Infinity, duration: 1, ease: 'linear' }}
+                  className="w-8 h-8 border-t-2 border-b-2 border-blue-500 rounded-full"
+                />
+                <p
+                  className={`text-blue-600 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
+                >
+                  {t(
+                    'loading-more',
+                    'Loading more images...',
+                    'تحميل المزيد من الصور...'
+                  )}
+                </p>
+              </motion.div>
+            ) : (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -414,9 +538,9 @@ const CommunityWallPage: React.FC = () => {
                   className={`text-indigo-600 font-medium ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
                 >
                   {t(
-                    'loading-more',
-                    'Loading more stories...',
-                    'تحميل المزيد من القصص...'
+                    'scroll-for-more',
+                    'Scroll for more community stories...',
+                    'قم بالتمرير لمزيد من قصص المجتمع...'
                   )}
                 </span>
               </motion.div>
@@ -538,14 +662,16 @@ const CommunityWallPage: React.FC = () => {
                 </div>
                 {selectedPhoto.comments.length > 0 && (
                   <div className="mt-4 space-y-2">
-                    {selectedPhoto.comments.map((c) => (
-                      <div
-                        key={c.id}
-                        className="text-sm text-stone-800 border-b pb-1"
-                      >
-                        <strong>{c.name}:</strong> {c.text}
-                      </div>
-                    ))}
+                    {selectedPhoto.comments.map(
+                      (c: { id: string; name: string; text: string }) => (
+                        <div
+                          key={c.id}
+                          className="text-sm text-stone-800 border-b pb-1"
+                        >
+                          <strong>{c.name}:</strong> {c.text}
+                        </div>
+                      )
+                    )}
                   </div>
                 )}
               </div>

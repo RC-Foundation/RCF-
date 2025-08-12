@@ -1,7 +1,6 @@
 import HeroSection from '../components/home/HeroSection';
 import AboutPreview from '../components/home/AboutPreview';
-import ProgramsPreview from '../components/home/ProgramsPreview';
-import CommunityPreview from '../components/home/CommunityPreview';
+import OurPillars from '../components/home/OurPillars';
 import InteractiveMap from '../components/home/InteractiveMap';
 import SentryTestButton from '../components/common/SentryTestButton';
 
@@ -10,9 +9,8 @@ const HomePage: React.FC = () => {
     <div>
       <HeroSection />
       <AboutPreview />
-      <ProgramsPreview />
+      <OurPillars />
       <InteractiveMap />
-      <CommunityPreview />
       <SentryTestButton />
     </div>
   );

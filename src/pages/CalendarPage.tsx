@@ -19,7 +19,88 @@ import {
 import { useLanguage } from '../contexts/LanguageContext';
 import type { CalendarEvent } from '../types';
 
-const initialEvents: CalendarEvent[] = [];
+const initialEvents: CalendarEvent[] = [
+  {
+    id: 'rs-screening-2025',
+    title: 'Rhizome Screening Nights',
+    titleAr: 'ليالي عرض رايزوم',
+    category: 'cultural',
+    date: '2025-08-22',
+    time: '18:00',
+    timeAr: '١٨:٠٠',
+    duration: '3 days',
+    durationAr: '٣ أيام',
+    location: 'CO*LAB, Edmonton',
+    locationAr: 'كو*لاب، إدمونتون',
+    description:
+      'A three-day film screening event featuring local Indigenous, Syrian, and Korean artists with short film screenings, community gala, and after party. Tickets: $12 CAD for single day, $25 for 3-day pass.',
+    descriptionAr:
+      'فعالية عرض أفلام لمدة ثلاثة أيام تضم فنانين محليين من السكان الأصليين والسوريين والكوريين مع عروض أفلام قصيرة وحفل مجتمعي وحفلة ما بعد العرض. التذاكر: ١٢ دولار كندي لليوم الواحد، ٢٥ دولار للتذكرة الشاملة لثلاثة أيام.',
+    attendees: 0,
+    maxAttendees: 200,
+    isOnline: false,
+    registrationRequired: true,
+    organizer: 'Rhizome Community Foundation',
+    organizerAr: 'مؤسسة مجتمع رايزوم',
+    priority: 1,
+    tags: [
+      'film',
+      'art',
+      'community',
+      'culture',
+      'indigenous',
+      'syrian',
+      'korean',
+    ],
+    featured: true,
+  },
+  {
+    id: 'aleppo-roots-past',
+    title: 'Aleppo Roots Cultural Event',
+    titleAr: 'فعالية جذور حلب الثقافية',
+    category: 'cultural',
+    date: '2025-07-15',
+    time: '17:00',
+    timeAr: '١٧:٠٠',
+    duration: '1 day',
+    durationAr: 'يوم واحد',
+    location: 'Aleppo, Syria',
+    locationAr: 'حلب، سوريا',
+    description:
+      "A cultural event featuring theatre and music performances, and community engagement with nonprofits and volunteer teams. Celebrating Aleppo's rich cultural heritage.",
+    descriptionAr:
+      'فعالية ثقافية تضم عروض مسرحية وموسيقية، ومشاركة مجتمعية مع المنظمات غير الربحية وفرق المتطوعين. احتفالاً بالتراث الثقافي الغني لمدينة حلب.',
+    attendees: 300,
+    isOnline: false,
+    organizer: 'Rhizome Syria',
+    organizerAr: 'رايزوم سوريا',
+    tags: ['theatre', 'music', 'community', 'culture', 'heritage'],
+    featured: true,
+  },
+  {
+    id: 'farhatchild-past',
+    title: 'فرحة طفل وفرحة',
+    titleAr: 'فرحة طفل وفرحة',
+    category: 'cultural',
+    date: '2025-06-01',
+    time: '10:00',
+    timeAr: '١٠:٠٠',
+    duration: '1 day',
+    durationAr: 'يوم واحد',
+    location: 'Aleppo Castle, Syria',
+    locationAr: 'قلعة حلب، سوريا',
+    description:
+      "A children's festival at Aleppo Castle featuring mascots, games, and activities for families. A celebration of childhood joy and community spirit.",
+    descriptionAr:
+      'مهرجان للأطفال في قلعة حلب يضم شخصيات كرتونية وألعابًا وأنشطة للعائلات. احتفال بفرحة الطفولة وروح المجتمع.',
+    attendees: 250,
+    isOnline: false,
+    organizer: 'Rhizome Syria',
+    organizerAr: 'رايزوم سوريا',
+    tags: ['children', 'family', 'community', 'heritage'],
+    featured: true,
+  },
+];
 
 const CalendarPage: React.FC = () => {
   const { t, currentLanguage } = useLanguage();
@@ -60,7 +141,6 @@ const CalendarPage: React.FC = () => {
     },
     { key: 'general', en: 'General', ar: 'عام', color: 'bg-gray-500' },
   ];
-
 
   const fetchEvents = useCallback(async () => {
     setLoading(true);
@@ -108,7 +188,7 @@ const CalendarPage: React.FC = () => {
 
   const renderCalendarView = () => {
     const bigCalendarEvents = filteredEvents.map((e) => ({
-      title: t('event-title', e.title, e.titleAr),
+      title: t('event-title', e.title, e.titleAr || ''),
       start: e.date ? new Date(e.date) : new Date(),
       end: e.date ? new Date(e.date) : new Date(),
       allDay: true,
@@ -169,9 +249,9 @@ const CalendarPage: React.FC = () => {
                       className={`text-xs font-medium text-stone-500 uppercase tracking-wide ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
                     >
                       {t(
-                        `category-${event.category}`,
-                        event.category,
-                        event.category
+                        `category-${event.category || 'general'}`,
+                        event.category || 'general',
+                        event.category || 'عام'
                       )}
                     </span>
                     {event.priority && event.priority > 3 && (
@@ -184,7 +264,7 @@ const CalendarPage: React.FC = () => {
                   <h3
                     className={`text-xl font-bold text-stone-900 mb-2 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
                   >
-                    {t('event-title', event.title, event.titleAr)}
+                    {t('event-title', event.title, event.titleAr || '')}
                   </h3>
                   {event.description && (
                     <p
@@ -193,7 +273,7 @@ const CalendarPage: React.FC = () => {
                       {t(
                         'event-description',
                         event.description,
-                        event.descriptionAr
+                        event.descriptionAr || ''
                       )}
                     </p>
                   )}
@@ -225,9 +305,9 @@ const CalendarPage: React.FC = () => {
                         currentLanguage.code === 'ar' ? 'font-arabic' : ''
                       }
                     >
-                      {t('event-time', event.time, event.timeAr)}
+                      {t('event-time', event.time || '', event.timeAr || '')}
                       {event.duration &&
-                        ` (${t('event-duration', event.duration, event.durationAr)})`}
+                        ` (${t('event-duration', event.duration || '', event.durationAr || '')})`}
                     </span>
                   </div>
                 )}
@@ -239,7 +319,11 @@ const CalendarPage: React.FC = () => {
                         currentLanguage.code === 'ar' ? 'font-arabic' : ''
                       }
                     >
-                      {t('event-location', event.location, event.locationAr)}
+                      {t(
+                        'event-location',
+                        event.location || '',
+                        event.locationAr || ''
+                      )}
                     </span>
                   </div>
                 )}
@@ -274,7 +358,11 @@ const CalendarPage: React.FC = () => {
                     className={`text-sm text-stone-500 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
                   >
                     {t('organized-by', 'Organized by', 'نظمت من قبل')}{' '}
-                    {t('event-organizer', event.organizer, event.organizerAr)}
+                    {t(
+                      'event-organizer',
+                      event.organizer || '',
+                      event.organizerAr || ''
+                    )}
                   </span>
                   {event.isOnline && (
                     <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">

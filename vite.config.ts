@@ -7,13 +7,50 @@ export default defineConfig({
   plugins: [
     react(),
     viteStaticCopy({
-      targets: [
-        { src: 'src/knowledge-hub/*', dest: 'knowledge-hub' },
-      ],
+      targets: [{ src: 'src/knowledge-hub/*', dest: 'knowledge-hub' }],
     }),
   ],
   optimizeDeps: {
     exclude: ['lucide-react'],
+  },
+  build: {
+    chunkSizeWarningLimit: 600, // Increase the warning limit to 600kb
+    rollupOptions: {
+      output: {
+        manualChunks: (id) => {
+          // Vendor chunks
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('scheduler')) {
+              return 'vendor-react';
+            }
+            if (id.includes('framer-motion')) {
+              return 'vendor-framer';
+            }
+            if (id.includes('lucide-react')) {
+              return 'vendor-lucide';
+            }
+            return 'vendor'; // all other node_modules
+          }
+
+          // Feature-based chunks
+          if (id.includes('/components/gallery/')) {
+            return 'components-gallery';
+          }
+          if (id.includes('/components/layout/')) {
+            return 'components-layout';
+          }
+          if (id.includes('/components/common/')) {
+            return 'components-common';
+          }
+          if (id.includes('/pages/')) {
+            return 'pages';
+          }
+          if (id.includes('/contexts/')) {
+            return 'contexts';
+          }
+        },
+      },
+    },
   },
   server: {
     proxy: {

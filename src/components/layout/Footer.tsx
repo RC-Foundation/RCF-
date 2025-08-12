@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Network, Mail, MapPin } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { Link } from 'react-router-dom';
 
@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
   const { t, currentLanguage } = useLanguage();
 
   return (
-    <footer className="bg-gradient-to-r from-teal-800 via-sky-800 to-indigo-900 text-white py-12">
+    <footer className="bg-gradient-to-r from-[var(--rs-deep-blue)] via-[var(--rs-primary-purple)] to-[var(--rs-primary-blue)] text-white py-12">
       <div className="container">
         <div className="grid md:grid-cols-3 gap-8">
           <motion.div
@@ -17,7 +17,11 @@ const Footer: React.FC = () => {
             className="space-y-4"
           >
             <div className="flex items-center space-x-3">
-              <Network className="h-6 w-6 text-green-400" />
+              <img
+                src="/assets/logos/rhizome-logo.png"
+                alt="Rhizome Community Foundation Logo"
+                className="h-10 w-auto"
+              />
               <h3
                 className={`text-lg font-semibold ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
               >
@@ -29,7 +33,7 @@ const Footer: React.FC = () => {
               </h3>
             </div>
             <p
-              className={`text-gray-600 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
+              className={`text-white/80 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
             >
               {t(
                 'footer-description',
@@ -65,12 +69,14 @@ const Footer: React.FC = () => {
                   en: 'Event Calendar',
                   ar: 'رزنامة الفعاليات',
                 },
+                /* Interactive tab removed as requested
                 {
                   key: 'interactive',
                   path: '/interactive',
                   en: 'Interactive',
                   ar: 'تفاعلي',
                 },
+                */
                 {
                   key: 'join',
                   path: '/join',
@@ -87,7 +93,7 @@ const Footer: React.FC = () => {
                 <li key={link.key}>
                   <Link
                     to={link.path}
-                    className={`text-gray-600 hover:text-white transition-colors ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
+                    className={`text-white/70 hover:text-white transition-colors ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
                   >
                     {t(`footer-link-${link.key}`, link.en, link.ar)}
                   </Link>
@@ -110,13 +116,13 @@ const Footer: React.FC = () => {
             </h4>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
-                <Mail className="h-4 w-4 text-green-400" />
-                <span className="text-gray-600">info@rhizomefoundation.ca</span>
+                <Mail className="h-4 w-4 text-white/80" />
+                <span className="text-white/80">info@rhizomefoundation.ca</span>
               </div>
               <div className="flex items-start space-x-3">
-                <MapPin className="h-4 w-4 text-green-400 mt-1" />
+                <MapPin className="h-4 w-4 text-white/80 mt-1" />
                 <div
-                  className={`text-gray-600 text-sm ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
+                  className={`text-white/80 text-sm ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
                 >
                   <p>
                     Rhizome Canada: 2028 157 St S.W T6W 5ER Edmonton, Canada
@@ -131,18 +137,9 @@ const Footer: React.FC = () => {
           </motion.div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center space-y-2">
+        <div className="border-t border-white/20 mt-8 pt-8 text-center space-y-2">
           <p
-            className={`text-yellow-400 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
-          >
-            {t(
-              'experimental-release',
-              'This website is an experimental release. Content may change.',
-              'هذا الموقع إصدار تجريبي والمحتوى قابل للتغيير.'
-            )}
-          </p>
-          <p
-            className={`text-gray-600 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
+            className={`text-white/70 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
           >
             {t(
               'copyright',
@@ -151,21 +148,12 @@ const Footer: React.FC = () => {
             )}
           </p>
           <p
-            className={`text-gray-600 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
+            className={`text-white/70 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
           >
             {t(
               'acknowledgment',
               'Acknowledgment: We respectfully acknowledge our work takes place on traditional Indigenous territories in Canada and globally, and commit to building relationships grounded in respect, reciprocity, and justice.',
               'نُقِرُّ باحترام بأن عملنا يتم على أراضٍ تقليدية للشعوب الأصيلة في كندا وحول العالم، ونتعهد ببناء علاقات قائمة على الاحترام والتبادل والعدالة.'
-            )}
-          </p>
-          <p
-            className={`text-gray-600 ${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
-          >
-            {t(
-              'legal-information',
-              'Legal Information: Rhizome Community Foundation is federally incorporated under the Canada Not-for-profit Corporations Act. Corporation Number: 1672383-7.',
-              'المعلومات القانونية: مؤسسة رايزوم المجتمعية مسجلة اتحاديًا بموجب قانون المؤسسات غير الربحية الكندي. رقم المؤسسة: 1672383-7.'
             )}
           </p>
         </div>
