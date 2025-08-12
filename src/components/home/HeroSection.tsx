@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import '../../styles/hero-buttons.css';
 
 const HeroSection: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -36,14 +37,15 @@ const HeroSection: React.FC = () => {
       color: string;
     }> = [];
 
+    // Use Rhizome Syria colors
     const colors = [
-      '#064e3b',
-      '#065f46',
-      '#047857',
-      '#b91c1c',
-      '#dc2626',
-      '#ea580c',
-      '#d97706',
+      '#6B46C1', // rs-primary-purple
+      '#0EA5E9', // rs-primary-blue
+      '#fb923c', // rs-primary-orange
+      '#EF4444', // rs-primary-red
+      '#F59E0B', // rs-primary-yellow
+      '#0D9488', // rs-teal
+      '#1E3A8A', // rs-deep-blue
     ];
     const nodeCount = 40;
 
@@ -192,7 +194,7 @@ const HeroSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-teal-800 via-sky-800 to-indigo-900">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[var(--rs-primary-purple)] via-[var(--rs-primary-blue)] to-[var(--rs-deep-blue)]">
       {/* Animated Background */}
       <canvas
         ref={canvasRef}
@@ -200,8 +202,8 @@ const HeroSection: React.FC = () => {
         style={{ filter: 'blur(0.5px)' }}
       />
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/30" />
+      {/* Overlay with gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
 
       {/* Content */}
       <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
@@ -211,32 +213,53 @@ const HeroSection: React.FC = () => {
           transition={{ duration: 1 }}
           className={`${currentLanguage.code === 'ar' ? 'font-arabic' : ''}`}
         >
-          <motion.h1
-            className="text-5xl md:text-7xl font-bold mb-6 text-white"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, delay: 0.3 }}
-            style={{
-              fontFamily: '"Playfair Display", "Noto Sans Arabic", serif',
-            }}
+          {/* Logo and Title in a more integrated layout */}
+          <motion.div
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="flex flex-col items-center mb-6 space-y-0"
           >
-            {t(
-              'hero-title',
-              'Rhizome Community Foundation',
-              'مؤسسة رايزوم المجتمعية'
-            )}
-          </motion.h1>
+            <img
+              src="/assets/logos/rhizome-logo-large.png"
+              alt="Rhizome Community Foundation Logo"
+              className="h-[192] w-[192] object-contain mb-0"
+            />
+            <motion.h1
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.5 }}
+              className="text-4xl md:text-6xl font-semibold tracking-tight -mt-4"
+              style={{
+                textShadow: '0 1px 4px rgba(0,0,0,0.3)',
+                background: 'linear-gradient(135deg, #6B46C1, #0EA5E9)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                fontFamily: 'var(--font-rhizome)', // Using the same font as the logo
+                letterSpacing: '-0.02em'
+              }}
+            >
+              {t(
+                'hero-title',
+                'Community Foundation',
+                'المؤسسة المجتمعية'
+              )}
+            </motion.h1>
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.8 }}
-            className="text-xl md:text-2xl text-indigo-100 mb-8 leading-relaxed max-w-4xl mx-auto"
+            className="text-xl md:text-2xl text-white mb-12 leading-relaxed max-w-4xl mx-auto body-large"
+            style={{
+              textShadow: '0 1px 4px rgba(0,0,0,0.3)'
+            }}
           >
             {t(
               'hero-subtitle',
-              'Cultivating Community-Led Solutions.',
-              'نزرع حلولاً تقودها المجتمعات.'
+              'Cultivating Community-Led Solutions for Sustainable Growth.',
+              'نزرع حلولاً مستدامة تقودها المجتمعات.'
             )}
           </motion.p>
 
@@ -244,18 +267,23 @@ const HeroSection: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.2 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-10 justify-center"
           >
-            <Link to="/programs" className="btn-gradient group">
-              <span className="mr-2">
+            <Link 
+              to="/programs" 
+              className="hero-button-primary group px-12 py-6 text-xl font-semibold transform hover:scale-105 transition-all duration-300"
+              style={{ filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.3))' }}
+            >
+              <span className="mr-3">
                 {t('explore-programs', 'Discover Our Impact', 'اكتشف تأثيرنا')}
               </span>
-              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform duration-300" />
             </Link>
 
             <Link
               to="/join"
-              className="btn-gradient bg-white/10 backdrop-blur-sm border-2 border-white/30"
+              className="hero-button-secondary px-12 py-6 text-xl font-semibold transform hover:scale-105 transition-all duration-300"
+              style={{ filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.2))' }}
             >
               {t('join-community', 'Join Our Network', 'انضم إلى شبكتنا')}
             </Link>
@@ -273,7 +301,7 @@ const HeroSection: React.FC = () => {
         <motion.div
           animate={{ y: [0, 15, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          className="w-8 h-12 border-2 border-white/50 rounded-full flex justify-center relative overflow-hidden"
+          className="w-8 h-12 border-2 border-[var(--rs-primary-purple)] rounded-full flex justify-center relative overflow-hidden"
         >
           <motion.div
             animate={{ y: [0, 20, 0] }}
@@ -283,7 +311,7 @@ const HeroSection: React.FC = () => {
               delay: 0.5,
               ease: 'easeInOut',
             }}
-            className="w-2 h-4 bg-white/70 rounded-full mt-2"
+            className="w-2 h-4 bg-[var(--rs-primary-purple)] rounded-full mt-2"
           />
         </motion.div>
       </motion.div>
