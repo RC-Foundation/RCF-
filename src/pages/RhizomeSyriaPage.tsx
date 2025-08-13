@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Target, Globe, Palette, Heart, Shield, Sparkles } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import VolunteerForms from '../components/common/VolunteerForms';
-import FeaturedLeaders from '../components/community/FeaturedLeaders';
 import RhizomeSyriaGallery from '../components/gallery/RhizomeSyriaGallery';
 import '../styles/rhizome-syria.css';
 import { Button } from '../components/ui/Button';
