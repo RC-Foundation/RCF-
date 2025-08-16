@@ -43,8 +43,24 @@ Copy `.env.example` to `.env` and adjust the values as needed. Currently only `P
    Set the `SCRAPE_URLS` environment variable to a comma separated list of URLs to scrape. These can be normal web pages or `.ics` calendar feeds. Example:
 
    ```bash
-   export SCRAPE_URLS="https://calendar.example/events.ics,https://another.org/events"
+    export SCRAPE_URLS="https://calendar.example/events.ics,https://another.org/events"
    ```
+
+6. **Build for production**
+
+   ```bash
+   npm run build
+   ```
+
+   This compiles both the front-end and the Express API into the `dist/` directory.
+
+7. **Start the production server**
+
+   ```bash
+   npm run start:prod
+   ```
+
+   The server listens on the port defined by the `PORT` environment variable (defaults to `3001`).
 
 ## Deployment Notes
 

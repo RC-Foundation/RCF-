@@ -1,7 +1,8 @@
 import { scraperQueue } from '../utils/queue';
 import { EventScraper } from '../scrapers/event.scraper';
+import type { Job } from 'bull';
 
-scraperQueue.process(async (job) => {
+scraperQueue.process(async (job: Job<{ url: string }>) => {
   const { url } = job.data;
   const scraper = new EventScraper();
   const events = await scraper.scrape(url);
@@ -15,7 +16,7 @@ scraperQueue.add(
   { url: 'all' },
   {
     repeat: {
-      cron: '0 */6 * * *'
-    }
+      cron: '0 */6 * * *',
+    },
   }
 );

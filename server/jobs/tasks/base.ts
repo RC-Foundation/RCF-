@@ -93,7 +93,7 @@ export abstract class BaseTask {
 
   protected async shouldSkip(): Promise<boolean> {
     // Check if we have recent data in cache
-    const cached = getCache(this.cacheKey);
+    const cached = getCache<TaskResult>(this.cacheKey);
     if (cached) {
       const age =
         Date.now() -
@@ -155,10 +155,10 @@ export abstract class BaseTask {
     const lines = text.split('\n');
     const headers = lines[0].split(',');
 
-    return lines.slice(1).map((line) => {
+    return lines.slice(1).map((line: string) => {
       const values = line.split(',');
       return headers.reduce(
-        (obj, header, index) => {
+        (obj: Record<string, any>, header: string, index: number) => {
           obj[header.trim()] = values[index] ? values[index].trim() : null;
           return obj;
         },
