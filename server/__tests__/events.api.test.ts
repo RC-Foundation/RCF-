@@ -14,6 +14,15 @@ jest.mock('../utils/scrape', () => {
       deadline: false,
       tags: [],
     },
+    {
+      id: '2',
+      title: 'Missing Fields Event',
+      // intentionally omit source and category to test metadata filtering
+      organizer: 'test',
+      priority: 1,
+      deadline: false,
+      tags: [],
+    } as any,
   ];
   return {
     cache: {
@@ -34,5 +43,12 @@ describe('GET /api/events', () => {
     expect(res.status).toBe(200);
     expect(res.body.events.length).toBeGreaterThan(0);
     expect(res.body.metadata).toBeDefined();
+  });
+
+  it('omits undefined categories and sources from metadata', async () => {
+    const res = await request(app).get('/api/events');
+    expect(res.status).toBe(200);
+    expect(res.body.metadata.categories).toEqual(['general']);
+    expect(res.body.metadata.sources).toEqual(['https://example.org']);
   });
 });
