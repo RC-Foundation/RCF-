@@ -10,19 +10,33 @@ router.get('/', async (_req, res) => {
   if (!events || ttl <= 0) {
     events = await scrapeAndCache();
   }
-  const meta = (await cache.get<{ lastUpdated: string }>('events:lastUpdated')) || {
-    lastUpdated: new Date().toISOString()
+  const meta = (await cache.get<{ lastUpdated: string }>(
+    'events:lastUpdated'
+  )) || {
+    lastUpdated: new Date().toISOString(),
   };
-  const categories = Array.from(new Set((events || []).map(e => e.category)));
-  const sources = Array.from(new Set((events || []).map(e => e.source)));
+  const categories = Array.from(
+    new Set(
+      (events || [])
+        .map((e) => e.category)
+        .filter((category): category is string => Boolean(category))
+    )
+  );
+  const sources = Array.from(
+    new Set(
+      (events || [])
+        .map((e) => e.source)
+        .filter((source): source is string => Boolean(source))
+    )
+  );
   res.json({
     events: events || [],
     metadata: {
       totalEvents: (events || []).length,
       lastUpdated: meta.lastUpdated,
       categories,
-      sources
-    }
+      sources,
+    },
   });
 });
 
@@ -34,7 +48,9 @@ router.post('/', async (req, res) => {
   const events = (await cache.get('events')) || [];
   events.push(event);
   await cache.set('events', events);
-  await cache.set('events:lastUpdated', { lastUpdated: new Date().toISOString() });
+  await cache.set('events:lastUpdated', {
+    lastUpdated: new Date().toISOString(),
+  });
   res.status(201).json(event);
 });
 
